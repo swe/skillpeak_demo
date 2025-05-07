@@ -88,57 +88,57 @@ export default function MobileMenu() {
         >
           <ul className="p-2 text-sm">
             <li>
-              <Link
-                href="/pricing"
+              <a
+                href="#apps"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
                 onClick={() => setMobileNavOpen(false)}
               >
-                Pricing
-              </Link>
+                Course Structure
+              </a>
+            </li>
+            <li>
+              <a
+                href="#features"
+                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                onClick={() => setMobileNavOpen(false)}
+              >
+                For whom
+              </a>
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                onClick={() => setMobileNavOpen(false)}
+              >
+                Reviews
+              </a>
+            </li>
+            <li>
+              <a
+                href="#pricing"
+                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                onClick={() => setMobileNavOpen(false)}
+              >
+                Tariffs
+              </a>
+            </li>
+            <li>
+              <a
+                href="#faq"
+                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                onClick={() => setMobileNavOpen(false)}
+              >
+                FAQ
+              </a>
             </li>
             <li>
               <Link
-                href="/customers"
+                href="/signin"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
                 onClick={() => setMobileNavOpen(false)}
               >
-                Customers
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/documentation"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Docs
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/support"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Support center
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/apps"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Apps
+                Login
               </Link>
             </li>
           </ul>

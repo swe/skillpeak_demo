@@ -3,128 +3,41 @@ import Accordion from "@/components/accordion";
 export default function Faqs() {
   const faqs01 = [
     {
-      question: "Getting started with Simple",
+      question: "How is the training going?",
       answer:
-        "Simple is designed to be user-friendly and intuitive, while Complex is more robust and feature-rich. Both tools are great for creating websites, but Simple is ideal for beginners and small businesses, while Complex is better suited for larger organizations and developers.",
+        "The training takes place in a flexible online format with access to lecture notes, practical assignments and materials. You can study at any convenient time without being tied to a fixed schedule. Live sessions with a teacher are also available to answer questions and provide additional explanations.",
     },
     {
-      question: "Promotional and free plan trials",
+      question: "What are requirements for admission to the course?",
       answer:
-        "Yes, but you'll still pay the remainder of the term for the plan you signed up for.",
+        "The course is designed for people with basic knowledge or experience in accounting. It is also important to have a command of the Russian language and at least basic knowledge of English for further professional growth. If you have a desire to study and develop in the Canadian accounting system, this is enough to start.",
     },
     {
-      question: "I'm unable to verify my account",
+      question: "Is it possible to take the course while outside Canada?",
       answer:
-        "Yes, but you'll still pay the remainder of the term for the plan you signed up for.",
+        "Yes, the course is completely online and accessible from anywhere in the world. You can study from your country before moving to be ready to work in Canada from day one. We offer a flexible schedule so that you can combine your studies with other commitments.",
     },
     {
-      question: "Copyright (DMCA) Takedown Notice",
+      question: "How long does it take to complete the course?",
       answer:
-        "Support is available 24/7 via email, chat, and phone. We're here to help you with any questions or concerns you may have.",
-    },
-    {
-      question: "How to report an unrecognized charge",
-      answer:
-        "Yes! You can invite clients or coworkers to collaborate on your projects, and they can upload their own content.",
+        "The program is designed for about 40 hours of training. You can complete the course in 4-6 weeks if you devote several hours a week to classes. The flexible format allows you to adapt the learning process to your schedule in order to complete it at a convenient time for you.",
     },
   ];
 
-  const faqs02 = [
-    {
-      question: "Change with my paid plan",
-      answer:
-        "Simple is designed to be user-friendly and intuitive, while Complex is more robust and feature-rich. Both tools are great for creating websites, but Simple is ideal for beginners and small businesses, while Complex is better suited for larger organizations and developers.",
-    },
-    {
-      question: "Cancel my subscription",
-      answer:
-        "Yes, but you'll still pay the remainder of the term for the plan you signed up for.",
-    },
-    {
-      question: "I am unable to edit my profile",
-      answer:
-        "Yes, but you'll still pay the remainder of the term for the plan you signed up for.",
-    },
-    {
-      question: "How to delete my account",
-      answer:
-        "Support is available 24/7 via email, chat, and phone. We're here to help you with any questions or concerns you may have.",
-    },
-    {
-      question: "How to reach customer support",
-      answer:
-        "Yes! You can invite clients or coworkers to collaborate on your projects, and they can upload their own content.",
-    },
-  ];
-
-  const faqs03 = [
-    {
-      question: "How to change my password",
-      answer:
-        "Simple is designed to be user-friendly and intuitive, while Complex is more robust and feature-rich. Both tools are great for creating websites, but Simple is ideal for beginners and small businesses, while Complex is better suited for larger organizations and developers.",
-    },
-    {
-      question: "How to change my email address",
-      answer:
-        "Yes, but you'll still pay the remainder of the term for the plan you signed up for.",
-    },
-    {
-      question: "How to change my username",
-      answer:
-        "Yes, but you'll still pay the remainder of the term for the plan you signed up for.",
-    },
-    {
-      question: "How to change my billing information",
-      answer:
-        "Support is available 24/7 via email, chat, and phone. We're here to help you with any questions or concerns you may have.",
-    },
-    {
-      question: "How to change my notification settings",
-      answer:
-        "Yes! You can invite clients or coworkers to collaborate on your projects, and they can upload their own content.",
-    },
-  ];
 
   return (
-    <section>
+    <section id="faq" className="relative">
+      <div className="pb-12 text-center">
+        <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
+          Questions and answers
+        </h1>
+      </div>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="pb-12 md:pb-20">
           <div className="mx-auto max-w-3xl space-y-12">
-            {/* Getting started */}
             <div>
-              <h2 className="mb-5 text-xl font-bold">Getting Started</h2>
               <div className="space-y-2">
                 {faqs01.map((faq, index) => (
-                  <Accordion
-                    key={index}
-                    title={faq.question}
-                    id={`faqs-${index}`}
-                  >
-                    {faq.answer}
-                  </Accordion>
-                ))}
-              </div>
-            </div>
-            {/* Profile & plans */}
-            <div>
-              <h2 className="mb-5 text-xl font-bold">Profile & plans</h2>
-              <div className="space-y-2">
-                {faqs02.map((faq, index) => (
-                  <Accordion
-                    key={index}
-                    title={faq.question}
-                    id={`faqs-${index}`}
-                  >
-                    {faq.answer}
-                  </Accordion>
-                ))}
-              </div>
-            </div>
-            {/* Accounts */}
-            <div>
-              <h2 className="mb-5 text-xl font-bold">Accounts</h2>
-              <div className="space-y-2">
-                {faqs03.map((faq, index) => (
                   <Accordion
                     key={index}
                     title={faq.question}

@@ -137,10 +137,7 @@ export default function Testimonial({
       ) : (
         <div className="grow text-sm text-gray-700">{children}</div>
       )}
-      <footer className="mt-4 flex items-center gap-2.5 text-gray-700">
-        {testimonial.channel && channelIcon(testimonial.channel)}
-        <div className="text-xs">{testimonial.date}</div>
-      </footer>
+
     </article>
   );
 }

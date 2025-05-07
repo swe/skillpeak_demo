@@ -2,10 +2,15 @@ import Tooltip from "@/components/tooltip";
 
 export default function ComparePlans() {
   return (
-    <section>
+    <section id="pricing" className="relative">
+      <div className="pb-12 text-center">
+        <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
+          Tariffs
+        </h1>
+      </div>
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="pb-12 md:pb-20">
-          <div className="mx-auto grid max-w-sm max-md:gap-6 md:-mx-6 md:max-w-none md:grid-cols-5">
+          <div className="mx-auto grid max-w-sm max-md:gap-6 md:-mx-6 md:max-w-none md:grid-cols-4">
             {/* Column with labels */}
             <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-5 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
               {/* Empty cell */}
@@ -173,125 +178,18 @@ export default function ComparePlans() {
               </div>
             </section>
             {/* End: Column with labels */}
-            {/* Hobby table */}
+            {/* Standard table */}
             <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-5 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
               <div className="relative flex flex-col justify-end px-6">
-                <div className="grow">
-                  <div className="mb-5 font-medium">Hobby</div>
-                  <div>
-                    <a
-                      className="btn-sm w-full rounded-lg bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] py-1.5 text-white shadow-sm hover:bg-[length:100%_150%]"
-                      href="#0"
-                    >
-                      Free trial
-                    </a>
+                <div>
+                  <div className="mb-1 font-medium underline decoration-gray-300 underline-offset-4">
+                    Standard
                   </div>
-                </div>
-              </div>
-              {/* # Key features */}
-              <div className="flex flex-col justify-end px-6 md:order-1">
-                <div className="mb-2 mt-5 font-bold md:sr-only">
-                  Key features
-                </div>
-              </div>
-              {/* Translated Words */}
-              <div className="flex flex-col justify-end px-6 md:order-2">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  5,000 <span className="md:sr-only">Translated Words</span>
-                </div>
-              </div>
-              {/* Search Page Limit */}
-              <div className="flex flex-col justify-end px-6 md:order-3">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  100 <span className="md:sr-only">Search Page Limit</span>
-                </div>
-              </div>
-              {/* Custom Fonts */}
-              <div className="flex flex-col justify-end px-6 md:order-4">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">Custom Fonts</span>
-                </div>
-              </div>
-              {/* Code Editor */}
-              <div className="flex flex-col justify-end px-6 md:order-5">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm max-md:sr-only">
-                  <span className="md:sr-only">Code Editor</span>
-                </div>
-              </div>
-              {/* # Features */}
-              <div className="flex flex-col justify-end px-6 md:order-6">
-                <div className="mb-2 mt-5 font-bold md:sr-only">Features</div>
-              </div>
-              {/* Bandwidth */}
-              <div className="flex flex-col justify-end px-6 md:order-7">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  100MB <span className="md:sr-only">Bandwidth</span>
-                </div>
-              </div>
-              {/* Visitors */}
-              <div className="flex flex-col justify-end px-6 md:order-8">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  1,000 <span className="md:sr-only">Visitors</span>
-                </div>
-              </div>
-              {/* Max Upload Size */}
-              <div className="flex flex-col justify-end px-6 md:order-9">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  5MB <span className="md:sr-only">Max Upload Size</span>
-                </div>
-              </div>
-              {/* SSL Certificate */}
-              <div className="flex flex-col justify-end px-6 md:order-10">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">SSL Certificate</span>
-                </div>
-              </div>
-              {/* # Creation */}
-              <div className="flex flex-col justify-end px-6 md:order-11">
-                <div className="mb-2 mt-5 font-bold md:sr-only">Creation</div>
-              </div>
-              {/* Created Words */}
-              <div className="flex flex-col justify-end px-6 md:order-12">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  Unlimited <span className="md:sr-only">Created Words</span>
-                </div>
-              </div>
-              {/* Team Projects */}
-              <div className="flex flex-col justify-end px-6 md:order-13">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm max-md:sr-only">
-                  <span className="md:sr-only">Team Projects</span>
-                </div>
-              </div>
-            </section>
-            {/* End: Hobby table */}
-            {/* Basic table */}
-            <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-5 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
-              <div className="relative flex flex-col justify-end px-6">
-                <div className="grow">
-                  <div className="mb-5 font-medium">Basic</div>
-                  <div>
-                    <a
-                      className="btn-sm w-full rounded-lg bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] py-1.5 text-white shadow-sm hover:bg-[length:100%_150%]"
-                      href="#0"
-                    >
-                      Free trial
-                    </a>
+                  <div className="mb-4 flex items-baseline border-b border-dashed border-gray-200 pb-4">
+                    <span className="text-2xl font-bold">$</span>
+                    <span className="text-4xl font-bold tabular-nums">
+                      950
+                    </span>
                   </div>
                 </div>
               </div>
@@ -360,7 +258,7 @@ export default function ComparePlans() {
               {/* Max Upload Size */}
               <div className="flex flex-col justify-end px-6 md:order-9">
                 <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  15MB <span className="md:sr-only">Max Upload Size</span>
+                  5MB <span className="md:sr-only">Max Upload Size</span>
                 </div>
               </div>
               {/* SSL Certificate */}
@@ -394,19 +292,19 @@ export default function ComparePlans() {
                 </div>
               </div>
             </section>
-            {/* End: Basic table */}
-            {/* Business table */}
+            {/* End: Standard table */}
+            {/* Pro table */}
             <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-5 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl [&>div]:bg-gray-800">
               <div className="relative flex flex-col justify-end px-6">
-                <div className="grow">
-                  <div className="mb-5 font-medium text-gray-200">Business</div>
-                  <div>
-                    <a
-                      className="btn-sm w-full rounded-lg bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] py-1.5 text-white shadow-sm hover:bg-[length:100%_150%]"
-                      href="#0"
-                    >
-                      Free trial
-                    </a>
+                <div>
+                  <div className="mb-1 font-medium underline decoration-gray-700 underline-offset-4 text-gray-200">
+                    Pro
+                  </div>
+                  <div className="mb-4 flex items-baseline border-b border-dashed border-gray-700 pb-4 text-gray-200">
+                    <span className="text-2xl font-bold">$</span>
+                    <span className="text-4xl font-bold tabular-nums">
+                      1700
+                    </span>
                   </div>
                 </div>
               </div>
@@ -425,7 +323,7 @@ export default function ComparePlans() {
               {/* Search Page Limit */}
               <div className="flex flex-col justify-end px-6 text-gray-300 md:order-3">
                 <div className="h-full border-b border-gray-600 py-4 text-sm">
-                  Unlimited
+                  5,000 <span className="md:sr-only">Search Page Limit</span>
                 </div>
               </div>
               {/* Custom Fonts */}
@@ -458,9 +356,7 @@ export default function ComparePlans() {
               </div>
               {/* # Features */}
               <div className="flex flex-col justify-end px-6 md:order-6">
-                <div className="mb-2 mt-5 font-bold text-gray-200 md:sr-only">
-                  Features
-                </div>
+                <div className="mb-2 mt-5 font-bold text-gray-200 md:sr-only">Features</div>
               </div>
               {/* Bandwidth */}
               <div className="flex flex-col justify-end px-6 text-gray-300 md:order-7">
@@ -496,9 +392,7 @@ export default function ComparePlans() {
               </div>
               {/* # Creation */}
               <div className="flex flex-col justify-end px-6 md:order-11">
-                <div className="mb-2 mt-5 font-bold text-gray-200 md:sr-only">
-                  Creation
-                </div>
+                <div className="mb-2 mt-5 font-bold text-gray-200 md:sr-only">Creation</div>
               </div>
               {/* Created Words */}
               <div className="flex flex-col justify-end px-6 text-gray-300 md:order-12">
@@ -521,19 +415,19 @@ export default function ComparePlans() {
                 </div>
               </div>
             </section>
-            {/* End: Business table */}
-            {/* Enterprise table */}
+            {/* End: Pro table */}
+            {/* Premium table */}
             <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-5 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
               <div className="relative flex flex-col justify-end px-6">
-                <div className="grow">
-                  <div className="mb-5 font-medium">Enterprise</div>
-                  <div>
-                    <a
-                      className="btn-sm w-full rounded-lg bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] py-1.5 text-white shadow-sm hover:bg-[length:100%_150%]"
-                      href="#0"
-                    >
-                      Free trial
-                    </a>
+                <div>
+                  <div className="mb-1 font-medium underline decoration-gray-300 underline-offset-4">
+                    Premium
+                  </div>
+                  <div className="mb-4 flex items-baseline border-b border-dashed border-gray-200 pb-4">
+                    <span className="text-2xl font-bold">$</span>
+                    <span className="text-4xl font-bold tabular-nums">
+                      5700
+                    </span>
                   </div>
                 </div>
               </div>
@@ -552,7 +446,7 @@ export default function ComparePlans() {
               {/* Search Page Limit */}
               <div className="flex flex-col justify-end px-6 md:order-3">
                 <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  Unlimited
+                  Unlimited <span className="md:sr-only">Search Page Limit</span>
                 </div>
               </div>
               {/* Custom Fonts */}
@@ -602,7 +496,7 @@ export default function ComparePlans() {
               {/* Max Upload Size */}
               <div className="flex flex-col justify-end px-6 md:order-9">
                 <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  Custom <span className="md:sr-only">Max Upload Size</span>
+                  100MB <span className="md:sr-only">Max Upload Size</span>
                 </div>
               </div>
               {/* SSL Certificate */}
@@ -644,7 +538,7 @@ export default function ComparePlans() {
                 </div>
               </div>
             </section>
-            {/* End: Enterprise table */}
+            {/* End: Premium table */}
           </div>
         </div>
       </div>

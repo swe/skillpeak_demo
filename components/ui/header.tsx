@@ -18,57 +18,45 @@ export default function Header() {
             {/* Desktop menu links */}
             <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
               <li className="px-3 py-1">
-                <Link
-                  href="/pricing"
+                <a
+                  href="#apps"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
                 >
-                  Pricing
-                </Link>
+                  Course Structure
+                </a>
               </li>
               <li className="px-3 py-1">
-                <Link
-                  href="/customers"
+                <a
+                  href="#features"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
                 >
-                  Customers
-                </Link>
+                  For whom
+                </a>
               </li>
               <li className="px-3 py-1">
-                <Link
-                  href="/blog"
+                <a
+                  href="#testimonials"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
                 >
-                  Blog
-                </Link>
+                  Reviews
+                </a>
               </li>
               <li className="px-3 py-1">
-                <Link
-                  href="/documentation"
+                <a
+                  href="#pricing"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
                 >
-                  Docs
-                </Link>
+                  Tariffs
+                </a>
               </li>
-              {/* 1st level: hover */}
-              <Dropdown title="Extra">
-                {/* 2nd level: hover */}
-                <li>
-                  <Link
-                    href="/support"
-                    className="flex rounded-lg px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    Support center
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/apps"
-                    className="flex rounded-lg px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    Apps
-                  </Link>
-                </li>
-              </Dropdown>
+              <li className="px-3 py-1">
+                <a
+                  href="#faq"
+                  className="flex items-center text-gray-700 transition hover:text-gray-900"
+                >
+                  FAQ
+                </a>
+              </li>
             </ul>
           </nav>
 
@@ -80,14 +68,6 @@ export default function Header() {
                 className="btn-sm bg-white text-gray-800 shadow-sm hover:bg-gray-50"
               >
                 Login
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/signup"
-                className="btn-sm bg-gray-800 text-gray-200 shadow-sm hover:bg-gray-900"
-              >
-                Register
               </Link>
             </li>
           </ul>
