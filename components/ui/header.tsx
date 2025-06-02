@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import MobileMenu from "./mobile-menu";
+import { smoothScroll } from "@/utils/smooth-scroll";
 
 export default function Header() {
   return (
@@ -50,48 +51,54 @@ export default function Header() {
             <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
               <li className="px-3 py-1">
                 <a
-                  href="../#courses"
+                  href="#courses"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
+                  onClick={smoothScroll}
                 >
                   Courses
                 </a>
               </li>
               <li className="px-3 py-1">
                 <a
-                  href="../#how-it-works"
+                  href="#how-it-works"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
+                  onClick={smoothScroll}
                 >
                   How It Works
                 </a>
               </li>
               <li className="px-3 py-1">
                 <a
-                  href="../#faq"
+                  href="#faq"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
+                  onClick={smoothScroll}
                 >
                   FAQ
                 </a>
               </li>
               <li className="px-3 py-1">
                 <a
-                  href="../#pricing"
+                  href="#pricing"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
+                  onClick={smoothScroll}
                 >
                   Pricing
                 </a>
               </li>
               <li className="px-3 py-1">
                 <a
-                  href="../#testimonials"
+                  href="#testimonials"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
+                  onClick={smoothScroll}
                 >
                   Testimonials
                 </a>
               </li>
               <li className="px-3 py-1">
                 <a
-                  href="../#contact"
+                  href="#contact"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
+                  onClick={smoothScroll}
                 >
                   Contact
                 </a>

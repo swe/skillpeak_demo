@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import Link from "next/link";
+import { smoothScroll } from "@/utils/smooth-scroll";
 
 export default function MobileMenu() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
@@ -35,6 +36,11 @@ export default function MobileMenu() {
     document.addEventListener("keydown", keyHandler);
     return () => document.removeEventListener("keydown", keyHandler);
   });
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    smoothScroll(e);
+    setMobileNavOpen(false);
+  };
 
   return (
     <div className="flex md:hidden">
@@ -89,54 +95,54 @@ export default function MobileMenu() {
           <ul className="p-2 text-sm">
             <li>
               <a
-                href="../#courses"
+                href="#courses"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
+                onClick={handleClick}
               >
                 Courses
               </a>
             </li>
             <li>
               <a
-                href="../#how-it-works"
+                href="#how-it-works"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
+                onClick={handleClick}
               >
                 How It Works
               </a>
             </li>
             <li>
               <a
-                href="../#faq"
+                href="#faq"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
+                onClick={handleClick}
               >
                 FAQ
               </a>
             </li>
             <li>
               <a
-                href="../#pricing"
+                href="#pricing"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
+                onClick={handleClick}
               >
                 Pricing
               </a>
             </li>
             <li>
               <a
-                href="../#testimonials"
+                href="#testimonials"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
+                onClick={handleClick}
               >
                 Testimonials
               </a>
             </li>
             <li>
               <a
-                href="../#contact"
+                href="#contact"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
+                onClick={handleClick}
               >
                 Contact
               </a>
