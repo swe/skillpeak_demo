@@ -1,235 +1,452 @@
 "use client";
 
-import { useState } from "react";
-import PageIllustration from "@/components/page-illustration";
+import { H1 } from "@/components/ui/typography";
+import { Button } from "@/components/ui/button";
 
 export default function PricingTables() {
-  const [annual, setAnnual] = useState<boolean>(true);
-
   return (
-    <section className="relative">
-
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Hero content */}
-        <div className="pb-12 pt-32 md:pb-20 md:pt-40">
-          {/* Section header */}
-          <div className="pb-12 text-center">
-            <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
-              Tariffs
-            </h1>
-          </div>
-
-          {/* Pricing tables */}
-          <div>
-
-            <div className="mx-auto grid max-w-sm items-start gap-8 md:max-w-2xl md:grid-cols-2 xl:max-w-none xl:grid-cols-3 xl:gap-6">
-              {/* Pricing table 1 */}
-              <div className="relative flex h-full flex-col rounded-2xl bg-white/70 p-5 shadow-lg shadow-black/[0.03] backdrop-blur-xs before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-                <div className="mb-4">
-                  <div className="mb-1 font-medium underline decoration-gray-300 underline-offset-4">
-                    Standard
+    <section id="pricing" className="relative py-12">
+      <div className="pb-8 text-center">
+        <H1 className="mb-4 border-y text-4xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-5xl">
+          Tariffs
+        </H1>
+      </div>
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+        <div className="pb-8 md:pb-12">
+          <div className="mx-auto grid max-w-sm max-md:gap-4 md:-mx-4 md:max-w-none md:grid-cols-4">
+            {/* Header section */}
+            <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-4 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
+              <div></div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-1" aria-hidden="true">
+                <div className="mb-2 mt-4 font-bold">Key features</div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-2" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-01">
+                      Course package
+                    </button>
                   </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-3" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-02">
+                      Video course
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-4" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-03">
+                      Webinar library
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-5" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-04">
+                      Practice quizzes
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-6" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-05">
+                      Software practicum
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-7" aria-hidden="true">
+                <div className="mb-2 mt-4 font-bold">Support</div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-8" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-06">
+                      Mentorship (student)
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-9" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-07">
+                      Mentorship (career)
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-10" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-08">
+                      Practical experience
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-11" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-09">
+                      Resume building
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-12" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-10">
+                      Job interview tips
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 max-md:hidden md:order-13" aria-hidden="true">
+                <div className="border-b border-gray-200 py-3 text-sm">
+                  <div className="relative">
+                    <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-11">
+                      Personal session
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Standard plan */}
+            <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-4 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
+              <div className="relative flex flex-col justify-end px-4">
+                <div>
+                  <div className="mb-1 font-medium underline decoration-gray-300 underline-offset-4">Standard</div>
                   <div className="mb-4 flex items-baseline border-b border-dashed border-gray-200 pb-4">
-                    <span className="text-2xl font-bold">$</span>
-                    <span className="text-4xl font-bold tabular-nums">
-                      950
-                    </span>
-                    <span className="pl-1 text-sm text-gray-500">/month</span>
+                    <span className="text-2xl font-bold">C$</span>
+                    <span className="text-4xl font-bold tabular-nums">950</span>
                   </div>
-                  <div className="grow text-sm text-gray-700">
-                    For relatively simple, static sites and landing pages.
-                  </div>
-                </div>
-                <ul className="grow space-y-2 text-sm text-gray-500">
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>150 pages</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>Custom domain</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>200 form submissions</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>10,000 visitors/mo</span>
-                  </li>
-                </ul>
-                <div className="mt-6">
-                  <a
-                    className="btn-sm w-full rounded-lg bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] py-1.5 text-white shadow-sm hover:bg-[length:100%_150%]"
-                    href="#0"
-                  >
-                    Try for free
-                  </a>
+                  <Button className="w-full">Get started</Button>
                 </div>
               </div>
-
-              {/* Pricing table 2 */}
-              <div className="relative flex h-full flex-col rounded-2xl bg-linear-to-tr from-gray-900 to-gray-700 p-5 shadow-lg shadow-black/[0.03] backdrop-blur-xs">
-                <div className="mb-4">
-                  <div className="mb-1 font-medium text-gray-200 underline decoration-gray-600 underline-offset-4">
-                    Pro
-                  </div>
-                  <div className="mb-4 flex items-baseline border-b border-dashed border-gray-600 pb-4">
-                    <span className="text-2xl font-bold text-gray-200">$</span>
-                    <span className="text-4xl font-bold tabular-nums text-gray-200">
-                      1700
-                    </span>
-                    <span className="pl-1 text-sm text-gray-400">/month</span>
-                  </div>
-                  <div className="text-sm text-gray-300">
-                    For larger sites, blogs, and other data-driven content.
-                  </div>
-                </div>
-                <ul className="grow space-y-2 text-sm text-gray-400">
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>150 pages</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>Custom domain</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>500 form submissions</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>50,000 visitors/mo</span>
-                  </li>
-                </ul>
-                <div className="mt-6">
-                  <a
-                    className="btn-sm w-full rounded-lg bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] py-1.5 text-white shadow-sm hover:bg-[length:100%_150%]"
-                    href="#0"
-                  >
-                    Try for free
-                  </a>
+              <div className="flex flex-col justify-end px-4 md:order-1">
+                <div className="mb-2 mt-4 font-bold md:sr-only">Key features</div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-2">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Course package</span>
                 </div>
               </div>
+              <div className="flex flex-col justify-end px-4 md:order-3">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Video course</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-4">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Webinar library</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-5">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Practice quizzes</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-6">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Software practicum</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-7">
+                <div className="mb-2 mt-4 font-bold md:sr-only">Support</div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-8">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Mentorship (student)</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-9">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Mentorship (career)</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-10">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Practical experience</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-11">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Resume building</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-12">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Job interview tips</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-13">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Personal session</span>
+                </div>
+              </div>
+            </section>
 
-              {/* Pricing table 3 */}
-              <div className="relative flex h-full flex-col rounded-2xl bg-white/70 p-5 shadow-lg shadow-black/[0.03] backdrop-blur-xs before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-                <div className="mb-4">
-                  <div className="mb-1 font-medium underline decoration-gray-300 underline-offset-4">
-                    Premium
+            {/* Pro plan */}
+            <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-4 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl [&>div]:bg-gray-800">
+              <div className="relative flex flex-col justify-end px-4">
+                <div>
+                  <div className="mb-1 font-medium underline decoration-gray-700 underline-offset-4 text-gray-200">Pro</div>
+                  <div className="mb-4 flex items-baseline border-b border-dashed border-gray-700 pb-4 text-gray-200">
+                    <span className="text-2xl font-bold">C$</span>
+                    <span className="text-4xl font-bold tabular-nums">1700</span>
                   </div>
+                  <Button variant="secondary" className="w-full">Get started</Button>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-1">
+                <div className="mb-2 mt-4 font-bold text-gray-200 md:sr-only">Key features</div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-2">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Course package</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-3">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Video course</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-4">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Webinar library</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-5">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Practice quizzes</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-6">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Software practicum</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-7">
+                <div className="mb-2 mt-4 font-bold text-gray-200 md:sr-only">Support</div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-8">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Mentorship (student)</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-9">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Mentorship (career)</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-10">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Practical experience</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-11">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Resume building</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-12">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Job interview tips</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 text-gray-300 md:order-13">
+                <div className="flex h-full items-center border-b border-gray-600 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Personal session</span>
+                </div>
+              </div>
+            </section>
+
+            {/* Premium plan */}
+            <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-4 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
+              <div className="relative flex flex-col justify-end px-4">
+                <div>
+                  <div className="mb-1 font-medium underline decoration-gray-300 underline-offset-4">Premium</div>
                   <div className="mb-4 flex items-baseline border-b border-dashed border-gray-200 pb-4">
-                    <span className="text-2xl font-bold">$</span>
-                    <span className="text-4xl font-bold tabular-nums">
-                      5700
-                    </span>
-                    <span className="pl-1 text-sm text-gray-500">/month</span>
+                    <span className="text-2xl font-bold">C$</span>
+                    <span className="text-4xl font-bold tabular-nums">5700</span>
                   </div>
-                  <div className="grow text-sm text-gray-700">
-                    For those needing an enterprise-grade solution.
-                  </div>
-                </div>
-                <ul className="grow space-y-2 text-sm text-gray-500">
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>150 pages</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>Custom domain</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>500 form submissions</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="mr-2 h-3 w-3 shrink-0 fill-current text-emerald-500"
-                      viewBox="0 0 12 12"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    <span>50,000 visitors/mo</span>
-                  </li>
-                </ul>
-                <div className="mt-6">
-                  <a
-                    className="btn-sm w-full rounded-lg bg-linear-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] py-1.5 text-white shadow-sm hover:bg-[length:100%_150%]"
-                    href="#0"
-                  >
-                    Try for free
-                  </a>
+                  <Button className="w-full">Get started</Button>
                 </div>
               </div>
-            </div>
+              <div className="flex flex-col justify-end px-4 md:order-1">
+                <div className="mb-2 mt-4 font-bold md:sr-only">Key features</div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-2">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Course package</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-3">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Video course</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-4">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Webinar library</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-5">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Practice quizzes</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-6">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-emerald-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Software practicum</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-7">
+                <div className="mb-2 mt-4 font-bold md:sr-only">Support</div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-8">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Mentorship (student)</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-9">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Mentorship (career)</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-10">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Practical experience</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-11">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Resume building</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-12">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Job interview tips</span>
+                </div>
+              </div>
+              <div className="flex flex-col justify-end px-4 md:order-13">
+                <div className="flex h-full items-center border-b border-gray-200 py-3 text-sm">
+                  <svg className="mr-2 shrink-0 fill-gray-300" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
+                  </svg>
+                  <span className="md:sr-only">Personal session</span>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>

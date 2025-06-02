@@ -1,7 +1,7 @@
 export default function Newsletter() {
   return (
     <div className="mt-10 border-t border-gray-200 pt-10 text-center md:text-left">
-      <h3 className="mb-6 text-lg font-bold md:mb-8">
+      <h3 className="mb-6 md:mb-8">
         Get all of our updates directly to your inbox.
       </h3>
       <form>

@@ -1,0 +1,141 @@
+import React from 'react';
+
+const Courses = () => {
+  const courses = [
+    {
+      title: 'Year-end Preparation Course',
+      description: 'Master Canadian accounting standards and software with our comprehensive course.',
+      features: [
+        'Perfect for newcomers to Canada',
+        'Hands-on training with Canadian accounting software',
+        'ESL-friendly course materials',
+        'Flexible online schedule',
+        '40-hour intensive program',
+        'Six comprehensive blocks'
+      ],
+      blocks: [
+        {
+          title: 'Introduction',
+          description: 'Course structure overview and instructor introduction'
+        },
+        {
+          title: 'Accounting Fundamentals',
+          description: 'Basic accounting concepts and Canadian standards preparation'
+        },
+        {
+          title: 'Accounting Standards',
+          description: 'Detailed study of Canadian accounting standards and terminology'
+        },
+        {
+          title: 'Caseware',
+          description: 'Hands-on experience with popular Canadian accounting software'
+        },
+        {
+          title: 'Corporate Taxes',
+          description: 'Understanding Canadian tax legislation and corporate tax returns'
+        },
+        {
+          title: 'Personal Taxes',
+          description: 'Bonus section on Canadian personal tax basics'
+        }
+      ],
+      isAvailable: true
+    },
+    {
+      title: 'Bookkeeping Essentials Course',
+      description: 'Master the fundamentals of bookkeeping with our comprehensive course.',
+      features: [
+        'Perfect for beginners',
+        'Step-by-step learning approach',
+        'Practical exercises',
+        'Industry-standard software training',
+        'Career guidance',
+        'Certificate upon completion'
+      ],
+      isAvailable: false
+    },
+    {
+      title: 'Financial Literacy for Entrepreneurs',
+      description: 'Essential knowledge for business owners and entrepreneurs.',
+      features: [
+        'Business finance basics',
+        'Financial planning',
+        'Tax optimization',
+        'Cash flow management',
+        'Business growth strategies',
+        'Investment fundamentals'
+      ],
+      isAvailable: false
+    }
+  ];
+
+  return (
+    <section className="relative py-20">
+      <div className="pb-12 text-center">
+        <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
+          Explore Our Popular Courses
+        </h1>
+        <p className="mt-4 text-lg text-gray-600">
+          Master Canadian accounting and bookkeeping with our industry-oriented courses
+        </p>
+      </div>
+
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+        <div className="grid gap-8 md:grid-cols-3 md:items-start">
+          {courses.map((course) => (
+            <div key={course.title} className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900">{course.title}</h3>
+                <p className="mt-2 text-sm text-gray-600">{course.description}</p>
+                
+                {!course.isAvailable && (
+                  <div className="mt-4 inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+                    Coming Soon
+                  </div>
+                )}
+
+                <ul className="mt-6 space-y-4">
+                  {course.features.map((feature) => (
+                    <li key={feature} className="flex items-start">
+                      <span className="flex-shrink-0 h-6 w-6 text-green-500">✓</span>
+                      <span className="ml-3 text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {course.blocks && (
+                  <div className="mt-8">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-4">Course Structure</h4>
+                    <div className="space-y-4">
+                      {course.blocks.map((block) => (
+                        <div key={block.title} className="bg-gray-50 rounded-lg p-4">
+                          <h5 className="font-medium text-gray-900">{block.title}</h5>
+                          <p className="mt-1 text-sm text-gray-600">{block.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="mt-8">
+                  <button
+                    className={`w-full py-3 px-4 rounded-md text-sm font-medium ${
+                      course.isAvailable
+                        ? 'bg-blue-600 text-white hover:bg-blue-700'
+                        : 'hidden'
+                    }`}
+                    disabled={!course.isAvailable}
+                  >
+                    {course.isAvailable ? 'Enroll Now' : 'Coming Soon'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Courses; 

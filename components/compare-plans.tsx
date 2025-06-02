@@ -1,547 +1,148 @@
-import Tooltip from "@/components/tooltip";
+import React from 'react';
 
-export default function ComparePlans() {
+const ComparePlans = () => {
+  const features = [
+    'Course package',
+    'Video course',
+    'Free webinar library access',
+    'Practice quizzes',
+    'Software practicum',
+    'Mentorship (student)',
+    'Mentorship (career)',
+    'Practical experience (3 months)',
+    'Practical experience certificate',
+    'Resume building',
+    'Job interview tips',
+    'Personal session (up to one hour/mo)'
+  ];
+
+  const plans = [
+    {
+      name: 'Standard',
+      price: 950,
+      features: [true, true, true, false, false, false, false, false, false, false, false, false],
+      description: 'Theory only'
+    },
+    {
+      name: 'Pro',
+      price: 1700,
+      features: [true, true, true, true, true, true, false, false, false, false, false, false],
+      description: 'Theory and software practice'
+    },
+    {
+      name: 'Premium',
+      price: 5700,
+      features: [true, true, true, true, true, true, true, true, true, true, true, true],
+      description: 'Theory, software practice and practical experience'
+    }
+  ];
+
+  const addons = [
+    { name: 'Software practicum', price: 1000 },
+    { name: 'Mentorship (student)', price: 900 },
+    { name: 'Practical experience (3 months)', price: 4000 },
+    { name: 'Resume building', price: 350 },
+    { name: 'Job interview tips', price: 250 },
+    { name: 'Personal session (up to one hour)', price: 250 }
+  ];
+
   return (
     <section id="pricing" className="relative">
       <div className="pb-12 text-center">
         <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
-          Tariffs
+          Pricing
         </h1>
       </div>
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="pb-12 md:pb-20">
-          <div className="mx-auto grid max-w-sm max-md:gap-6 md:-mx-6 md:max-w-none md:grid-cols-4">
-            {/* Column with labels */}
-            <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-5 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
-              {/* Empty cell */}
-              <div />
-              {/* # Key features */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-1"
-                aria-hidden="true"
-              >
-                <div className="mb-2 mt-5 font-bold">Key features</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Standard Plan */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900">Standard</h3>
+                <div className="mt-4 flex items-baseline">
+                  <span className="text-2xl font-bold">$</span>
+                  <span className="text-4xl font-bold tabular-nums">950</span>
+                </div>
+                <p className="mt-2 text-sm text-gray-600">Theory only</p>
+                <ul className="mt-6 space-y-4">
+                  {features.map((feature, index) => (
+                    <li key={feature} className="flex items-start">
+                      <span className={`flex-shrink-0 h-6 w-6 ${plans[0].features[index] ? 'text-green-500' : 'text-gray-300'}`}>
+                        {plans[0].features[index] ? '✓' : '×'}
+                      </span>
+                      <span className="ml-3 text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              {/* Translated Words */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-2"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="01"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    Translated Words
-                  </Tooltip>
+            </div>
+
+            {/* Pro Plan */}
+            <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-200">Pro</h3>
+                <div className="mt-4 flex items-baseline">
+                  <span className="text-2xl font-bold text-gray-200">$</span>
+                  <span className="text-4xl font-bold tabular-nums text-gray-200">1700</span>
+                </div>
+                <p className="mt-2 text-sm text-gray-400">Theory and software practice</p>
+                <ul className="mt-6 space-y-4">
+                  {features.map((feature, index) => (
+                    <li key={feature} className="flex items-start">
+                      <span className={`flex-shrink-0 h-6 w-6 ${plans[1].features[index] ? 'text-green-500' : 'text-gray-500'}`}>
+                        {plans[1].features[index] ? '✓' : '×'}
+                      </span>
+                      <span className="ml-3 text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Premium Plan */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900">Premium</h3>
+                <div className="mt-4 flex items-baseline">
+                  <span className="text-2xl font-bold">$</span>
+                  <span className="text-4xl font-bold tabular-nums">5700</span>
+                </div>
+                <p className="mt-2 text-sm text-gray-600">Theory, software practice and practical experience</p>
+                <ul className="mt-6 space-y-4">
+                  {features.map((feature, index) => (
+                    <li key={feature} className="flex items-start">
+                      <span className={`flex-shrink-0 h-6 w-6 ${plans[2].features[index] ? 'text-green-500' : 'text-gray-300'}`}>
+                        {plans[2].features[index] ? '✓' : '×'}
+                      </span>
+                      <span className="ml-3 text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Add-ons */}
+        <div className="mt-20">
+          <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
+            Additional Services
+          </h3>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {addons.map((addon) => (
+              <div key={addon.name} className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-blue-500 transition-colors">
+                <div className="flex justify-between items-start">
+                  <h4 className="text-lg font-semibold text-gray-900">{addon.name}</h4>
+                  <span className="text-2xl font-bold text-blue-600">${addon.price}</span>
                 </div>
               </div>
-              {/* Search Page Limit */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-3"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="02"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    Search Page Limit
-                  </Tooltip>
-                </div>
-              </div>
-              {/* Custom Fonts */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-4"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="03"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    Custom Fonts
-                  </Tooltip>
-                </div>
-              </div>
-              {/* Code Editor */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-5"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="04"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    Code Editor
-                  </Tooltip>
-                </div>
-              </div>
-              {/* # Hosting */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-6"
-                aria-hidden="true"
-              >
-                <div className="mb-2 mt-5 font-bold">Hosting</div>
-              </div>
-              {/* Bandwidth */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-7"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="06"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    Bandwidth
-                  </Tooltip>
-                </div>
-              </div>
-              {/* Visitors */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-8"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="07"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    Visitors
-                  </Tooltip>
-                </div>
-              </div>
-              {/* Max Upload Size */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-9"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="08"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    Max Upload Size
-                  </Tooltip>
-                </div>
-              </div>
-              {/* SSL Certificate */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-10"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="09"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    SSL Certificate
-                  </Tooltip>
-                </div>
-              </div>
-              {/* # Creation */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-11"
-                aria-hidden="true"
-              >
-                <div className="mb-2 mt-5 font-bold">Creation</div>
-              </div>
-              {/* Created Words */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-12"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="11"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    Created Words
-                  </Tooltip>
-                </div>
-              </div>
-              {/* Team Projects */}
-              <div
-                className="flex flex-col justify-end px-6 max-md:hidden md:order-13"
-                aria-hidden="true"
-              >
-                <div className="border-b border-gray-200 py-4 text-sm">
-                  <Tooltip
-                    id="12"
-                    content="Apply visual attributes to refine your designs and focus on relevant insights."
-                  >
-                    Team Projects
-                  </Tooltip>
-                </div>
-              </div>
-            </section>
-            {/* End: Column with labels */}
-            {/* Standard table */}
-            <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-5 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
-              <div className="relative flex flex-col justify-end px-6">
-                <div>
-                  <div className="mb-1 font-medium underline decoration-gray-300 underline-offset-4">
-                    Standard
-                  </div>
-                  <div className="mb-4 flex items-baseline border-b border-dashed border-gray-200 pb-4">
-                    <span className="text-2xl font-bold">$</span>
-                    <span className="text-4xl font-bold tabular-nums">
-                      950
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {/* # Key features */}
-              <div className="flex flex-col justify-end px-6 md:order-1">
-                <div className="mb-2 mt-5 font-bold md:sr-only">
-                  Key features
-                </div>
-              </div>
-              {/* Translated Words */}
-              <div className="flex flex-col justify-end px-6 md:order-2">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  15,000 <span className="md:sr-only">Translated Words</span>
-                </div>
-              </div>
-              {/* Search Page Limit */}
-              <div className="flex flex-col justify-end px-6 md:order-3">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  1,000 <span className="md:sr-only">Search Page Limit</span>
-                </div>
-              </div>
-              {/* Custom Fonts */}
-              <div className="flex flex-col justify-end px-6 md:order-4">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">Custom Fonts</span>
-                </div>
-              </div>
-              {/* Code Editor */}
-              <div className="flex flex-col justify-end px-6 md:order-5">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">Code Editor</span>
-                </div>
-              </div>
-              {/* # Features */}
-              <div className="flex flex-col justify-end px-6 md:order-6">
-                <div className="mb-2 mt-5 font-bold md:sr-only">Features</div>
-              </div>
-              {/* Bandwidth */}
-              <div className="flex flex-col justify-end px-6 md:order-7">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  1GB <span className="md:sr-only">Bandwidth</span>
-                </div>
-              </div>
-              {/* Visitors */}
-              <div className="flex flex-col justify-end px-6 md:order-8">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  10,000 <span className="md:sr-only">Visitors</span>
-                </div>
-              </div>
-              {/* Max Upload Size */}
-              <div className="flex flex-col justify-end px-6 md:order-9">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  5MB <span className="md:sr-only">Max Upload Size</span>
-                </div>
-              </div>
-              {/* SSL Certificate */}
-              <div className="flex flex-col justify-end px-6 md:order-10">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">SSL Certificate</span>
-                </div>
-              </div>
-              {/* # Creation */}
-              <div className="flex flex-col justify-end px-6 md:order-11">
-                <div className="mb-2 mt-5 font-bold md:sr-only">Creation</div>
-              </div>
-              {/* Created Words */}
-              <div className="flex flex-col justify-end px-6 md:order-12">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  Unlimited <span className="md:sr-only">Created Words</span>
-                </div>
-              </div>
-              {/* Team Projects */}
-              <div className="flex flex-col justify-end px-6 md:order-13">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm max-md:sr-only">
-                  <span className="md:sr-only">Team Projects</span>
-                </div>
-              </div>
-            </section>
-            {/* End: Standard table */}
-            {/* Pro table */}
-            <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-5 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl [&>div]:bg-gray-800">
-              <div className="relative flex flex-col justify-end px-6">
-                <div>
-                  <div className="mb-1 font-medium underline decoration-gray-700 underline-offset-4 text-gray-200">
-                    Pro
-                  </div>
-                  <div className="mb-4 flex items-baseline border-b border-dashed border-gray-700 pb-4 text-gray-200">
-                    <span className="text-2xl font-bold">$</span>
-                    <span className="text-4xl font-bold tabular-nums">
-                      1700
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {/* # Key features */}
-              <div className="flex flex-col justify-end px-6 md:order-1">
-                <div className="mb-2 mt-5 font-bold text-gray-200 md:sr-only">
-                  Key features
-                </div>
-              </div>
-              {/* Translated Words */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-2">
-                <div className="h-full border-b border-gray-600 py-4 text-sm">
-                  25,000 <span className="md:sr-only">Translated Words</span>
-                </div>
-              </div>
-              {/* Search Page Limit */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-3">
-                <div className="h-full border-b border-gray-600 py-4 text-sm">
-                  5,000 <span className="md:sr-only">Search Page Limit</span>
-                </div>
-              </div>
-              {/* Custom Fonts */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-4">
-                <div className="flex h-full items-center border-b border-gray-600 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">Custom Fonts</span>
-                </div>
-              </div>
-              {/* Code Editor */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-5">
-                <div className="flex h-full items-center border-b border-gray-600 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">Code Editor</span>
-                </div>
-              </div>
-              {/* # Features */}
-              <div className="flex flex-col justify-end px-6 md:order-6">
-                <div className="mb-2 mt-5 font-bold text-gray-200 md:sr-only">Features</div>
-              </div>
-              {/* Bandwidth */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-7">
-                <div className="h-full border-b border-gray-600 py-4 text-sm">
-                  10GB <span className="md:sr-only">Bandwidth</span>
-                </div>
-              </div>
-              {/* Visitors */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-8">
-                <div className="h-full border-b border-gray-600 py-4 text-sm">
-                  50,000 <span className="md:sr-only">Visitors</span>
-                </div>
-              </div>
-              {/* Max Upload Size */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-9">
-                <div className="h-full border-b border-gray-600 py-4 text-sm">
-                  25MB <span className="md:sr-only">Max Upload Size</span>
-                </div>
-              </div>
-              {/* SSL Certificate */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-10">
-                <div className="flex h-full items-center border-b border-gray-600 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">SSL Certificate</span>
-                </div>
-              </div>
-              {/* # Creation */}
-              <div className="flex flex-col justify-end px-6 md:order-11">
-                <div className="mb-2 mt-5 font-bold text-gray-200 md:sr-only">Creation</div>
-              </div>
-              {/* Created Words */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-12">
-                <div className="h-full border-b border-gray-600 py-4 text-sm">
-                  Unlimited <span className="md:sr-only">Created Words</span>
-                </div>
-              </div>
-              {/* Team Projects */}
-              <div className="flex flex-col justify-end px-6 text-gray-300 md:order-13">
-                <div className="flex h-full items-center border-b border-gray-600 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">Team Projects</span>
-                </div>
-              </div>
-            </section>
-            {/* End: Pro table */}
-            {/* Premium table */}
-            <section className="md:contents [&>div:first-child]:rounded-t-2xl [&>div:first-child]:pt-5 md:[&>div:last-child>div]:border-none [&>div:last-child]:rounded-b-2xl">
-              <div className="relative flex flex-col justify-end px-6">
-                <div>
-                  <div className="mb-1 font-medium underline decoration-gray-300 underline-offset-4">
-                    Premium
-                  </div>
-                  <div className="mb-4 flex items-baseline border-b border-dashed border-gray-200 pb-4">
-                    <span className="text-2xl font-bold">$</span>
-                    <span className="text-4xl font-bold tabular-nums">
-                      5700
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {/* # Key features */}
-              <div className="flex flex-col justify-end px-6 md:order-1">
-                <div className="mb-2 mt-5 font-bold md:sr-only">
-                  Key features
-                </div>
-              </div>
-              {/* Translated Words */}
-              <div className="flex flex-col justify-end px-6 md:order-2">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  50,000 <span className="md:sr-only">Translated Words</span>
-                </div>
-              </div>
-              {/* Search Page Limit */}
-              <div className="flex flex-col justify-end px-6 md:order-3">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  Unlimited <span className="md:sr-only">Search Page Limit</span>
-                </div>
-              </div>
-              {/* Custom Fonts */}
-              <div className="flex flex-col justify-end px-6 md:order-4">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">Custom Fonts</span>
-                </div>
-              </div>
-              {/* Code Editor */}
-              <div className="flex flex-col justify-end px-6 md:order-5">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">Code Editor</span>
-                </div>
-              </div>
-              {/* # Features */}
-              <div className="flex flex-col justify-end px-6 md:order-6">
-                <div className="mb-2 mt-5 font-bold md:sr-only">Features</div>
-              </div>
-              {/* Bandwidth */}
-              <div className="flex flex-col justify-end px-6 md:order-7">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  100GB <span className="md:sr-only">Bandwidth</span>
-                </div>
-              </div>
-              {/* Visitors */}
-              <div className="flex flex-col justify-end px-6 md:order-8">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  100,000 <span className="md:sr-only">Visitors</span>
-                </div>
-              </div>
-              {/* Max Upload Size */}
-              <div className="flex flex-col justify-end px-6 md:order-9">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  100MB <span className="md:sr-only">Max Upload Size</span>
-                </div>
-              </div>
-              {/* SSL Certificate */}
-              <div className="flex flex-col justify-end px-6 md:order-10">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">SSL Certificate</span>
-                </div>
-              </div>
-              {/* # Creation */}
-              <div className="flex flex-col justify-end px-6 md:order-11">
-                <div className="mb-2 mt-5 font-bold md:sr-only">Creation</div>
-              </div>
-              {/* Created Words */}
-              <div className="flex flex-col justify-end px-6 md:order-12">
-                <div className="h-full border-b border-gray-200 py-4 text-sm">
-                  Unlimited <span className="md:sr-only">Created Words</span>
-                </div>
-              </div>
-              {/* Team Projects */}
-              <div className="flex flex-col justify-end px-6 md:order-13">
-                <div className="flex h-full items-center border-b border-gray-200 py-4 text-sm">
-                  <svg
-                    className="mr-3 shrink-0 fill-emerald-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={12}
-                    height={9}
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"></path>
-                  </svg>
-                  <span className="md:sr-only">Team Projects</span>
-                </div>
-              </div>
-            </section>
-            {/* End: Premium table */}
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default ComparePlans;

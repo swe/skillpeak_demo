@@ -89,43 +89,25 @@ export default function MobileMenu() {
           <ul className="p-2 text-sm">
             <li>
               <a
-                href="#apps"
+                href="../#courses"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
                 onClick={() => setMobileNavOpen(false)}
               >
-                Course Structure
+                Courses
               </a>
             </li>
             <li>
               <a
-                href="#features"
+                href="../#how-it-works"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
                 onClick={() => setMobileNavOpen(false)}
               >
-                For whom
+                How It Works
               </a>
             </li>
             <li>
               <a
-                href="#testimonials"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Reviews
-              </a>
-            </li>
-            <li>
-              <a
-                href="#pricing"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Tariffs
-              </a>
-            </li>
-            <li>
-              <a
-                href="#faq"
+                href="../#faq"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
                 onClick={() => setMobileNavOpen(false)}
               >
@@ -133,12 +115,39 @@ export default function MobileMenu() {
               </a>
             </li>
             <li>
-              <Link
-                href="/signin"
+              <a
+                href="../#pricing"
                 className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
                 onClick={() => setMobileNavOpen(false)}
               >
-                Login
+                Pricing
+              </a>
+            </li>
+            <li>
+              <a
+                href="../#testimonials"
+                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                onClick={() => setMobileNavOpen(false)}
+              >
+                Testimonials
+              </a>
+            </li>
+            <li>
+              <a
+                href="../#contact"
+                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                onClick={() => setMobileNavOpen(false)}
+              >
+                Contact
+              </a>
+            </li>
+            <li>
+              <Link
+                href="http://178.128.232.165/moodle/login/"
+                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                onClick={() => setMobileNavOpen(false)}
+              >
+                Sign in
               </Link>
             </li>
           </ul>

@@ -13,14 +13,14 @@ export default function FeaturesPlanet() {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="pb-12 text-center">
-            <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-700/.8),transparent)1] md:text-6xl text-gray-300">
+            <h1 className="mb-8 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-700/.8),transparent)1] md:text-6xl text-gray-300">
               The perfect course for you
             </h1>
           </div>
           {/* Grid */}
           <div className="grid overflow-hidden sm:grid-cols-2 lg:grid-cols-3 *:relative *:p-6 *:before:absolute *:before:bg-gray-800 *:before:[block-size:100vh] *:before:[inline-size:1px] *:before:[inset-block-start:0] *:before:[inset-inline-start:-1px] *:after:absolute *:after:bg-gray-800 *:after:[block-size:1px] *:after:[inline-size:100vw] *:after:[inset-block-start:-1px] *:after:[inset-inline-start:0] md:*:p-10">
             <article>
-              <h3 className="mb-2 flex items-center space-x-2 font-medium text-gray-200">
+              <h3 className="mb-6 flex items-center space-x-2 text-gray-200">
                 <span>We moved to Canada and faced difficulties in understanding local accounting and taxation standards.</span>
               </h3>
               <p className="text-[15px] text-gray-400">
@@ -28,7 +28,7 @@ export default function FeaturesPlanet() {
               </p>
             </article>
             <article>
-              <h3 className="mb-2 flex items-center space-x-2 font-medium text-gray-200">
+              <h3 className="mb-6 flex items-center space-x-2 text-gray-200">
                 <span>You have experience in accounting, but you are not sure about using Canadian accounting software.</span>
               </h3>
               <p className="text-[15px] text-gray-400">
@@ -36,7 +36,7 @@ export default function FeaturesPlanet() {
               </p>
             </article>
             <article>
-              <h3 className="mb-2 flex items-center space-x-2 font-medium text-gray-200">
+              <h3 className="mb-6 flex items-center space-x-2 text-gray-200">
                 <span>You want to start a career in Canada, but you are worried about the lack of English and professional terminology.</span>
               </h3>
               <p className="text-[15px] text-gray-400">
@@ -44,7 +44,7 @@ export default function FeaturesPlanet() {
               </p>
             </article>
             <article>
-              <h3 className="mb-2 flex items-center space-x-2 font-medium text-gray-200">
+              <h3 className="mb-6 flex items-center space-x-2 text-gray-200">
                 <span>Your accounting knowledge is outdated and you want to brush up on your skills before entering the Canadian job market.</span>
               </h3>
               <p className="text-[15px] text-gray-400">
@@ -52,7 +52,7 @@ export default function FeaturesPlanet() {
               </p>
             </article>
             <article>
-              <h3 className="mb-2 flex items-center space-x-2 font-medium text-gray-200">
+              <h3 className="mb-6 flex items-center space-x-2 text-gray-200">
                 <span>You are just starting to adapt to life in Canada and need a flexible learning schedule.</span>
               </h3>
               <p className="text-[15px] text-gray-400">
@@ -60,7 +60,7 @@ export default function FeaturesPlanet() {
               </p>
             </article>
             <article>
-              <h3 className="mb-2 flex items-center space-x-2 font-medium text-gray-200">
+              <h3 className="mb-6 flex items-center space-x-2 text-gray-200">
                 <span>You need to complete your training quickly and get to work.</span>
               </h3>
               <p className="text-[15px] text-gray-400">
