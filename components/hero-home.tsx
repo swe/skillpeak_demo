@@ -48,9 +48,9 @@ const HeroHome = () => {
       <PageIllustration />
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Hero content */}
-        <div className="pb-12 pt-32 md:pb-20 md:pt-40">
+        <div className="pt-40 pb-10">
           {/* Section header */}
-          <div className="pb-12 text-center">
+          <div className="text-center">
             {/* Main title */}
             <h1
               className="text-5xl md:text-6xl font-bold text-gray-900"
@@ -70,9 +70,8 @@ const HeroHome = () => {
                 <video 
                   ref={videoRef}
                   className="w-full h-full object-cover"
-                  autoPlay 
-                  loop 
                   playsInline
+                  autoPlay={true}
                 >
                   <source src="/welcome.mp4" type="video/mp4" />
                 </video>
@@ -117,15 +116,15 @@ const HeroHome = () => {
             </div>
 
             <div className="mx-auto max-w-3xl">
-              <h2
+              <h3
                 className="text-3xl font-semibold text-gray-900 md:text-4xl"
                 data-aos="zoom-y-out"
                 data-aos-delay={300}
               >
                 Master Accounting and Bookkeeping with Confidence!
-              </h2>
+              </h3>
               <p
-                className="mb-8 text-lg text-gray-600"
+                className="mb-4 text-lg text-gray-600"
                 data-aos="zoom-y-out"
                 data-aos-delay={400}
               >
@@ -142,12 +141,12 @@ const HeroHome = () => {
               </p>
 
               <div
-                className="w-full max-w-3xl mx-auto"
+                className="py-8 w-full max-w-3xl mx-auto"
                 data-aos="zoom-y-out"
                 data-aos-delay={600}
               >
-                <h3 className="mb-8 text-2xl font-semibold text-gray-900 border-y [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] py-4">Why Choose Us</h3>
-                <div className="space-y-8">
+                <h4 className="mb-8 text-2xl font-semibold text-gray-900 border-y [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] py-4">Why Choose Us</h4>
+                <div className="space-y-4">
                   {features.map((feature, index) => (
                     <div 
                       key={feature} 
@@ -156,22 +155,15 @@ const HeroHome = () => {
                       <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-2xl">
                         {String(index + 1).padStart(2, '0')}
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-gray-900">{feature}</h3>
-                        <p className="text-gray-600 leading-relaxed">
+                      <div className="flex-1 text-left">
+                        <h5 className="mb-1 text-gray-900">{feature}</h5>
+                        <p className="text-sm text-gray-600 leading-relaxed">
                           {featureDescriptions[index]}
                         </p>
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div
-                className="relative mt-12"
-                data-aos="zoom-y-out"
-                data-aos-delay={700}
-              >
               </div>
             </div>
           </div>

@@ -35,32 +35,32 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="relative py-20">
+    <div className="relative pb-10">
       <div className="pb-8 text-center">
-        <h1 className="border-y [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1]">
+        <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
           How It Works
-        </h1>
-        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        </h2>
+        <p className="text-lg text-gray-600">
           Discover our streamlined process that ensures exceptional results every step of the way
         </p>
       </div>
 
-      <div className="mx-auto w-full max-w-4xl px-4 md:px-6">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="space-y-8">
           {steps.map((step) => (
             <div key={step.number} className="flex gap-8 items-start">
-              <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-2xl">
+              <div className="text-sm flex-shrink-0 w-8 h-8 rounded-full border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-2xl">
                 {step.number}
               </div>
               <div className="flex-1">
-                <h3 className="text-gray-900">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                <p className="font-semibold text-gray-900">{step.title}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

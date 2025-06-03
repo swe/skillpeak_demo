@@ -70,12 +70,12 @@ const Courses = () => {
   ];
 
   return (
-    <section className="relative py-20">
+    <div className="relative pb-10">
       <div className="pb-12 text-center">
-        <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
+        <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
           Explore Our Popular Courses
-        </h1>
-        <p className="mt-4 text-lg text-gray-600">
+        </h2>
+        <p className="text-lg text-gray-600">
           Master Canadian accounting and bookkeeping with our industry-oriented courses
         </p>
       </div>
@@ -94,23 +94,23 @@ const Courses = () => {
                   </div>
                 )}
 
-                <ul className="mt-6 space-y-4">
+                <ul className="mt-6 space-y-2">
                   {course.features.map((feature) => (
                     <li key={feature} className="flex items-start">
                       <span className="flex-shrink-0 h-6 w-6 text-green-500">✓</span>
-                      <span className="ml-3 text-gray-600">{feature}</span>
+                      <span className="text-sm text-gray-600">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 {course.blocks && (
                   <div className="mt-8">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-4">Course Structure</h4>
+                    <h5 className="text-lg font-semibold text-gray-900">Course Structure</h5>
                     <div className="space-y-4">
                       {course.blocks.map((block) => (
                         <div key={block.title} className="bg-gray-50 rounded-lg p-4">
-                          <h5 className="font-medium text-gray-900">{block.title}</h5>
-                          <p className="mt-1 text-sm text-gray-600">{block.description}</p>
+                          <p className="text-sm font-medium text-gray-900">{block.title}</p>
+                          <p className="text-xs mt-1 text-sm text-gray-600">{block.description}</p>
                         </div>
                       ))}
                     </div>
@@ -118,23 +118,23 @@ const Courses = () => {
                 )}
 
                 <div className="mt-8">
-                  <button
-                    className={`w-full py-3 px-4 rounded-md text-sm font-medium ${
-                      course.isAvailable
-                        ? 'bg-blue-600 text-white hover:bg-blue-700'
-                        : 'hidden'
-                    }`}
-                    disabled={!course.isAvailable}
-                  >
-                    {course.isAvailable ? 'Enroll Now' : 'Coming Soon'}
-                  </button>
+                  {course.isAvailable && (
+                      <a href="/enroll">
+                        <button
+                            className="cursor-pointer w-full py-3 px-4 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700"
+                        >
+                          Enroll Now
+                        </button>
+                      </a>
+                  )}
+
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

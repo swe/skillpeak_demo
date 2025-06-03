@@ -27,9 +27,6 @@ export default function Home() {
       <section id="pricing">
         <PricingTables />
       </section>
-      <section id="testimonials">
-        <TestimonialsCarousel />
-      </section>
       <section id="contact">
         <ContactForm />
       </section>
