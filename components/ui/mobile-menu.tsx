@@ -1,44 +1,17 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { Transition } from "@headlessui/react";
+import { useRef, useState } from "react";
 import Link from "next/link";
-import { smoothScroll } from "@/utils/smooth-scroll";
+import { usePathname } from "next/navigation";
+import { Transition } from "@headlessui/react";
 
 export default function MobileMenu() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
-
+  const pathname = usePathname();
+  const isEnrollPage = pathname === "/enroll";
   const trigger = useRef<HTMLButtonElement>(null);
-  const mobileNav = useRef<HTMLDivElement>(null);
 
-  // close the mobile menu on click outside
-  useEffect(() => {
-    const clickHandler = ({ target }: { target: EventTarget | null }): void => {
-      if (!mobileNav.current || !trigger.current) return;
-      if (
-        !mobileNavOpen ||
-        mobileNav.current.contains(target as Node) ||
-        trigger.current.contains(target as Node)
-      )
-        return;
-      setMobileNavOpen(false);
-    };
-    document.addEventListener("click", clickHandler);
-    return () => document.removeEventListener("click", clickHandler);
-  });
-
-  // close the mobile menu if the esc key is pressed
-  useEffect(() => {
-    const keyHandler = ({ keyCode }: { keyCode: number }): void => {
-      if (!mobileNavOpen || keyCode !== 27) return;
-      setMobileNavOpen(false);
-    };
-    document.addEventListener("keydown", keyHandler);
-    return () => document.removeEventListener("keydown", keyHandler);
-  });
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    smoothScroll(e);
+  const handleClick = () => {
     setMobileNavOpen(false);
   };
 
@@ -85,80 +58,156 @@ export default function MobileMenu() {
       </button>
 
       {/*Mobile navigation */}
-      <div ref={mobileNav}>
-        <Transition
-          show={mobileNavOpen}
-          as="nav"
-          id="mobile-nav"
-          className="absolute left-0 top-full z-20 w-full rounded-xl bg-white shadow-lg shadow-black/[0.03] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] transform transition ease-out duration-200 data-enter:data-closed:-translate-y-2 data-closed:opacity-0"
-        >
-          <ul className="p-2 text-sm">
-            <li>
-              <a
-                href="#courses"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={handleClick}
+      <Transition
+        show={mobileNavOpen}
+        as="div"
+        className="fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-white px-4 py-6 sm:px-6 sm:py-8"
+        enter="transition ease-out duration-200"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition ease-out duration-200"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <div className="flex min-h-full flex-col">
+          <div className="mb-4 flex items-center justify-between">
+            <Link href="/" className="block" aria-label="SkillPeak">
+              <svg
+                className="w-8 h-8"
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                Courses
-              </a>
-            </li>
-            <li>
-              <a
-                href="#how-it-works"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={handleClick}
+                <defs>
+                  <radialGradient
+                    cx="21.152%"
+                    cy="86.063%"
+                    fx="21.152%"
+                    fy="86.063%"
+                    r="79.941%"
+                    id="header-logo"
+                  >
+                    <stop stopColor="#4F46E5" offset="0%" />
+                    <stop stopColor="#4F46E5" offset="100%" />
+                  </radialGradient>
+                </defs>
+                <rect
+                  width="32"
+                  height="32"
+                  rx="16"
+                  fill="url(#header-logo)"
+                  fillRule="nonzero"
+                />
+              </svg>
+            </Link>
+            <button
+              className="text-gray-500 hover:text-gray-400"
+              aria-controls="mobile-nav"
+              aria-expanded={mobileNavOpen}
+              onClick={() => setMobileNavOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <svg
+                className="h-6 w-6"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                How It Works
-              </a>
-            </li>
-            <li>
-              <a
-                href="#faq"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={handleClick}
-              >
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a
-                href="#pricing"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={handleClick}
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="#testimonials"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={handleClick}
-              >
-                Testimonials
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={handleClick}
-              >
-                Contact
-              </a>
-            </li>
-            <li>
-              <Link
-                href="http://178.128.232.165/moodle/login/"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Sign in
-              </Link>
-            </li>
-          </ul>
-        </Transition>
-      </div>
+                <path
+                  d="M10.5858 10.5858C10.9609 10.2107 11.4696 10 12 10C12.5304 10 13.0391 10.2107 13.4142 10.5858C13.7893 10.9609 14 11.4696 14 12C14 12.5304 13.7893 13.0391 13.4142 13.4142C13.0391 13.7893 12.5304 14 12 14C11.4696 14 10.9609 13.7893 10.5858 13.4142C10.2107 13.0391 10 12.5304 10 12C10 11.4696 10.2107 10.9609 10.5858 10.5858Z"
+                  fill="currentColor"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M12.7071 5.29289C13.0976 5.68342 13.0976 6.31658 12.7071 6.70711L6.70711 12.7071C6.31658 13.0976 5.68342 13.0976 5.29289 12.7071C4.90237 12.3166 4.90237 11.6834 5.29289 11.2929L11.2929 5.29289C11.6834 4.90237 12.3166 4.90237 12.7071 5.29289Z"
+                  fill="currentColor"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M12.7071 18.7071C12.3166 19.0976 11.6834 19.0976 11.2929 18.7071L5.29289 12.7071C4.90237 12.3166 4.90237 11.6834 5.29289 11.2929C5.68342 10.9024 6.31658 10.9024 6.70711 11.2929L12.7071 17.2929C13.0976 17.6834 13.0976 18.3166 12.7071 18.7071Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile menu links */}
+          <nav className="flex flex-1 flex-col">
+            <ul className="flex-1 space-y-8">
+              {!isEnrollPage && (
+                <>
+                  <li>
+                    <a
+                      href="#courses"
+                      className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                      onClick={handleClick}
+                    >
+                      Courses
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#how-it-works"
+                      className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                      onClick={handleClick}
+                    >
+                      How It Works
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#faq"
+                      className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                      onClick={handleClick}
+                    >
+                      FAQ
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#pricing"
+                      className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                      onClick={handleClick}
+                    >
+                      Pricing
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#testimonials"
+                      className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                      onClick={handleClick}
+                    >
+                      Testimonials
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#contact"
+                      className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                      onClick={handleClick}
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </>
+              )}
+              <li>
+                <Link
+                  href="http://178.128.232.165/moodle/login/"
+                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                  onClick={() => setMobileNavOpen(false)}
+                >
+                  Sign in
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </Transition>
     </div>
   );
 }

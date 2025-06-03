@@ -3,8 +3,12 @@
 import Link from "next/link";
 import MobileMenu from "./mobile-menu";
 import { smoothScroll } from "@/utils/smooth-scroll";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+  const isEnrollPage = pathname === "/enroll";
+
   return (
     <header className="fixed top-2 z-30 w-full md:top-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -45,82 +49,103 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop navigation */}
-          <nav className="hidden md:flex md:grow">
-            {/* Desktop menu links */}
-            <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
-              <li className="px-3 py-1">
-                <a
-                  href="#courses"
-                  className="flex items-center text-gray-700 transition hover:text-gray-900"
-                  onClick={smoothScroll}
-                >
-                  Courses
-                </a>
-              </li>
-              <li className="px-3 py-1">
-                <a
-                  href="#how-it-works"
-                  className="flex items-center text-gray-700 transition hover:text-gray-900"
-                  onClick={smoothScroll}
-                >
-                  How It Works
-                </a>
-              </li>
-              <li className="px-3 py-1">
-                <a
-                  href="#faq"
-                  className="flex items-center text-gray-700 transition hover:text-gray-900"
-                  onClick={smoothScroll}
-                >
-                  FAQ
-                </a>
-              </li>
-              <li className="px-3 py-1">
-                <a
-                  href="#pricing"
-                  className="flex items-center text-gray-700 transition hover:text-gray-900"
-                  onClick={smoothScroll}
-                >
-                  Pricing
-                </a>
-              </li>
-              <li className="px-3 py-1">
-                <a
-                  href="#testimonials"
-                  className="flex items-center text-gray-700 transition hover:text-gray-900"
-                  onClick={smoothScroll}
-                >
-                  Testimonials
-                </a>
-              </li>
-              <li className="px-3 py-1">
-                <a
-                  href="#contact"
-                  className="flex items-center text-gray-700 transition hover:text-gray-900"
-                  onClick={smoothScroll}
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-
-            {/* Desktop sign in links */}
-            <ul className="flex flex-1 items-center justify-end gap-3">
-              <li>
+          {isEnrollPage ? (
+            <>
+              {/* Center text for enroll page */}
+              <div className="absolute left-1/2 -translate-x-1/2 text-lg font-semibold text-gray-900">
+                SkillPeak Academy
+              </div>
+              
+              {/* Sign in button */}
+              <div className="flex items-center">
                 <Link
                   href="http://178.128.232.165/moodle/login/"
                   className="btn-sm bg-white text-gray-800 shadow-sm hover:bg-gray-50"
                 >
                   Sign in
                 </Link>
-              </li>
-            </ul>
-          </nav>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Desktop navigation */}
+              <nav className="hidden md:flex md:grow">
+                {/* Desktop menu links */}
+                <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
+                  <li className="px-3 py-1">
+                    <a
+                      href="#courses"
+                      className="flex items-center text-gray-700 transition hover:text-gray-900"
+                      onClick={smoothScroll}
+                    >
+                      Courses
+                    </a>
+                  </li>
+                  <li className="px-3 py-1">
+                    <a
+                      href="#how-it-works"
+                      className="flex items-center text-gray-700 transition hover:text-gray-900"
+                      onClick={smoothScroll}
+                    >
+                      How It Works
+                    </a>
+                  </li>
+                  <li className="px-3 py-1">
+                    <a
+                      href="#faq"
+                      className="flex items-center text-gray-700 transition hover:text-gray-900"
+                      onClick={smoothScroll}
+                    >
+                      FAQ
+                    </a>
+                  </li>
+                  <li className="px-3 py-1">
+                    <a
+                      href="#pricing"
+                      className="flex items-center text-gray-700 transition hover:text-gray-900"
+                      onClick={smoothScroll}
+                    >
+                      Pricing
+                    </a>
+                  </li>
+                  <li className="px-3 py-1">
+                    <a
+                      href="#testimonials"
+                      className="flex items-center text-gray-700 transition hover:text-gray-900"
+                      onClick={smoothScroll}
+                    >
+                      Testimonials
+                    </a>
+                  </li>
+                  <li className="px-3 py-1">
+                    <a
+                      href="#contact"
+                      className="flex items-center text-gray-700 transition hover:text-gray-900"
+                      onClick={smoothScroll}
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
 
-          <div className="md:hidden">
-            <MobileMenu />
-          </div>
+                {/* Desktop sign in links */}
+                <ul className="flex flex-1 items-center justify-end gap-3">
+                  <li>
+                    <Link
+                      href="http://178.128.232.165/moodle/login/"
+                      className="btn-sm bg-white text-gray-800 shadow-sm hover:bg-gray-50"
+                    >
+                      Sign in
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+
+              <div className="md:hidden">
+                <MobileMenu />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </header>
