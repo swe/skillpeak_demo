@@ -39,7 +39,6 @@ export default function Faqs() {
                   key={index}
                   title={faq.question}
                   id={`faqs-${index}`}
-                  active={faq.active}
                 >
                   {faq.answer}
                 </Accordion>
