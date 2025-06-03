@@ -99,6 +99,7 @@ export default function MobileMenu() {
                 />
               </svg>
             </Link>
+            <div className="flex-1 text-center text-lg font-semibold text-gray-900 -ml-8">SkillPeak Academy</div>
             <button
               className="text-gray-500 hover:text-gray-400"
               aria-controls="mobile-nav"
@@ -173,15 +174,6 @@ export default function MobileMenu() {
                       onClick={handleClick}
                     >
                       Pricing
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#testimonials"
-                      className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                      onClick={handleClick}
-                    >
-                      Testimonials
                     </a>
                   </li>
                   <li>

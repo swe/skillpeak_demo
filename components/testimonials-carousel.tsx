@@ -45,7 +45,7 @@ export default function TestimonialsCarousel() {
   ];
 
   return (
-    <section id="testimonials" className="relative before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-[120%] before:bg-linear-to-b before:from-gray-100">
+    <section id="testimonials" className="relative before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-[120%] before:bg-linear-to-b before:from-gray-100" data-aos="zoom-y-out" data-aos-delay="100">
       <div className="pt-12 md:pt-20">
         <div className="pb-12 text-center">
           <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
