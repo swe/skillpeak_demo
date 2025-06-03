@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { H1 } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,6 @@ interface Course {
   name: string;
   description: string;
   price: number;
-  features: string[];
   isAvailable: boolean;
 }
 
@@ -37,14 +36,6 @@ const courses: Course[] = [
     name: 'Year-end Preparation Course',
     description: 'Master Canadian accounting standards and software with our comprehensive course.',
     price: 950,
-    features: [
-      'Perfect for newcomers to Canada',
-      'Hands-on training with Canadian accounting software',
-      'ESL-friendly course materials',
-      'Flexible online schedule',
-      '40-hour intensive program',
-      'Six comprehensive blocks'
-    ],
     isAvailable: true
   },
   {
@@ -52,14 +43,6 @@ const courses: Course[] = [
     name: 'Bookkeeping Essentials Course',
     description: 'Master the fundamentals of bookkeeping with our comprehensive course.',
     price: 950,
-    features: [
-      'Perfect for beginners',
-      'Step-by-step learning approach',
-      'Practical exercises',
-      'Industry-standard software training',
-      'Career guidance',
-      'Certificate upon completion'
-    ],
     isAvailable: false
   },
   {
@@ -67,14 +50,6 @@ const courses: Course[] = [
     name: 'Financial Literacy for Entrepreneurs',
     description: 'Essential knowledge for business owners and entrepreneurs.',
     price: 950,
-    features: [
-      'Business finance basics',
-      'Financial planning',
-      'Tax optimization',
-      'Cash flow management',
-      'Business growth strategies',
-      'Investment fundamentals'
-    ],
     isAvailable: false
   }
 ];
@@ -177,7 +152,8 @@ export default function EnrollmentPage() {
       return total + (service?.price || 0);
     }, 0);
 
-    return coursePrice + packagePrice + servicesPrice;
+    // For now, we only use the package price as the base price
+    return packagePrice + servicesPrice;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -198,17 +174,17 @@ export default function EnrollmentPage() {
       <Header />
       <main className="grow">
         <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
+          <div className="mt-18 max-w-3xl mx-auto">
             <div className="pb-12 text-center">
-              <H1 className="mb-6 border-y text-4xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-5xl">
+              <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
                 Enroll in a Course
-              </H1>
+              </h2>
             </div>
             
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Course Selection */}
-              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-                <h2 className="text-xl font-semibold mb-4">Select a Course</h2>
+              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
+                <h3 className="font-semibold mb-4">Select a Course</h3>
                 <div className="grid grid-cols-1 gap-4">
                   {courses.map((course) => (
                     <label
@@ -229,29 +205,17 @@ export default function EnrollmentPage() {
                       <div>
                         <div className="flex justify-between items-start">
                           <div>
-                            <h3 className="font-medium text-lg">{course.name}</h3>
-                            <p className="text-gray-600 mt-1">{course.description}</p>
+                            <p className="font-medium text-md">{course.name}</p>
+                            <p className="text-sm text-gray-600 mt-1">{course.description}</p>
                           </div>
                           <div className="flex flex-col items-end">
-                            <span className="font-semibold text-lg">${course.price}+</span>
+                            <span className="font-semibold text-lg text-blue-800">${course.price}+</span>
                             {!course.isAvailable && (
                               <span className="mt-2 inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
                                 Coming Soon
                               </span>
                             )}
                           </div>
-                        </div>
-                        
-                        <div className="mt-4">
-                          <h4 className="font-medium mb-2">Course Features:</h4>
-                          <ul className="space-y-2">
-                            {course.features.map((feature) => (
-                              <li key={feature} className="flex items-start">
-                                <span className="flex-shrink-0 h-5 w-5 text-green-500">✓</span>
-                                <span className="ml-2 text-gray-600">{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
                         </div>
                       </div>
                     </label>
@@ -260,9 +224,9 @@ export default function EnrollmentPage() {
               </div>
 
               {/* Package Selection */}
-              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-                <h2 className="text-xl font-semibold mb-4">Select a Package</h2>
-                <div className="grid grid-cols-1 gap-4">
+              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
+                <h3 className="font-semibold mb-4">Select a Package</h3>
+                <div className="grid grid-cols-3 gap-4">
                   {packages.map((pkg) => (
                     <label
                       key={pkg.id}
@@ -281,24 +245,10 @@ export default function EnrollmentPage() {
                       <div>
                         <div className="flex justify-between items-start">
                           <div>
-                            <h3 className="font-medium text-lg">{pkg.name}</h3>
-                            <p className="text-gray-600 mt-1">{pkg.description}</p>
+                            <p className="font-medium text-md">{pkg.name}</p>
+                            <p className="text-xs text-gray-600 mt-1">{pkg.description}</p>
                           </div>
-                          <span className="font-semibold text-lg">${pkg.price}</span>
-                        </div>
-                        
-                        <div className="mt-4">
-                          <h4 className="font-medium mb-2">Package Features:</h4>
-                          <ul className="space-y-2">
-                            {features.map((feature, index) => (
-                              <li key={feature} className="flex items-start">
-                                <span className={`flex-shrink-0 h-5 w-5 ${pkg.features[index] ? 'text-green-500' : 'text-gray-300'}`}>
-                                  {pkg.features[index] ? '✓' : '×'}
-                                </span>
-                                <span className="ml-2 text-gray-600">{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
+                          <span className="font-semibold text-lg text-blue-800">${pkg.price}</span>
                         </div>
                       </div>
                     </label>
@@ -307,13 +257,15 @@ export default function EnrollmentPage() {
               </div>
 
               {/* Additional Services */}
-              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-                <h2 className="text-xl font-semibold mb-4">Additional Services</h2>
-                <div className="grid grid-cols-1 gap-4">
+              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
+                <h3 className="font-semibold mb-4">Additional Services</h3>
+                <div className="grid grid-cols-2 gap-4">
                   {additionalServices.map((service) => (
                     <label
                       key={service.id}
-                      className="flex items-start space-x-4 border rounded-lg p-4 hover:border-blue-500 transition-colors"
+                      className={`border rounded-lg p-4 cursor-pointer transition-colors ${
+                        selectedServices.includes(service.id) ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'
+                      }`}
                     >
                       <input
                         type="checkbox"
@@ -326,15 +278,15 @@ export default function EnrollmentPage() {
                             setSelectedServices(selectedServices.filter(id => id !== service.id));
                           }
                         }}
-                        className="mt-1 h-4 w-4 text-blue-600"
+                        className="hidden"
                       />
-                      <div className="flex-1">
+                      <div>
                         <div className="flex justify-between items-start">
                           <div>
-                            <h3 className="font-medium text-lg">{service.name}</h3>
-                            <p className="text-gray-600 mt-1">{service.description}</p>
+                            <p className="font-medium md">{service.name}</p>
+                            <p className="text-gray-600 mt-1 text-sm">{service.description}</p>
                           </div>
-                          <span className="font-semibold text-lg">${service.price}</span>
+                          <span className="font-semibold text-lg text-blue-600">${service.price}</span>
                         </div>
                       </div>
                     </label>
@@ -343,8 +295,8 @@ export default function EnrollmentPage() {
               </div>
 
               {/* Personal Information */}
-              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-                <h2 className="text-xl font-semibold mb-4">Personal Information</h2>
+              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
+                <h3 className="font-semibold mb-4">Personal Information</h3>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-sm font-medium text-gray-700">First Name</label>
@@ -390,14 +342,14 @@ export default function EnrollmentPage() {
               </div>
 
               {/* Total and Submit */}
-              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
+              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03] w-1/2 m-auto">
                 <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-xl font-semibold">Total Amount</h2>
+                  <h3 className="font-semibold">Total Amount:</h3>
                   <span className="text-2xl font-bold text-blue-600">${calculateTotal()}</span>
                 </div>
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="cursor-pointer w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Proceed to Payment
                 </Button>

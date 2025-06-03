@@ -202,7 +202,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
+  *:not(html):not(body):not(div:first-child),
   ::after,
   ::before,
   ::backdrop,
