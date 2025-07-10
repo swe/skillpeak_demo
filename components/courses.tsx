@@ -101,7 +101,7 @@ const Courses = () => {
                 <p className="mt-2 text-sm text-gray-600">{course.description}</p>
                 
                 {!course.isAvailable && (
-                  <div className="mt-4 inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+                  <div className="mt-4 inline-block rounded-full bg-teal-100 px-3 py-1 text-sm font-medium text-teal-800">
                     Coming Soon
                   </div>
                 )}
@@ -153,7 +153,7 @@ const Courses = () => {
                   {course.isAvailable && (
                       <a href="/enroll">
                         <button
-                            className="cursor-pointer w-full py-3 px-4 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700"
+                            className="cursor-pointer w-full py-3 px-4 rounded-md text-sm font-medium bg-teal-600 text-white hover:bg-teal-700"
                         >
                           Enroll Now
                         </button>

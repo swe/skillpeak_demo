@@ -152,7 +152,7 @@ const HeroHome = () => {
                       key={feature} 
                       className="flex gap-8 items-start"
                     >
-                      <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-2xl">
+                      <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-teal-600 flex items-center justify-center text-teal-600 font-bold text-2xl">
                         {String(index + 1).padStart(2, '0')}
                       </div>
                       <div className="flex-1 text-left">

@@ -49,7 +49,7 @@ const HowItWorks = () => {
         <div className="space-y-8">
           {steps.map((step) => (
             <div key={step.number} className="flex gap-8 items-start">
-              <div className="text-sm flex-shrink-0 w-8 h-8 rounded-full border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-2xl">
+              <div className="text-sm flex-shrink-0 w-8 h-8 rounded-full border-2 border-teal-600 flex items-center justify-center text-teal-600 font-bold text-2xl">
                 {step.number}
               </div>
               <div className="flex-1">

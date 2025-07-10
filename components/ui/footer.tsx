@@ -20,7 +20,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
             <ul className="flex gap-1">
               <li>
                 <Link
-                    className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
+                    className="flex items-center justify-center text-teal-500 transition hover:text-teal-600"
                     href="#0"
                     aria-label="Twitter"
                 >
@@ -35,7 +35,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                    className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
+                    className="flex items-center justify-center text-teal-500 transition hover:text-teal-600"
                     href="#0"
                     aria-label="Medium"
                 >
@@ -50,7 +50,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                    className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
+                    className="flex items-center justify-center text-teal-500 transition hover:text-teal-600"
                     href="#0"
                     aria-label="Github"
                 >
