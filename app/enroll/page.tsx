@@ -156,6 +156,31 @@ export default function EnrollmentPage() {
     return packagePrice + servicesPrice;
   };
 
+  // Helper to get available additional services based on selected package
+  const getAvailableServices = () => {
+    if (selectedPackage === 'premium') {
+      // Premium excludes software practicum, resume building, job interview tips, personal session
+      return additionalServices.filter(
+        (s) =>
+          s.id !== 'software-practicum' &&
+          s.id !== 'resume-building' &&
+          s.id !== 'job-interview' &&
+          s.id !== 'personal-session'
+      );
+    } else if (selectedPackage === 'pro') {
+      // Pro excludes software practicum
+      return additionalServices.filter((s) => s.id !== 'software-practicum');
+    }
+    // Standard: all services available
+    return additionalServices;
+  };
+
+  // Auto-deselect unavailable services when package changes
+  React.useEffect(() => {
+    const availableIds = getAvailableServices().map((s) => s.id);
+    setSelectedServices((prev) => prev.filter((id) => availableIds.includes(id)));
+  }, [selectedPackage]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically handle the payment process
@@ -260,7 +285,7 @@ export default function EnrollmentPage() {
               <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
                 <h3 className="font-semibold mb-4">Additional Services</h3>
                 <div className="grid grid-cols-2 gap-4">
-                  {additionalServices.map((service) => (
+                  {getAvailableServices().map((service) => (
                     <label
                       key={service.id}
                       className={`border rounded-lg p-4 cursor-pointer transition-colors ${
