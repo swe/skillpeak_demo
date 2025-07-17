@@ -4,7 +4,6 @@ export const metadata = {
 };
 
 import Hero from "@/components/hero-home";
-import TestimonialsCarousel from "@/components/testimonials-carousel";
 import Faqs from "@/components/faqs";
 import PricingTables from "@/components/pricing-tables";
 import Courses from "@/components/courses";

@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className="fixed top-2 z-30 w-full md:top-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative flex h-14 items-center rounded-2xl bg-white/90 px-3 shadow-lg shadow-black/[0.03] backdrop-blur-xs before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
+        <div className="relative flex h-14 items-center tile-white-blur px-3 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
           {/* Site branding */}
           <div className="flex flex-1 items-center min-w-0">
             <Link
@@ -57,7 +57,13 @@ export default function Header() {
               <div className="flex items-center">
                 <Link
                   href="http://178.128.232.165/moodle/login/"
-                  className="btn-sm bg-white text-gray-800 shadow-sm hover:bg-gray-50"
+                  className="btn-sm text-white shadow-sm"
+                  style={{
+                    background: 'linear-gradient(to bottom, #02C1B6 0%, #0395A6 100%)',
+                    filter: 'none',
+                  }}
+                  onMouseOver={e => e.currentTarget.style.filter = 'brightness(0.9)'}
+                  onMouseOut={e => e.currentTarget.style.filter = 'none'}
                 >
                   Sign in
                 </Link>
@@ -67,8 +73,8 @@ export default function Header() {
             <>
               {/* Desktop navigation - центрируем абсолютно */}
               <nav className="hidden md:flex absolute left-1/2 top-0 h-full -translate-x-1/2 items-center z-10">
-                <ul className="flex flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
-                  <li className="px-3 py-1">
+                <ul className="flex items-center justify-center gap-2 lg:gap-5 text-xs lg:text-sm whitespace-nowrap overflow-x-auto scrollbar-none px-1">
+                  <li className="px-2 py-1 lg:px-3 lg:py-1">
                     <a
                       href="#courses"
                       className="flex items-center text-gray-700 transition hover:text-gray-900"
@@ -77,7 +83,7 @@ export default function Header() {
                       Courses
                     </a>
                   </li>
-                  <li className="px-3 py-1">
+                  <li className="px-2 py-1 lg:px-3 lg:py-1">
                     <a
                       href="#how-it-works"
                       className="flex items-center text-gray-700 transition hover:text-gray-900"
@@ -86,7 +92,7 @@ export default function Header() {
                       How It Works
                     </a>
                   </li>
-                  <li className="px-3 py-1">
+                  <li className="px-2 py-1 lg:px-3 lg:py-1">
                     <a
                       href="#faq"
                       className="flex items-center text-gray-700 transition hover:text-gray-900"
@@ -95,7 +101,7 @@ export default function Header() {
                       FAQ
                     </a>
                   </li>
-                  <li className="px-3 py-1">
+                  <li className="px-2 py-1 lg:px-3 lg:py-1">
                     <a
                       href="#pricing"
                       className="flex items-center text-gray-700 transition hover:text-gray-900"
@@ -104,7 +110,7 @@ export default function Header() {
                       Pricing
                     </a>
                   </li>
-                  <li className="px-3 py-1">
+                  <li className="px-2 py-1 lg:px-3 lg:py-1">
                     <a
                       href="#contact"
                       className="flex items-center text-gray-700 transition hover:text-gray-900"
@@ -119,7 +125,13 @@ export default function Header() {
               <div className="hidden md:flex flex-1 items-center justify-end">
                 <Link
                   href="http://178.128.232.165/moodle/login/"
-                  className="btn-sm bg-white text-gray-800 shadow-sm hover:bg-gray-50"
+                  className="btn-sm text-white shadow-sm"
+                  style={{
+                    background: 'linear-gradient(to bottom, #02C1B6 0%, #0395A6 100%)',
+                    filter: 'none',
+                  }}
+                  onMouseOver={e => e.currentTarget.style.filter = 'brightness(0.9)'}
+                  onMouseOut={e => e.currentTarget.style.filter = 'none'}
                 >
                   Sign in
                 </Link>

@@ -52,7 +52,7 @@ export default function Accordion({
         aria-labelledby={`accordion-title-${id}`}
         className={`grid overflow-hidden text-sm text-gray-600 transition-all duration-300 ease-in-out ${accordionOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
       >
-        <div className="overflow-hidden">
+        <div className="overflow-hidden border-t border-solid" style={{ borderTopColor: 'rgba(156,163,175,0.3)' }}>
           <p className="px-4 pb-3 text-left">{children}</p>
         </div>
       </div>

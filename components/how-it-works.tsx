@@ -36,7 +36,7 @@ const HowItWorks = () => {
 
   return (
     <div className="relative pb-10" data-aos="zoom-y-out" data-aos-delay="100">
-      <div className="pb-8 text-center">
+      <div className="mx-auto max-w-5xl px-4 pb-8 text-center">
         <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
           How It Works
         </h2>
@@ -45,11 +45,11 @@ const HowItWorks = () => {
         </p>
       </div>
 
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+      <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
         <div className="space-y-8">
           {steps.map((step) => (
             <div key={step.number} className="flex gap-8 items-start">
-              <div className="text-sm flex-shrink-0 w-8 h-8 rounded-full border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-2xl">
+              <div className="text-sm flex-shrink-0 w-8 h-8 rounded-full border-2 border-teal-600 flex items-center justify-center text-teal-600 font-bold text-2xl">
                 {step.number}
               </div>
               <div className="flex-1">

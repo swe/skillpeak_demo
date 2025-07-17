@@ -95,13 +95,13 @@ const Courses = () => {
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="grid gap-8 md:grid-cols-3 md:items-start">
           {courses.map((course) => (
-            <div key={course.title} className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div key={course.title} className="tile-white-blur overflow-hidden">
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900">{course.title}</h3>
                 <p className="mt-2 text-sm text-gray-600">{course.description}</p>
                 
                 {!course.isAvailable && (
-                  <div className="mt-4 inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+                  <div className="mt-4 inline-block rounded-full bg-teal-100 px-3 py-1 text-sm font-medium text-teal-800">
                     Coming Soon
                   </div>
                 )}
@@ -153,7 +153,7 @@ const Courses = () => {
                   {course.isAvailable && (
                       <a href="/enroll">
                         <button
-                            className="cursor-pointer w-full py-3 px-4 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700"
+                            className="cursor-pointer w-full py-3 px-4 rounded-md text-sm font-medium bg-teal-600 text-white hover:bg-teal-700"
                         >
                           Enroll Now
                         </button>

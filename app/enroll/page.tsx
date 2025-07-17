@@ -156,6 +156,31 @@ export default function EnrollmentPage() {
     return packagePrice + servicesPrice;
   };
 
+  // Helper to get available additional services based on selected package
+  const getAvailableServices = () => {
+    if (selectedPackage === 'premium') {
+      // Premium excludes software practicum, resume building, job interview tips, personal session
+      return additionalServices.filter(
+        (s) =>
+          s.id !== 'software-practicum' &&
+          s.id !== 'resume-building' &&
+          s.id !== 'job-interview' &&
+          s.id !== 'personal-session'
+      );
+    } else if (selectedPackage === 'pro') {
+      // Pro excludes software practicum
+      return additionalServices.filter((s) => s.id !== 'software-practicum');
+    }
+    // Standard: all services available
+    return additionalServices;
+  };
+
+  // Auto-deselect unavailable services when package changes
+  React.useEffect(() => {
+    const availableIds = getAvailableServices().map((s) => s.id);
+    setSelectedServices((prev) => prev.filter((id) => availableIds.includes(id)));
+  }, [selectedPackage]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically handle the payment process
@@ -190,7 +215,7 @@ export default function EnrollmentPage() {
                     <label
                       key={course.id}
                       className={`border rounded-lg p-4 cursor-pointer transition-colors ${
-                        selectedCourse === course.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'
+                        selectedCourse === course.id ? 'border-teal-500 bg-teal-50' : 'border-gray-200 hover:border-teal-300'
                       } ${!course.isAvailable ? 'opacity-75' : ''}`}
                     >
                       <input
@@ -209,9 +234,9 @@ export default function EnrollmentPage() {
                             <p className="text-sm text-gray-600 mt-1">{course.description}</p>
                           </div>
                           <div className="flex flex-col items-end">
-                            <span className="font-semibold text-lg text-blue-800">${course.price}+</span>
+                            <span className="font-semibold text-lg text-teal-800">${course.price}+</span>
                             {!course.isAvailable && (
-                              <span className="mt-2 inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+                              <span className="mt-2 inline-block rounded-full bg-teal-100 px-3 py-1 text-sm font-medium text-teal-800">
                                 Coming Soon
                               </span>
                             )}
@@ -231,7 +256,7 @@ export default function EnrollmentPage() {
                     <label
                       key={pkg.id}
                       className={`border rounded-lg p-4 cursor-pointer transition-colors ${
-                        selectedPackage === pkg.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'
+                        selectedPackage === pkg.id ? 'border-teal-500 bg-teal-50' : 'border-gray-200 hover:border-teal-300'
                       }`}
                     >
                       <input
@@ -248,7 +273,7 @@ export default function EnrollmentPage() {
                             <p className="font-medium text-md">{pkg.name}</p>
                             <p className="text-xs text-gray-600 mt-1">{pkg.description}</p>
                           </div>
-                          <span className="font-semibold text-lg text-blue-800">${pkg.price}</span>
+                          <span className="font-semibold text-lg text-teal-800">${pkg.price}</span>
                         </div>
                       </div>
                     </label>
@@ -260,11 +285,11 @@ export default function EnrollmentPage() {
               <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
                 <h3 className="font-semibold mb-4">Additional Services</h3>
                 <div className="grid grid-cols-2 gap-4">
-                  {additionalServices.map((service) => (
+                  {getAvailableServices().map((service) => (
                     <label
                       key={service.id}
                       className={`border rounded-lg p-4 cursor-pointer transition-colors ${
-                        selectedServices.includes(service.id) ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-blue-300'
+                        selectedServices.includes(service.id) ? 'border-teal-500 bg-teal-50' : 'border-gray-200 hover:border-teal-300'
                       }`}
                     >
                       <input
@@ -286,7 +311,7 @@ export default function EnrollmentPage() {
                             <p className="font-medium md">{service.name}</p>
                             <p className="text-gray-600 mt-1 text-sm">{service.description}</p>
                           </div>
-                          <span className="font-semibold text-lg text-blue-600">${service.price}</span>
+                          <span className="font-semibold text-lg text-teal-600">${service.price}</span>
                         </div>
                       </div>
                     </label>
@@ -305,7 +330,7 @@ export default function EnrollmentPage() {
                       required
                       value={personalInfo.firstName}
                       onChange={(e) => setPersonalInfo({...personalInfo, firstName: e.target.value})}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                     />
                   </div>
                   <div>
@@ -315,7 +340,7 @@ export default function EnrollmentPage() {
                       required
                       value={personalInfo.lastName}
                       onChange={(e) => setPersonalInfo({...personalInfo, lastName: e.target.value})}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                     />
                   </div>
                   <div>
@@ -325,7 +350,7 @@ export default function EnrollmentPage() {
                       required
                       value={personalInfo.email}
                       onChange={(e) => setPersonalInfo({...personalInfo, email: e.target.value})}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                     />
                   </div>
                   <div>
@@ -335,7 +360,7 @@ export default function EnrollmentPage() {
                       required
                       value={personalInfo.phone}
                       onChange={(e) => setPersonalInfo({...personalInfo, phone: e.target.value})}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                     />
                   </div>
                 </div>
@@ -345,11 +370,11 @@ export default function EnrollmentPage() {
               <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03] w-1/2 m-auto">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="font-semibold">Total Amount:</h3>
-                  <span className="text-2xl font-bold text-blue-600">${calculateTotal()}</span>
+                  <span className="text-2xl font-bold text-teal-600">${calculateTotal()}</span>
                 </div>
                 <Button
                   type="submit"
-                  className="cursor-pointer w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="shadow-sm text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
                 >
                   Proceed to Payment
                 </Button>
