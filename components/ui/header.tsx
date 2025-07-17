@@ -12,7 +12,12 @@ export default function Header() {
   return (
     <header className="fixed top-2 z-30 w-full md:top-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative flex h-14 items-center tile-white-blur px-3 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
+        <div className={
+          `relative flex h-14 items-center px-3 rounded-xl ` +
+          `before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent ` +
+          `before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ` +
+          `md:tile-white-blur bg-white md:bg-transparent header-desktop-bg`
+        }>
           {/* Site branding */}
           <div className="flex flex-1 items-center min-w-0">
             <Link

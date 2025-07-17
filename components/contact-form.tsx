@@ -2,72 +2,80 @@ import React from 'react';
 
 const ContactForm = () => {
   return (
-
-      <div className="relative pb-10" data-aos="zoom-y-out" data-aos-delay="100">
-        <div className="mx-auto max-w-5xl px-4 pb-8 text-center">
-        <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
-          Contact Us
-        </h2>
-        <p className="text-lg text-gray-600">
-        Your pass to building a new career starts here
-        </p>
-      </div>
-        <div className="mx-auto w-full max-w-3xl px-4 md:px-6">
-        <form className="space-y-6">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div className="flex justify-center items-center min-h-[60vh] py-8 px-2">
+      <div className="tile-white-blur w-full max-w-lg mx-auto p-6 md:p-8 rounded-2xl shadow-xl border border-gray-200">
+        <div className="text-center mb-6">
+          <div className="flex justify-center">
+            <img
+              src="/images/contact.png"
+              alt="Contact Icon"
+              className="w-16 h-16 object-contain"
+            />
+          </div>
+          <h2 className="pb-2 text-3xl font-bold">
+            Contact Us
+          </h2>
+          <p className="text-base text-gray-600 mt-2">
+            Your pass to building a new career starts here
+          </p>
+        </div>
+        <form className="space-y-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="first-name" className="block text-xs font-medium text-gray-700 mb-1">
                 First Name
               </label>
               <input
                 type="text"
                 name="first-name"
                 id="first-name"
-                className="cursor-pointer mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="form-input"
               />
             </div>
-
             <div>
-              <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="last-name" className="block text-xs font-medium text-gray-700 mb-1">
                 Last Name
               </label>
               <input
                 type="text"
                 name="last-name"
                 id="last-name"
-                className="cursor-pointer mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="form-input"
               />
             </div>
           </div>
-
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-xs font-medium text-gray-700 mb-1">
               Email
             </label>
             <input
               type="email"
               name="email"
               id="email"
-              className="cursor-pointer mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="form-input"
             />
           </div>
-
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="message" className="block text-xs font-medium text-gray-700 mb-1">
               Message
             </label>
             <textarea
               id="message"
               name="message"
-              rows={4}
-              className="cursor-pointer mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              rows={3}
+              className="form-input resize-none"
             />
           </div>
-
-          <div>
+          <div className="w-full flex justify-center pt-2">
             <button
               type="submit"
-              className="cursor-pointer w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="btn-sm text-white shadow-sm rounded border border-[#02C1B6]"
+              style={{
+                background: 'linear-gradient(to bottom, #02C1B6 0%, #0395A6 100%)',
+                filter: 'none',
+                minWidth: 120,
+                textAlign: 'center',
+              }}
             >
               Send Message
             </button>

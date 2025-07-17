@@ -26,7 +26,7 @@ export default function Home() {
       <section id="pricing">
         <PricingTables />
       </section>
-      <section id="contact">
+      <section id="contact" className="mt-16">
         <ContactForm />
       </section>
     </>

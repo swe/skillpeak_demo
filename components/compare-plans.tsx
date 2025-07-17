@@ -55,7 +55,7 @@ const ComparePlans = () => {
       </div>
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="pb-12 md:pb-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {/* Standard Plan */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="p-6">

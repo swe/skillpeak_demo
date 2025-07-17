@@ -216,13 +216,14 @@ html, body {
   background: linear-gradient(to bottom, #02C1B6 0%, #0395A6 100%);
   background-attachment: fixed;
   background-repeat: no-repeat;
+  overflow-x: hidden;
 }
 
 /* White, blurry, semi-transparent tile utility */
 .tile-white-blur {
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.6); /* reduced opacity for more glass effect */
+  backdrop-filter: blur(24px); /* increased blur */
+  -webkit-backdrop-filter: blur(24px);
   border-radius: 1rem;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
 }
@@ -274,4 +275,12 @@ html, body {
 
 .animate-\[pulse_2\.5s_ease-in-out_infinite\] {
   animation: pulse 2.5s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .header-desktop-bg {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
 }

@@ -75,11 +75,11 @@ export default function PricingTables() {
             Pricing Plans
           </h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-10 md:gap-6 md:grid-cols-3">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex flex-col tile-white-blur p-8 transition-all duration-200 rounded-3xl ${plan.recommended ? "border-4 border-[#b2f1ee] scale-105 z-10 bg-white/90" : "border border-gray-200 bg-white/80"}`}
+              className={`relative flex flex-col tile-white-blur p-8 transition-all duration-200 rounded-3xl ${plan.recommended ? "border-4 border-[#b2f1ee] md:scale-105 md:z-10 bg-white/90" : "border border-gray-200 bg-white/80"}`}
               style={{ fontFamily: "var(--font-sans)", boxShadow: "0 8px 32px 0 rgba(2, 193, 182, 0.10), 0 1.5px 6px 0 rgba(60, 60, 60, 0.08)" }}
             >
               {/* Recommendation badge: фирменные лазурные цвета */}
