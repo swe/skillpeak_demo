@@ -69,14 +69,11 @@ export default function Footer({ border = false }: { border?: boolean }) {
       </div>
 
       {/* Big text */}
-      <div className="relative h-60 w-full" aria-hidden="true">
-        <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 text-center text-[348px] font-bold leading-none before:bg-linear-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Skillpeak'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Skillpeak'] after:[text-shadow:0_1px_0_white]"></div>
-        {/* Glow */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-2/3"
-          aria-hidden="true"
-        >
-          <div className="h-56 w-56 rounded-full border-[20px] border-blue-700 blur-[80px] will-change-[filter]"></div>
+      <div className="relative h-32 w-full overflow-x-hidden overflow-y-hidden" aria-hidden="true">
+        <div className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 w-full max-w-full text-center font-bold leading-none text-gray-200 opacity-10 select-none overflow-hidden" style={{fontSize: 'clamp(20px, 10vw, 60px)', letterSpacing: '-0.05em', userSelect: 'none'}}>
+          <span className="block sm:inline">Skillpeak</span>
+          <br className="sm:hidden" />
+          <span className="block sm:inline">Academy</span>
         </div>
       </div>
     </footer>

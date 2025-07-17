@@ -8,7 +8,7 @@ export default function PricingTables() {
   return (
       <div className="relative pb-10" data-aos="zoom-y-out" data-aos-delay="100">
         <div className="pb-8 text-center">
-          <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
+          <h2 className="py-2 text-5xl font-bold md:text-6xl text-white">
             Our Pricing
           </h2>
         </div>
@@ -24,7 +24,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-2" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-01">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-01">
                         Course package
                       </button>
                     </div>
@@ -33,7 +33,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-3" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-02">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-02">
                         Video course
                       </button>
                     </div>
@@ -42,7 +42,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-4" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-03">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-03">
                         Webinar library
                       </button>
                     </div>
@@ -51,7 +51,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-5" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-04">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-04">
                         Practice quizzes
                       </button>
                     </div>
@@ -60,7 +60,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-6" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-05">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-05">
                         Software practicum
                       </button>
                     </div>
@@ -72,7 +72,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-8" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-06">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-06">
                         Mentorship (student)
                       </button>
                     </div>
@@ -81,7 +81,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-9" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-07">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-07">
                         Mentorship (career)
                       </button>
                     </div>
@@ -90,7 +90,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-10" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-08">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-08">
                         Practical experience
                       </button>
                     </div>
@@ -99,7 +99,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-11" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-09">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-09">
                         Resume building
                       </button>
                     </div>
@@ -108,7 +108,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-12" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-10">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-10">
                         Job interview tips
                       </button>
                     </div>
@@ -117,7 +117,7 @@ export default function PricingTables() {
                 <div className="flex flex-col justify-end px-4 max-md:hidden md:order-13" aria-hidden="true">
                   <div className="border-b border-gray-200 py-3 text-sm">
                     <div className="relative">
-                      <button className="block cursor-help text-left text-gray-500 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-11">
+                      <button className="block cursor-help text-left text-gray-900 underline decoration-gray-300 decoration-dotted underline-offset-4" aria-describedby="tooltip-11">
                         Personal session
                       </button>
                     </div>

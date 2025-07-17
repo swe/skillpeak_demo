@@ -21,15 +21,15 @@
   --text-xs--line-height: 1.5;
   --text-sm: 0.875rem;
   --text-sm--line-height: 1.5715;
-  --text-base: 1rem;
-  --text-base--line-height: 1.5;
-  --text-base--letter-spacing: -0.017em;
-  --text-lg: 1.125rem;
-  --text-lg--line-height: 1.5;
-  --text-lg--letter-spacing: -0.017em;
-  --text-xl: 1.25rem;
+  --text-base: 1.05rem;
+  --text-base--line-height: 1.7;
+  --text-base--letter-spacing: -0.01em;
+  --text-lg: 1.2rem;
+  --text-lg--line-height: 1.6;
+  --text-lg--letter-spacing: -0.01em;
+  --text-xl: 1.4rem;
   --text-xl--line-height: 1.5;
-  --text-xl--letter-spacing: -0.017em;
+  --text-xl--letter-spacing: -0.01em;
   --text-2xl: 1.5rem;
   --text-2xl--line-height: 1.415;
   --text-2xl--letter-spacing: -0.037em;
@@ -209,4 +209,15 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+}
+
+html, body {
+  min-height: 100dvh;
+  background: linear-gradient(to bottom, #02C1B6 0%, #0395A6 100%) !important;
+  background-attachment: fixed;
+  color: var(--color-gray-900);
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }

@@ -198,7 +198,7 @@ export default function EnrollmentPage() {
     <>
       <Header />
       <main className="grow">
-        <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
           <div className="mt-18 max-w-3xl mx-auto">
             <div className="pb-12 text-center">
               <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
@@ -208,7 +208,7 @@ export default function EnrollmentPage() {
             
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Course Selection */}
-              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
+              <div className="bg-white/80 backdrop-blur-md p-6 rounded-lg shadow-lg shadow-black/[0.03]">
                 <h3 className="font-semibold mb-4">Select a Course</h3>
                 <div className="grid grid-cols-1 gap-4">
                   {courses.map((course) => (
@@ -249,7 +249,7 @@ export default function EnrollmentPage() {
               </div>
 
               {/* Package Selection */}
-              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
+              <div className="bg-white/80 backdrop-blur-md p-6 rounded-lg shadow-lg shadow-black/[0.03]">
                 <h3 className="font-semibold mb-4">Select a Package</h3>
                 <div className="grid grid-cols-3 gap-4">
                   {packages.map((pkg) => (
@@ -282,7 +282,7 @@ export default function EnrollmentPage() {
               </div>
 
               {/* Additional Services */}
-              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
+              <div className="bg-white/80 backdrop-blur-md p-6 rounded-lg shadow-lg shadow-black/[0.03]">
                 <h3 className="font-semibold mb-4">Additional Services</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {getAvailableServices().map((service) => (
@@ -320,7 +320,7 @@ export default function EnrollmentPage() {
               </div>
 
               {/* Personal Information */}
-              <div className="bg-white p-6 rounded-lg shadow-lg shadow-black/[0.03]">
+              <div className="bg-white/80 backdrop-blur-md p-6 rounded-lg shadow-lg shadow-black/[0.03]">
                 <h3 className="font-semibold mb-4">Personal Information</h3>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>

@@ -7,33 +7,11 @@ interface CardProps {
   variant?: 'default' | 'bordered' | 'elevated';
 }
 
-export const Card: React.FC<CardProps> = ({
-  children,
-  className = '',
-  padding = 'md',
-  variant = 'default'
-}) => {
-  const baseStyles = 'rounded-lg bg-white';
-  
-  const paddings = {
-    none: '',
-    sm: 'p-3',
-    md: 'p-6',
-    lg: 'p-8'
-  };
-  
-  const variants = {
-    default: 'shadow-sm',
-    bordered: 'border border-gray-200',
-    elevated: 'shadow-lg'
-  };
-  
-  return (
-    <div className={`${baseStyles} ${paddings[padding]} ${variants[variant]} ${className}`}>
-      {children}
-    </div>
-  );
-};
+export const Card = ({ children, className = '', ...props }: CardProps) => (
+  <div className={`rounded-2xl bg-white/80 backdrop-blur-md shadow-md border border-[var(--color-gray-200)] p-6 ${className}`} {...props}>
+    {children}
+  </div>
+);
 
 interface CardHeaderProps {
   children: React.ReactNode;
