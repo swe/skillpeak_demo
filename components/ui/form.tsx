@@ -21,7 +21,7 @@ export const Input: React.FC<InputProps> = ({
         </label>
       )}
       <input
-        className={`form-input w-full ${error ? 'border-red-500' : ''} ${className}`}
+        className={`form-input w-full border-[var(--color-gray-200)] focus:border-[var(--color-primary)] focus:ring-[var(--color-accent)] ${error ? 'border-red-500' : ''} ${className}`}
         {...props}
       />
       {error && (
@@ -55,7 +55,7 @@ export const Textarea: React.FC<TextareaProps> = ({
         </label>
       )}
       <textarea
-        className={`form-input w-full min-h-[100px] ${error ? 'border-red-500' : ''} ${className}`}
+        className={`form-input w-full min-h-[100px] border-[var(--color-gray-200)] focus:border-[var(--color-primary)] focus:ring-[var(--color-accent)] ${error ? 'border-red-500' : ''} ${className}`}
         {...props}
       />
       {error && (
@@ -91,7 +91,7 @@ export const Select: React.FC<SelectProps> = ({
         </label>
       )}
       <select
-        className={`form-input w-full ${error ? 'border-red-500' : ''} ${className}`}
+        className={`form-input w-full border-[var(--color-gray-200)] focus:border-[var(--color-primary)] focus:ring-[var(--color-accent)] ${error ? 'border-red-500' : ''} ${className}`}
         {...props}
       >
         {options.map((option) => (
@@ -128,7 +128,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       <label className="flex items-center">
         <input
           type="checkbox"
-          className={`h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded ${error ? 'border-red-500' : ''} ${className}`}
+          className={`h-4 w-4 text-[var(--color-primary)] focus:ring-[var(--color-accent)] border-[var(--color-gray-300)] rounded ${error ? 'border-red-500' : ''} ${className}`}
           {...props}
         />
         {label && (
