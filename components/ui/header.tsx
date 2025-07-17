@@ -16,43 +16,29 @@ export default function Header() {
           {/* Site branding */}
           <div className="flex flex-1 items-center min-w-0">
             <Link
-              className="block"
+              className="flex items-center gap-2"
               href="/"
               aria-label="SkillPeak"
             >
-              <svg
-                className="w-8 h-8"
-                viewBox="0 0 32 32"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <radialGradient
-                    cx="21.152%"
-                    cy="86.063%"
-                    fx="21.152%"
-                    fy="86.063%"
-                    r="79.941%"
-                    id="header-logo"
-                  >
-                    <stop stopColor="#4F46E5" offset="0%" />
-                    <stop stopColor="#4F46E5" offset="100%" />
-                  </radialGradient>
-                </defs>
-                <rect
-                  width="32"
-                  height="32"
-                  rx="16"
-                  fill="url(#header-logo)"
-                  fillRule="nonzero"
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-gray-200 bg-white overflow-hidden">
+                <img
+                  src="/images/skillpeak_logo.png"
+                  alt="SkillPeak Logo"
+                  className="object-contain w-8 h-8"
                 />
-              </svg>
+              </span>
+              {isEnrollPage && (
+                <span className="hidden md:inline text-lg font-semibold text-gray-900">SkillPeak Academy</span>
+              )}
             </Link>
           </div>
 
           {isEnrollPage ? (
             <>
-              {/* Center text for enroll page */}
-              <div className="absolute left-1/2 -translate-x-1/2 text-md text-gray-900 text-center w-full md:w-auto">SkillPeak Academy</div>
+              {/* Center text for enroll page (only on mobile) */}
+              <div className="absolute left-1/2 -translate-x-1/2 text-md text-gray-900 text-center w-full md:w-auto md:hidden">
+                <Link href="/" className="hover:underline">SkillPeak Academy</Link>
+              </div>
               {/* Sign in button */}
               <div className="flex items-center">
                 <Link

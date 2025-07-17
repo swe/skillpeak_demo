@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react';
 import Image from "next/image";
 import PageIllustration from "@/components/page-illustration";
+import NumberCircle from './number-circle';
 
 const HeroHome = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -145,16 +146,16 @@ const HeroHome = () => {
                 data-aos="zoom-y-out"
                 data-aos-delay={600}
               >
-                <h4 className="mb-8 text-2xl font-semibold text-gray-900 border-y [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] py-4">Why Choose Us</h4>
+                <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl mb-8">
+                  Why Choose Us
+                </h2>
                 <div className="space-y-4">
                   {features.map((feature, index) => (
                     <div 
                       key={feature} 
                       className="flex gap-8 items-start"
                     >
-                      <div className="flex-shrink-0 w-16 h-16 rounded-full border-2 border-teal-600 flex items-center justify-center text-teal-600 font-bold text-2xl">
-                        {String(index + 1).padStart(2, '0')}
-                      </div>
+                      <NumberCircle number={index + 1} size={64} className="flex-shrink-0" />
                       <div className="flex-1 text-left">
                         <h5 className="mb-1 text-gray-900">{feature}</h5>
                         <p className="text-sm text-gray-600 leading-relaxed">

@@ -1,4 +1,5 @@
 import React from 'react';
+import NumberCircle from './number-circle';
 
 const HowItWorks = () => {
   const steps = [
@@ -49,9 +50,7 @@ const HowItWorks = () => {
         <div className="space-y-8">
           {steps.map((step) => (
             <div key={step.number} className="flex gap-8 items-start">
-              <div className="text-sm flex-shrink-0 w-8 h-8 rounded-full border-2 border-teal-600 flex items-center justify-center text-teal-600 font-bold text-2xl">
-                {step.number}
-              </div>
+              <NumberCircle number={step.number} size={32} className="flex-shrink-0" />
               <div className="flex-1">
                 <p className="font-semibold text-gray-900">{step.title}</p>
                 <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
