@@ -13,7 +13,7 @@ const Hero = () => {
     <section className="relative">
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
-          <h1 className="mb-8 border-y [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1]">
+          <h1 className="mb-8 py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
             Welcome to SkillPeak Academy!
           </h1>
           <h2 className="mb-8 text-gray-900">

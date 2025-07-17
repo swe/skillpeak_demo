@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const plans = [
   {
@@ -90,6 +91,16 @@ export default function PricingTables() {
               )}
               {/* Название и цена: название менее заметно, цена акцентная */}
               <div className="flex flex-col items-center justify-center mb-4 mt-2 gap-1">
+                {/* Plan Icon */}
+                {plan.name === "Standard" && (
+                  <Image src="/images/standard.png" alt="Standard plan icon" width={96} height={96} className="mb-2" priority />
+                )}
+                {plan.name === "Pro" && (
+                  <Image src="/images/pro.png" alt="Pro plan icon" width={96} height={96} className="mb-2" priority />
+                )}
+                {plan.name === "Premium" && (
+                  <Image src="/images/premium.png" alt="Premium plan icon" width={96} height={96} className="mb-2" priority />
+                )}
                 <span className="text-base font-normal text-gray-500 tracking-wide mb-0.5">{plan.name}</span>
                 <span className="text-4xl font-extrabold text-primary flex items-center gap-1 leading-tight">
                   {plan.price}

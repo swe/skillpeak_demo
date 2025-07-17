@@ -54,7 +54,7 @@ const HeroHome = () => {
           <div className="text-center">
             {/* Main title */}
             <h1
-              className="text-5xl md:text-6xl font-bold text-gray-900"
+              className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl text-gray-900"
               data-aos="zoom-y-out"
               data-aos-delay={150}
             >

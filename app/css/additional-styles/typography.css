@@ -28,5 +28,5 @@ h6 {
 }
 
 p, li {
-  @apply text-lg text-gray-800 leading-relaxed;
+  @apply text-gray-800 leading-relaxed;
 } 

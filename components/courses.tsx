@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import Image from "next/image";
 
 const Courses = () => {
   const [expandedCourses, setExpandedCourses] = useState<{ [key: string]: boolean }>({});
@@ -96,21 +97,25 @@ const Courses = () => {
         <div className="grid gap-8 md:grid-cols-3 md:items-start">
           {courses.map((course) => (
             <div key={course.title} className="tile-white-blur overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900">{course.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">{course.description}</p>
-                
-                {!course.isAvailable && (
-                  <div className="mt-4 inline-block rounded-full bg-teal-100 px-3 py-1 text-sm font-medium text-teal-800">
-                    Coming Soon
-                  </div>
+              <div className="p-6 flex flex-col items-center">
+                {/* Course Icon Centered */}
+                {course.title === "Year-end Preparation Course" && (
+                  <Image src="/images/course1.png" alt="Year-end course icon" width={96} height={96} className="mb-4 mx-auto" priority />
                 )}
+                {course.title === "Bookkeeping Essentials Course" && (
+                  <Image src="/images/course2.png" alt="Bookkeeping course icon" width={96} height={96} className="mb-4 mx-auto" priority />
+                )}
+                {course.title === "Financial Literacy for Entrepreneurs" && (
+                  <Image src="/images/course3.png" alt="Financial Literacy course icon" width={96} height={96} className="mb-4 mx-auto" priority />
+                )}
+                <h3 className="text-xl font-semibold text-gray-900 text-center">{course.title}</h3>
+                <p className="mt-2 text-sm text-gray-600 text-center">{course.description}</p>
 
-                <ul className="mt-6 space-y-2">
+                <ul className="mt-6 space-y-2 text-left w-full">
                   {course.features.map((feature) => (
-                    <li key={feature} className="flex items-start">
-                      <span className="flex-shrink-0 h-6 w-6 text-green-500">✓</span>
-                      <span className="text-sm text-gray-600">{feature}</span>
+                    <li key={feature} className="flex items-baseline gap-2">
+                      <span className="flex-shrink-0 text-green-500 text-lg leading-none align-baseline">✓</span>
+                      <span className="text-sm text-gray-600 align-baseline">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -149,17 +154,14 @@ const Courses = () => {
                   </div>
                 )}
 
-                <div className="mt-8">
-                  {course.isAvailable && (
-                      <a href="/enroll">
-                        <button
-                            className="cursor-pointer w-full py-3 px-4 rounded-md text-sm font-medium bg-teal-600 text-white hover:bg-teal-700"
-                        >
-                          Enroll Now
-                        </button>
-                      </a>
-                  )}
-
+                <div className="mt-8 w-full">
+                  <a href="/enroll">
+                    <button
+                      className="cursor-pointer w-full py-3 px-4 rounded-md text-sm font-medium bg-teal-600 text-white hover:bg-teal-700"
+                    >
+                      Enroll Now
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -170,4 +172,4 @@ const Courses = () => {
   );
 };
 
-export default Courses; 
+export default Courses;
