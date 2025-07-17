@@ -16,10 +16,10 @@ export default function FeaturesHome() {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-24 text-center md:pb-28">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl text-white">
               Identify value much faster
             </h2>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-900">
               Use powerful yet familiar tools to create your ultimate website
               design. Import your files everywhere, including Figma.
             </p>
@@ -101,7 +101,7 @@ export default function FeaturesHome() {
                 </svg>
                 <span>Optimization</span>
               </h3>
-              <p className="text-[15px] text-gray-700">
+              <p className="text-[15px] text-gray-900">
                 Collect essential insights about how visitors are using your
                 site with in-depth page view metrics like pages, referring
                 sites, and more.
@@ -119,7 +119,7 @@ export default function FeaturesHome() {
                 </svg>
                 <span>Cookie Banner</span>
               </h3>
-              <p className="text-[15px] text-gray-700">
+              <p className="text-[15px] text-gray-900">
                 Collect essential insights about how visitors are using your
                 site with in-depth page view metrics like pages, referring
                 sites, and more.
@@ -137,7 +137,7 @@ export default function FeaturesHome() {
                 </svg>
                 <span>Custom Domain</span>
               </h3>
-              <p className="text-[15px] text-gray-700">
+              <p className="text-[15px] text-gray-900">
                 Collect essential insights about how visitors are using your
                 site with in-depth page view metrics like pages, referring
                 sites, and more.

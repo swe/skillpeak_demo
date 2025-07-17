@@ -53,7 +53,7 @@ const HeroHome = () => {
           <div className="text-center">
             {/* Main title */}
             <h1
-              className="text-5xl md:text-6xl font-bold text-gray-900"
+              className="text-5xl md:text-6xl font-bold text-white"
               data-aos="zoom-y-out"
               data-aos-delay={150}
             >
@@ -145,7 +145,7 @@ const HeroHome = () => {
                 data-aos="zoom-y-out"
                 data-aos-delay={600}
               >
-                <h4 className="mb-8 text-2xl font-semibold text-gray-900 border-y [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] py-4">Why Choose Us</h4>
+                <h4 className="mb-8 text-2xl font-semibold text-white py-4">Why Choose Us</h4>
                 <div className="space-y-4">
                   {features.map((feature, index) => (
                     <div 
@@ -157,7 +157,7 @@ const HeroHome = () => {
                       </div>
                       <div className="flex-1 text-left">
                         <h5 className="mb-1 text-gray-900">{feature}</h5>
-                        <p className="text-sm text-gray-600 leading-relaxed">
+                        <p className="text-sm text-gray-900 leading-relaxed">
                           {featureDescriptions[index]}
                         </p>
                       </div>

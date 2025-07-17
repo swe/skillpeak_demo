@@ -13,7 +13,7 @@ export const Card: React.FC<CardProps> = ({
   padding = 'md',
   variant = 'default'
 }) => {
-  const baseStyles = 'rounded-lg bg-white';
+  const baseStyles = 'rounded-lg bg-white/80 backdrop-blur-md';
   
   const paddings = {
     none: '',

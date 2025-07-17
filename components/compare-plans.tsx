@@ -49,7 +49,7 @@ const ComparePlans = () => {
   return (
     <section id="pricing" className="relative">
       <div className="pb-12 text-center">
-        <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
+        <h1 className="mb-6 text-5xl font-bold md:text-6xl text-white">
           Pricing
         </h1>
       </div>
@@ -57,21 +57,21 @@ const ComparePlans = () => {
         <div className="pb-12 md:pb-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Standard Plan */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white/80 backdrop-blur-md rounded-lg shadow-md overflow-hidden">
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900">Standard</h3>
+                <h3 className="text-xl font-semibold text-white">Standard</h3>
                 <div className="mt-4 flex items-baseline">
                   <span className="text-2xl font-bold">$</span>
                   <span className="text-4xl font-bold tabular-nums">950</span>
                 </div>
-                <p className="mt-2 text-sm text-gray-600">Theory only</p>
+                <p className="mt-2 text-sm text-gray-900">Theory only</p>
                 <ul className="mt-6 space-y-4">
                   {features.map((feature, index) => (
                     <li key={feature} className="flex items-start">
                       <span className={`flex-shrink-0 h-6 w-6 ${plans[0].features[index] ? 'text-green-500' : 'text-gray-300'}`}>
                         {plans[0].features[index] ? '✓' : '×'}
                       </span>
-                      <span className="ml-3 text-gray-600">{feature}</span>
+                      <span className="ml-3 text-gray-900">{feature}</span>
                     </li>
                   ))}
                 </ul>

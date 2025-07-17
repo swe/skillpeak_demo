@@ -95,7 +95,7 @@ const Courses = () => {
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="grid gap-8 md:grid-cols-3 md:items-start">
           {courses.map((course) => (
-            <div key={course.title} className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div key={course.title} className="bg-white/80 backdrop-blur-md rounded-lg shadow-lg overflow-hidden">
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900">{course.title}</h3>
                 <p className="mt-2 text-sm text-gray-600">{course.description}</p>
@@ -138,7 +138,7 @@ const Courses = () => {
                       <div className="overflow-hidden">
                         <div className="space-y-4">
                           {course.blocks.map((block) => (
-                            <div key={block.title} className="bg-gray-50 rounded-lg p-4">
+                            <div key={block.title} className="bg-white/80 backdrop-blur-md rounded-lg p-4">
                               <p className="text-sm font-medium text-gray-900">{block.title}</p>
                               <p className="text-xs mt-1 text-sm text-gray-600">{block.description}</p>
                             </div>

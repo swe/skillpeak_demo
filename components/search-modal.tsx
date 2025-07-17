@@ -15,7 +15,7 @@ export default function SearchModal({ isOpen, setIsOpen }: SearchModalProps) {
       />
 
       <div className="fixed inset-0 top-20 z-99999 mb-4 flex items-start justify-center overflow-hidden px-4 sm:px-6 md:top-28">
-        <DialogPanel transition className="max-h-full w-full max-w-2xl overflow-auto rounded-xl bg-white shadow-lg duration-300 ease-out data-closed:translate-y-4 data-closed:opacity-0">
+        <DialogPanel transition className="max-h-full w-full max-w-2xl overflow-auto rounded-xl bg-white/80 shadow-lg duration-300 ease-out data-closed:translate-y-4 data-closed:opacity-0">
           {/* Search form */}
           <form className="border-b border-gray-200">
             <div className="flex items-center">

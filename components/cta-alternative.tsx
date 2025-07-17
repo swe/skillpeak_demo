@@ -22,7 +22,7 @@ export default function CtaAlternative({
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="border-t text-center [border-image:linear-gradient(to_right,transparent,--theme(--color-blue-500/.25),transparent)1]">
           <div className="py-12 md:py-20">
-            <h2 className="mb-6 text-3xl font-bold md:mb-12 md:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold md:mb-12 md:text-4xl text-white">
               {heading}
             </h2>
             <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">

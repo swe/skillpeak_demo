@@ -64,7 +64,7 @@ export default function AppList() {
             {/* Section #1 */}
             <section>
               <div className="pb-12 text-center">
-                <h1 className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
+                <h1 className="mb-6 text-5xl font-bold md:text-6xl text-white">
                   About the course structure
                 </h1>
               </div>

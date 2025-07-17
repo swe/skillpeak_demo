@@ -8,12 +8,12 @@ import PlanetTagImg04 from "@/public/images/planet-tag-04.png";
 
 export default function FeaturesPlanet() {
   return (
-    <section id="features" className="relative before:absolute before:inset-0 before:-z-20 before:bg-gray-900">
+    <section id="features" className="relative">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="pb-12 text-center">
-            <h1 className="mb-8 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-700/.8),transparent)1] md:text-6xl text-gray-300">
+            <h1 className="mb-8 text-5xl font-bold md:text-6xl text-white">
               The perfect course for you
             </h1>
           </div>

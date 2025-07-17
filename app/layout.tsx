@@ -24,7 +24,7 @@ export default function RootLayout({
         className={`${inter.variable} font-inter tracking-tight text-gray-900 antialiased`}
         style={{ isolation: "isolate" }}
       >
-        <div className="flex min-h-screen flex-col bg-gray-50">
+        <div className="flex min-h-screen flex-col">
           {children}
         </div>
       </body>

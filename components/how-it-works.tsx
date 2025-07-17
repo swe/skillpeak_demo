@@ -37,10 +37,10 @@ const HowItWorks = () => {
   return (
     <div className="relative pb-10" data-aos="zoom-y-out" data-aos-delay="100">
       <div className="pb-8 text-center">
-        <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
+        <h2 className="py-2 text-5xl font-bold md:text-6xl text-white">
           How It Works
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-gray-900">
           Discover our streamlined process that ensures exceptional results every step of the way
         </p>
       </div>
@@ -53,8 +53,8 @@ const HowItWorks = () => {
                 {step.number}
               </div>
               <div className="flex-1">
-                <p className="font-semibold text-gray-900">{step.title}</p>
-                <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
+                <p className="font-semibold text-white">{step.title}</p>
+                <p className="text-sm text-gray-900 leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}
