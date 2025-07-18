@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import { UserIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import Image from "next/image";
 
 interface Course {
   id: string;
@@ -144,6 +145,7 @@ export default function EnrollmentPage() {
     email: '',
     phone: '',
   });
+  const [expandedPackage, setExpandedPackage] = useState<string | null>(null);
 
   const calculateTotal = () => {
     const coursePrice = courses.find(c => c.id === selectedCourse)?.price || 0;
@@ -208,7 +210,10 @@ export default function EnrollmentPage() {
             <form onSubmit={handleSubmit} className="space-y-12">
               {/* Course Selection */}
               <section className="tile-white-blur bg-white/80 p-8 rounded-3xl shadow-xl border border-gray-200">
-                <h3 className="font-semibold mb-4 text-lg text-gray-900 flex items-center gap-2">🎓 Select a Course</h3>
+                <div className="flex flex-col items-center">
+                  <Image src="/images/course.png" alt="Course icon" width={96} height={96} className="mb-4 mx-auto" />
+                  <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Select a Course</h3>
+                </div>
                 <div className="flex flex-col gap-6">
                   {courses.map((course) => (
                     <label
@@ -227,7 +232,6 @@ export default function EnrollmentPage() {
                       />
                       <span className="flex-1 flex flex-col">
                         <span className="flex items-center gap-2 text-base">
-                          <span>{course.id === 'year-end' ? '📅' : course.id === 'bookkeeping' ? '📚' : '💡'}</span>
                           <span className="text-base">{course.name}</span>
                         </span>
                         <span className="block text-sm text-gray-500">{course.description}</span>
@@ -235,7 +239,7 @@ export default function EnrollmentPage() {
                         {course.id === 'bookkeeping' && <span className="text-xs text-teal-700 mt-1">Perfect for beginners</span>}
                         {course.id === 'financial-literacy' && <span className="text-xs text-teal-700 mt-1">For entrepreneurs</span>}
                       </span>
-                      <span className="text-base font-bold">${course.price}+</span>
+                      <span className="text-base font-bold text-teal-600">C${course.price}+</span>
                     </label>
                   ))}
                 </div>
@@ -243,46 +247,62 @@ export default function EnrollmentPage() {
 
               {/* Package Selection */}
               <section className="tile-white-blur bg-white/80 p-8 rounded-3xl shadow-xl border border-gray-200">
-                <h3 className="font-semibold mb-4 text-lg text-gray-900 flex items-center gap-2">💼 Select a Package</h3>
-                <div className="flex flex-col md:flex-row gap-6">
-                  {packages.map((pkg) => (
-                    <label
-                      key={pkg.id}
-                      className={`flex-1 flex flex-col items-start px-6 py-6 cursor-pointer transition-colors relative bg-white/80 rounded-2xl shadow-xl border border-gray-200 min-w-[180px] ${
-                        selectedPackage === pkg.id ? 'ring-2 ring-teal-400' : 'text-gray-700'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2 w-full mb-1">
-                        <input
-                          type="radio"
-                          name="package"
-                          value={pkg.id}
-                          checked={selectedPackage === pkg.id}
-                          onChange={(e) => setSelectedPackage(e.target.value)}
-                          className="accent-teal-600 w-5 h-5 mb-0"
-                        />
-                        <span className="text-xl">{pkg.id === 'standard' ? '📦' : pkg.id === 'pro' ? '⭐' : '🏆'}</span>
-                        <span className="text-base">{pkg.name}</span>
+                <div className="flex flex-col items-center">
+                  <Image src="/images/package.png" alt="Package icon" width={96} height={96} className="mb-4 mx-auto" />
+                  <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Select a Package</h3>
+                </div>
+                <div className="grid grid-cols-3 gap-8 w-full py-2">
+                  {packages.map((pkg) => {
+                    const isSelected = selectedPackage === pkg.id;
+                    const icon = pkg.id === 'standard' ? '/images/standard.png' : pkg.id === 'pro' ? '/images/pro.png' : '/images/premium.png';
+                    return (
+                      <div
+                        key={pkg.id}
+                        className={`flex flex-col w-full h-full bg-white rounded-3xl border transition-all shadow-md cursor-pointer
+                          ${isSelected ? 'ring-2 ring-teal-500 border-teal-300 bg-teal-50 shadow-xl z-10' : 'border-gray-200 hover:shadow-lg'}
+                        `}
+                        style={{ transition: 'box-shadow 0.2s, border 0.2s' }}
+                        onClick={() => setSelectedPackage(pkg.id)}
+                        tabIndex={0}
+                        role="button"
+                        aria-pressed={isSelected}
+                      >
+                        {/* Top section */}
+                        <div className="flex flex-col items-center pt-8 pb-4 px-4 relative">
+                          <Image src={icon} alt={pkg.name + ' icon'} width={48} height={48} className="mb-2" />
+                          <span className="text-lg font-bold text-gray-900 mb-1">{pkg.name}</span>
+                          <span className="block text-xs text-gray-500 mb-2 text-center">{pkg.description}</span>
+                        </div>
+                        {/* Select button */}
+                        <div className="px-6 pb-8 flex flex-col items-center mt-auto">
+                          <span className="text-xl font-bold text-teal-600 mb-2">C${pkg.price}</span>
+                          {isSelected ? (
+                            <button className="w-full py-2 rounded-full bg-teal-600 text-white font-semibold shadow-none cursor-default" disabled>Selected</button>
+                          ) : (
+                            <button className="w-full py-2 rounded-full bg-teal-50 text-teal-700 font-semibold border border-teal-200 hover:bg-teal-100 transition">Select</button>
+                          )}
+                        </div>
                       </div>
-                      <span className="block text-xs text-gray-500 mb-1">{pkg.description}</span>
-                      <span className="text-base font-bold">${pkg.price}</span>
-                    </label>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
 
               {/* Additional Services */}
               <section className="tile-white-blur bg-white/80 p-8 rounded-3xl shadow-xl border border-gray-200">
-                <h3 className="font-semibold mb-4 text-lg text-gray-900 flex items-center gap-2">🛠️ Additional Services</h3>
+                <div className="flex flex-col items-center">
+                  <Image src="/images/services.png" alt="Services icon" width={96} height={96} className="mb-4 mx-auto" />
+                  <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Additional Services</h3>
+                </div>
                 {getAvailableServices().length === 0 ? (
                   <div className="text-gray-500 text-center py-4">No add-ons available for the Premium package.</div>
                 ) : (
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-4">
                     {getAvailableServices().map((service) => (
                       <label
                         key={service.id}
-                        className={`flex items-center gap-4 px-0 py-3 cursor-pointer transition-colors ${
-                          selectedServices.includes(service.id) ? 'text-teal-600 font-semibold' : 'text-gray-700'
+                        className={`flex items-center gap-4 px-6 py-5 cursor-pointer transition-colors bg-white/90 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-teal-300 ${
+                          selectedServices.includes(service.id) ? 'ring-2 ring-teal-400 bg-teal-50' : 'text-gray-700'
                         }`}
                       >
                         <input
@@ -298,12 +318,12 @@ export default function EnrollmentPage() {
                           }}
                           className="accent-teal-600 w-5 h-5"
                         />
-                        <span className="flex-1 flex items-center gap-2">
-                          <span>{service.id === 'software-practicum' ? '🖥️' : service.id === 'mentorship-student' ? '👨‍🏫' : service.id === 'practical-experience' ? '🏢' : service.id === 'resume-building' ? '📄' : service.id === 'job-interview' ? '🎤' : '💬'}</span>
-                          <span className="block text-base">{service.name}</span>
+                      
+                        <span className="flex-1 flex flex-col min-w-0">
+                          <span className="block text-base font-medium truncate">{service.name}</span>
+                          <span className="block text-sm text-gray-500 truncate">{service.description}</span>
                         </span>
-                        <span className="block text-sm text-gray-500 flex-1">{service.description}</span>
-                        <span className="text-base font-bold">${service.price}</span>
+                        <span className="text-base font-bold whitespace-nowrap text-teal-600">C${service.price}</span>
                       </label>
                     ))}
                   </div>
@@ -312,60 +332,67 @@ export default function EnrollmentPage() {
 
               {/* Personal Information */}
               <section className="tile-white-blur bg-white/80 p-8 rounded-3xl shadow-xl border border-gray-200">
-                <h3 className="font-semibold mb-4 text-lg text-gray-900 flex items-center gap-2">👤 Personal Information</h3>
+                <div className="flex flex-col items-center mb-6">
+                  <Image src="/images/personal.png" alt="Personal icon" width={96} height={96} className="mb-4 mx-auto" />
+                  <h3 className="font-semibold mb-2 text-lg text-gray-900 text-center">Personal Information</h3>
+                  <p className="text-gray-500 text-sm text-center max-w-md">Please provide your contact details so we can reach out to you about your enrollment.</p>
+                </div>
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div className="relative">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                    <UserIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
                       type="text"
                       required
+                      placeholder="First Name"
                       value={personalInfo.firstName}
                       onChange={(e) => setPersonalInfo({...personalInfo, firstName: e.target.value})}
-                      className="block w-full bg-transparent border-0 border-b border-gray-300 focus:border-teal-500 focus:ring-0 text-base py-2 pl-8"
+                      className="block w-full bg-gray-50 border border-gray-200 rounded-xl pl-10 pr-3 py-3 text-base focus:border-teal-500 focus:ring-2 focus:ring-teal-100 outline-none transition placeholder-gray-400"
                     />
-                    <UserIcon className="w-5 h-5 text-gray-400 absolute left-0 top-8" />
                   </div>
                   <div className="relative">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                    <UserIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
                       type="text"
                       required
+                      placeholder="Last Name"
                       value={personalInfo.lastName}
                       onChange={(e) => setPersonalInfo({...personalInfo, lastName: e.target.value})}
-                      className="block w-full bg-transparent border-0 border-b border-gray-300 focus:border-teal-500 focus:ring-0 text-base py-2 pl-8"
+                      className="block w-full bg-gray-50 border border-gray-200 rounded-xl pl-10 pr-3 py-3 text-base focus:border-teal-500 focus:ring-2 focus:ring-teal-100 outline-none transition placeholder-gray-400"
                     />
-                    <UserIcon className="w-5 h-5 text-gray-400 absolute left-0 top-8" />
                   </div>
                   <div className="relative">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <EnvelopeIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
                       type="email"
                       required
+                      placeholder="Email"
                       value={personalInfo.email}
                       onChange={(e) => setPersonalInfo({...personalInfo, email: e.target.value})}
-                      className="block w-full bg-transparent border-0 border-b border-gray-300 focus:border-teal-500 focus:ring-0 text-base py-2 pl-8"
+                      className="block w-full bg-gray-50 border border-gray-200 rounded-xl pl-10 pr-3 py-3 text-base focus:border-teal-500 focus:ring-2 focus:ring-teal-100 outline-none transition placeholder-gray-400"
                     />
-                    <EnvelopeIcon className="w-5 h-5 text-gray-400 absolute left-0 top-8" />
                   </div>
                   <div className="relative">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                    <PhoneIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
                       type="tel"
                       required
+                      placeholder="Phone"
                       value={personalInfo.phone}
                       onChange={(e) => setPersonalInfo({...personalInfo, phone: e.target.value})}
-                      className="block w-full bg-transparent border-0 border-b border-gray-300 focus:border-teal-500 focus:ring-0 text-base py-2 pl-8"
+                      className="block w-full bg-gray-50 border border-gray-200 rounded-xl pl-10 pr-3 py-3 text-base focus:border-teal-500 focus:ring-2 focus:ring-teal-100 outline-none transition placeholder-gray-400"
                     />
-                    <PhoneIcon className="w-5 h-5 text-gray-400 absolute left-0 top-8" />
                   </div>
                 </div>
               </section>
 
               {/* Total and Submit */}
               <section className="tile-white-blur bg-white/90 p-8 rounded-3xl shadow-xl border border-gray-200 flex flex-col items-center gap-4">
-                <div className="flex items-baseline gap-2 mb-2">
-                  <h3 className="font-semibold text-lg text-gray-900">Total:</h3>
-                  <span className="text-2xl font-bold text-teal-600">${calculateTotal()}</span>
+                <div className="flex flex-col items-center w-full">
+                  <Image src="/images/total.png" alt="Total icon" width={96} height={96} className="mb-4 mx-auto" />
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <h3 className="font-semibold text-lg text-gray-900">Total:</h3>
+                    <span className="text-2xl font-bold text-teal-600">C${calculateTotal()}</span>
+                  </div>
                 </div>
                 <Button
                   type="submit"
