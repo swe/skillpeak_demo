@@ -1,14 +1,14 @@
 /* Heading styles */
 h1, h2, h3, h4, h5, h6 {
-  @apply mb-6 font-bold text-gray-900;
+  @apply mb-6 text-gray-900 leading-tight;
 }
 
 h1 {
-  @apply text-5xl font-extrabold md:text-6xl mb-8 leading-tight;
+  @apply text-6xl font-bold mb-8 leading-tight;
 }
 
 h2 {
-  @apply text-3xl font-bold md:text-4xl mb-6 leading-snug;
+  @apply text-4xl font-semibold mb-6 leading-tight;
 }
 
 h3 {
@@ -27,6 +27,6 @@ h6 {
   @apply text-base font-semibold mb-3 leading-snug;
 }
 
-body, p, li {
-  @apply text-base text-gray-900 leading-relaxed;
+p, li {
+  @apply text-gray-800 leading-relaxed;
 } 

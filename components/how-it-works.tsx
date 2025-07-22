@@ -1,4 +1,5 @@
 import React from 'react';
+import NumberCircle from './number-circle';
 
 const HowItWorks = () => {
   const steps = [
@@ -36,25 +37,23 @@ const HowItWorks = () => {
 
   return (
     <div className="relative pb-10" data-aos="zoom-y-out" data-aos-delay="100">
-      <div className="pb-8 text-center">
-        <h2 className="py-2 text-5xl font-bold md:text-6xl text-white">
+      <div className="mx-auto max-w-5xl px-4 pb-8 text-center">
+        <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
           How It Works
         </h2>
-        <p className="text-lg text-gray-900">
+        <p className="text-lg text-gray-600">
           Discover our streamlined process that ensures exceptional results every step of the way
         </p>
       </div>
 
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+      <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
         <div className="space-y-8">
           {steps.map((step) => (
             <div key={step.number} className="flex gap-8 items-start">
-              <div className="text-sm flex-shrink-0 w-8 h-8 rounded-full border-2 border-teal-600 flex items-center justify-center text-teal-600 font-bold text-2xl">
-                {step.number}
-              </div>
+              <NumberCircle number={step.number} size={32} className="flex-shrink-0" />
               <div className="flex-1">
-                <p className="font-semibold text-white">{step.title}</p>
-                <p className="text-sm text-gray-900 leading-relaxed">{step.description}</p>
+                <p className="font-semibold text-gray-900">{step.title}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}

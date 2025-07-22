@@ -1,156 +1,166 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Transition } from "@headlessui/react";
+import { Button } from "./button";
 
 export default function MobileMenu() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const isEnrollPage = pathname === "/enroll";
   const trigger = useRef<HTMLButtonElement>(null);
+  const mobileNav = useRef<HTMLDivElement>(null);
+
+  // close the mobile menu on click outside
+  useEffect(() => {
+    const clickHandler = ({ target }: { target: EventTarget | null }): void => {
+      if (!mobileNav.current || !trigger.current) return;
+      if (
+        !mobileNavOpen ||
+        mobileNav.current.contains(target as Node) ||
+        trigger.current.contains(target as Node)
+      )
+        return;
+      setMobileNavOpen(false);
+    };
+    document.addEventListener("click", clickHandler);
+    return () => document.removeEventListener("click", clickHandler);
+  });
+
+  // close the mobile menu if the esc key is pressed
+  useEffect(() => {
+    const keyHandler = ({ keyCode }: { keyCode: number }): void => {
+      if (!mobileNavOpen || keyCode !== 27) return;
+      setMobileNavOpen(false);
+    };
+    document.addEventListener("keydown", keyHandler);
+    return () => document.removeEventListener("keydown", keyHandler);
+  });
 
   const handleClick = () => {
     setMobileNavOpen(false);
   };
 
   return (
-    <>
+    <div className="flex md:hidden">
       {/* Hamburger button */}
-      <div className="flex md:hidden">
-        <button
-          ref={trigger}
-          className={`group inline-flex h-8 w-8 items-center justify-center bg-white text-center text-gray-800 transition ${mobileNavOpen && "active"}`}
-          aria-controls="mobile-nav"
-          aria-expanded={mobileNavOpen}
-          onClick={() => setMobileNavOpen(!mobileNavOpen)}
-        >
-          <span className="sr-only">Menu</span>
-          <svg
-            className="pointer-events-none fill-current"
-            width={16}
-            height={16}
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect y="3" width="16" height="2" rx="1" />
-            <rect y="7" width="16" height="2" rx="1" />
-            <rect y="11" width="16" height="2" rx="1" />
-          </svg>
-        </button>
-      </div>
-      {/* Modal mobile menu */}
-      <Transition
-        show={mobileNavOpen}
-        as="div"
-        className="fixed inset-0 z-50 flex items-center justify-center"
-        enter="transition-opacity duration-200"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-200"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
+      <button
+        ref={trigger}
+        className={`group inline-flex h-8 w-8 items-center justify-center bg-white text-center text-gray-800 transition ${mobileNavOpen && "active"}`}
+        aria-controls="mobile-nav"
+        aria-expanded={mobileNavOpen}
+        onClick={() => setMobileNavOpen(!mobileNavOpen)}
       >
-        {/* Backdrop */}
-        <div
-          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-          aria-hidden="true"
-          onClick={handleClick}
-        />
-        {/* Modal card */}
-        <div
-          className="relative z-10 w-full max-w-xs mx-auto rounded-2xl bg-white/80 backdrop-blur-md shadow-md border border-[var(--color-gray-200)] p-6 pb-6 flex flex-col items-center animate-[fadeInUp_0.3s] max-h-[100dvh] overflow-y-auto"
-          style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}
+        <span className="sr-only">Menu</span>
+        <svg
+          className="pointer-events-none fill-current"
+          width={16}
+          height={16}
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Close button */}
-          <button
-            className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 p-2 rounded-full bg-white/70 backdrop-blur-sm shadow"
-            aria-label="Close menu"
-            onClick={handleClick}
-          >
-            <svg className="h-5 w-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 6l8 8M6 14L14 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </button>
-          {/* Logo and title */}
-          <Link href="/" className="mb-2 flex-shrink-0 pt-6" aria-label="SkillPeak" onClick={handleClick}>
-            <svg className="w-10 h-10" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                <radialGradient cx="21.152%" cy="86.063%" fx="21.152%" fy="86.063%" r="79.941%" id="header-logo">
-                    <stop stopColor="#4F46E5" offset="0%" />
-                    <stop stopColor="#4F46E5" offset="100%" />
-                  </radialGradient>
-                </defs>
-              <rect width="32" height="32" rx="16" fill="url(#header-logo)" fillRule="nonzero" />
-              </svg>
-            </Link>
-          <div className="mb-4 text-lg font-semibold text-gray-900 text-center">SkillPeak Academy</div>
-          {/* Menu links */}
-          <nav className="w-full">
-            <ul className="flex flex-col gap-2 w-full">
-              {!isEnrollPage && (
-                <>
-                  <li>
-                    <a
-                      href="#courses"
-                      className="block w-full rounded-lg px-4 py-2 text-base text-gray-800 hover:bg-[var(--color-gray-200)] focus-visible:text-[var(--color-primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] transition"
-                      onClick={handleClick}
-                    >
-                      Courses
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#how-it-works"
-                      className="block w-full rounded-lg px-4 py-2 text-base text-gray-800 hover:bg-[var(--color-gray-200)] focus-visible:text-[var(--color-primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] transition"
-                      onClick={handleClick}
-                    >
-                      How It Works
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#faq"
-                      className="block w-full rounded-lg px-4 py-2 text-base text-gray-800 hover:bg-[var(--color-gray-200)] focus-visible:text-[var(--color-primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] transition"
-                      onClick={handleClick}
-                    >
-                      FAQ
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#pricing"
-                      className="block w-full rounded-lg px-4 py-2 text-base text-gray-800 hover:bg-[var(--color-gray-200)] focus-visible:text-[var(--color-primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] transition"
-                      onClick={handleClick}
-                    >
-                      Pricing
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#contact"
-                      className="block w-full rounded-lg px-4 py-2 text-base text-gray-800 hover:bg-[var(--color-gray-200)] focus-visible:text-[var(--color-primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] transition"
-                      onClick={handleClick}
-                    >
-                      Contact
-                    </a>
-                  </li>
-                </>
-              )}
+          <rect
+            className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] -translate-y-[5px] translate-x-[7px] group-aria-expanded:rotate-[315deg] group-aria-expanded:translate-y-0 group-aria-expanded:translate-x-0"
+            y="7"
+            width="9"
+            height="2"
+            rx="1"
+          ></rect>
+          <rect
+            className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45"
+            y="7"
+            width="16"
+            height="2"
+            rx="1"
+          ></rect>
+          <rect
+            className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] translate-y-[5px] group-aria-expanded:rotate-[135deg] group-aria-expanded:translate-y-0"
+            y="7"
+            width="9"
+            height="2"
+            rx="1"
+          ></rect>
+        </svg>
+      </button>
+
+      {/* Mobile navigation dropdown */}
+      <div ref={mobileNav}>
+        <Transition
+          show={mobileNavOpen}
+          as="nav"
+          id="mobile-nav"
+          className="absolute inset-x-2 top-full z-20 rounded-xl bg-white shadow-lg shadow-black/[0.03] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] transform transition ease-out duration-200"
+        >
+          <div className="flex flex-col items-center py-4">
+            <ul className="w-full px-2 text-sm">
               <li>
-                <Link
-                  href="http://178.128.232.165/moodle/login/"
-                  className="block w-full rounded-lg px-4 py-2 text-base text-white bg-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] transition font-semibold shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] text-center"
-                  onClick={handleClick}
+                <a
+                  href="#courses"
+                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                  onClick={() => setMobileNavOpen(false)}
                 >
-                  Sign in
-                </Link>
+                  Courses
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#how-it-works"
+                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                  onClick={() => setMobileNavOpen(false)}
+                >
+                  How It Works
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                  onClick={() => setMobileNavOpen(false)}
+                >
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                  onClick={() => setMobileNavOpen(false)}
+                >
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                  onClick={() => setMobileNavOpen(false)}
+                >
+                  Contact
+                </a>
               </li>
             </ul>
-          </nav>
-        </div>
-      </Transition>
-    </>
+            <div className="w-full flex justify-center pt-2">
+              <Link
+                href="http://178.128.232.165/moodle/login/"
+                className="btn-sm text-white shadow-sm rounded"
+                style={{
+                  background: 'linear-gradient(to bottom, #02C1B6 0%, #0395A6 100%)',
+                  filter: 'none',
+                  minWidth: 120,
+                  textAlign: 'center',
+                }}
+                onMouseOver={e => e.currentTarget.style.filter = 'brightness(0.9)'}
+                onMouseOut={e => e.currentTarget.style.filter = 'none'}
+                onClick={() => setMobileNavOpen(false)}
+              >
+                Sign in
+              </Link>
+            </div>
+          </div>
+        </Transition>
+      </div>
+    </div>
   );
 }

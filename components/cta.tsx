@@ -6,7 +6,7 @@ export default function Cta() {
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div
-          className="relative overflow-hidden rounded-2xl text-center shadow-xl before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:bg-gray-900/80"
+          className="relative overflow-hidden tile-white-blur text-center shadow-xl before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:bg-gray-900"
           data-aos="zoom-y-out"
         >
           {/* Glow */}
@@ -18,13 +18,13 @@ export default function Cta() {
           </div>
           {/* Stripes illustration */}
           <div
-            className="hidden sm:block pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 transform"
+            className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 transform"
             aria-hidden="true"
           >
             <Image className="max-w-none" src={Stripes} alt="Stripes" />
           </div>
           <div className="px-4 py-12 md:px-12 md:py-20">
-            <h2 className="mb-6 text-3xl font-bold text-white md:mb-12 md:text-4xl">
+            <h2 className="mb-6 border-y text-3xl font-bold text-gray-200 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-700/.7),transparent)1] md:mb-12 md:text-4xl">
               Create your next project with Simple
             </h2>
             <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
