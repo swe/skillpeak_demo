@@ -4,12 +4,12 @@ const partners = [
   {
     name: "FY",
     logo: "/images/partners/FY.png",
-    url: "https://placeholder.com/partner1"
+    url: "https://fernandezyoung.com/"
   },
   {
     name: "Svalbard",
     logo: "/images/partners/Svalbard.png",
-    url: "https://placeholder.com/partner2"
+    url: "https://svalbard.ca/"
   }
 ];
 
