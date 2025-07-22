@@ -11,6 +11,7 @@ import PricingTables from "@/components/pricing-tables";
 import Courses from "@/components/courses";
 import HowItWorks from "@/components/how-it-works";
 import ContactForm from "@/components/contact-form";
+import Partners from "@/components/partners";
 
 export default function Home() {
   return (
@@ -29,6 +30,9 @@ export default function Home() {
         <PricingTables />
       </section>
       <TestimonialsCarousel />
+      <section id="partners">
+        <Partners />
+      </section>
       <section id="contact" className="mt-16">
         <ContactForm />
       </section>
