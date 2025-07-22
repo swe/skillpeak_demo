@@ -1,3 +1,5 @@
+import TestimonialsCarousel from "@/components/testimonials-carousel";
+
 export const metadata = {
   title: "SkillPeak Academy - Master Accounting and Bookkeeping",
   description: "Master Accounting and Bookkeeping with Confidence! Industry-focused courses, hands-on training, and expert instructors to help you thrive in today's competitive job market.",
@@ -26,6 +28,7 @@ export default function Home() {
       <section id="pricing">
         <PricingTables />
       </section>
+      <TestimonialsCarousel />
       <section id="contact" className="mt-16">
         <ContactForm />
       </section>
