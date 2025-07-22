@@ -72,9 +72,9 @@ const HeroHome = () => {
                   ref={videoRef}
                   className="w-full h-full object-cover"
                   playsInline
-                  autoPlay={true}
+                  autoPlay={ true }
                 >
-                  <source src="/welcome.mp4" type="video/mp4" />
+                  <source src="/welcomeEugeneEN.mp4" type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900/30 to-gray-900/20" />
                 
