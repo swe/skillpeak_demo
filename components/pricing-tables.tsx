@@ -70,7 +70,7 @@ export default function PricingTables() {
   return (
     <section className="py-16">
       <div className="mx-auto max-w-5xl px-4">
-        <div className="pb-8 text-center">
+        <div className="pb-12 text-center w-full max-w-3xl mx-auto aos-init aos-animate">
           <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
             Pricing Plans
           </h2>

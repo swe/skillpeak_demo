@@ -27,9 +27,9 @@ export default function Faqs() {
 
   return (
 
-      <div className="relative pb-10" data-aos="zoom-y-out" data-aos-delay="100">
-        <div className="text-center">
-          <h2 className="py-2 border-y text-5xl font-extrabold text-[var(--color-primary-dark)] [border-image:linear-gradient(to_right,transparent,var(--color-gray-200)/.8,transparent)1] md:text-6xl">
+      <div className="relative" data-aos="zoom-y-out" data-aos-delay="100">
+        <div className="pb-12 text-center w-full max-w-3xl mx-auto aos-init aos-animate">
+          <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
             Questions we often get
           </h2>
           <div className="mx-auto w-full max-w-4xl px-4 md:px-6">

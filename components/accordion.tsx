@@ -21,7 +21,7 @@ export default function Accordion({
     <div className="relative rounded-lg bg-white/80 backdrop-blur-md shadow border border-[var(--color-gray-200)] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
       <p>
         <button
-          className="cursor-pointer flex w-full items-center justify-between px-4 py-3 text-left font-semibold text-[var(--color-gray-900)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+          className="cursor-pointer flex w-full items-center justify-between px-4 py-3 text-left font-semibold text-[var(--color-gray-900)]"
           onClick={(e) => {
             e.preventDefault();
             setAccordionOpen((prevState) => !prevState);
@@ -53,7 +53,7 @@ export default function Accordion({
         className={`grid overflow-hidden text-sm text-gray-600 transition-all duration-300 ease-in-out ${accordionOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
       >
         <div className="overflow-hidden border-t border-solid" style={{ borderTopColor: 'rgba(156,163,175,0.3)' }}>
-          <p className="px-4 pb-3 text-left">{children}</p>
+          <p className="px-4 py-3 text-left">{children}</p>
         </div>
       </div>
     </div>
