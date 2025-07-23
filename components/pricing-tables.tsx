@@ -6,7 +6,7 @@ import Image from "next/image";
 const plans = [
   {
     name: "Standard",
-    price: 950,
+    price: "950",
     description: "Theory only",
     features: [
       "Course access",
@@ -26,7 +26,7 @@ const plans = [
   },
   {
     name: "Pro",
-    price: 1700,
+    price: "1,700",
     description: "Theory + software practice",
     features: [
       "Course access",
@@ -47,7 +47,7 @@ const plans = [
   },
   {
     name: "Premium",
-    price: 5700,
+    price: "5,700",
     description: "All included: theory, practice, experience",
     features: [
       "Course access",
