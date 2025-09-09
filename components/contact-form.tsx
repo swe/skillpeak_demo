@@ -69,9 +69,9 @@ const ContactForm = () => {
           <div className="w-full flex justify-center pt-2">
             <button
               type="submit"
-              className="btn-sm text-white shadow-sm rounded border border-[#02C1B6]"
+              className="btn-sm text-white shadow-sm rounded border border-[#0395A6]"
               style={{
-                background: 'linear-gradient(to bottom, #02C1B6 0%, #0395A6 100%)',
+                background: 'linear-gradient(to bottom, #0395A6 0%, #00786f 100%)',
                 filter: 'none',
                 minWidth: 120,
                 textAlign: 'center',

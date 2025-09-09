@@ -1,13 +1,16 @@
 import AOSInitializer from "@/components/AOSInitializer";
+import { getTermsContent } from '@/lib/terms-content';
 
 import Header from "@/components/ui/header";
-import Footer from "@/components/ui/footer";
+import FooterWrapper from "@/components/ui/footer-wrapper";
 
-export default function DefaultLayout({
+export default async function DefaultLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const mdxSource = await getTermsContent();
+
   return (
     <>
       <AOSInitializer />
@@ -15,7 +18,7 @@ export default function DefaultLayout({
 
       <main className="grow">{children}</main>
 
-      <Footer border={true} />
+      <FooterWrapper border={true} mdxSource={mdxSource} />
     </>
   );
 }

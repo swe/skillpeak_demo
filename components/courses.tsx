@@ -16,6 +16,7 @@ const Courses = () => {
 
   const courses = [
     {
+      id: 'year-end',
       title: 'Year-end Preparation Course',
       description: 'Master Canadian accounting standards and software with our comprehensive course.',
       features: [
@@ -55,6 +56,7 @@ const Courses = () => {
       isAvailable: true
     },
     {
+      id: 'bookkeeping',
       title: 'Bookkeeping Essentials Course',
       description: 'Master the fundamentals of bookkeeping with our comprehensive course.',
       features: [
@@ -65,9 +67,36 @@ const Courses = () => {
         'Career guidance',
         'Certificate upon completion'
       ],
+      blocks: [
+        {
+          title: 'Introduction',
+          description: 'Course structure overview and instructor introduction'
+        },
+        {
+          title: 'Business Finance Basics',
+          description: 'Fundamental concepts of business finance'
+        },
+        {
+          title: 'Financial Planning',
+          description: 'Strategic financial planning for entrepreneurs'
+        },
+        {
+          title: 'Tax Optimization',
+          description: 'Strategies for optimizing business taxes'
+        },
+        {
+          title: 'Cash Flow Management',
+          description: 'Effective cash flow management techniques'
+        },
+        {
+          title: 'Business Growth Strategies',
+          description: 'Investment fundamentals and growth planning'
+        }
+      ],
       isAvailable: false
     },
     {
+      id: 'financial-literacy',
       title: 'Financial Literacy for Entrepreneurs',
       description: 'Essential knowledge for business owners and entrepreneurs.',
       features: [
@@ -77,6 +106,32 @@ const Courses = () => {
         'Cash flow management',
         'Business growth strategies',
         'Investment fundamentals'
+      ],
+      blocks: [
+        {
+          title: 'Introduction',
+          description: 'Course structure overview and instructor introduction'
+        },
+        {
+          title: 'From Idea to Business Entity',
+          description: 'Setting up your business structure and operations'
+        },
+        {
+          title: 'Business Tax',
+          description: 'Essentials of Canadian business taxation'
+        },
+        {
+          title: 'Accounting',
+          description: 'Core concepts in business accounting'
+        },
+        {
+          title: 'Financial Reports',
+          description: 'How to read and use financial reports for better decisions'
+        },
+        {
+          title: 'Notable Business Concepts',
+          description: 'Extra tips and insights for running a successful business'
+        }
       ],
       isAvailable: false
     }
@@ -124,7 +179,7 @@ const Courses = () => {
                   <div className="mt-8">
                     <button
                       onClick={() => toggleCourseStructure(course.title)}
-                      className="flex items-center justify-between w-full text-left"
+                      className="flex items-center justify-between w-full text-left cursor-pointer"
                     >
                       <h5 className="text-lg font-semibold text-gray-900">Course Structure</h5>
                       <ChevronDownIcon 
@@ -155,7 +210,7 @@ const Courses = () => {
                 )}
 
                 <div className="mt-8 w-full">
-                  <a href="/enroll">
+                  <a href={`/enroll?course=${course.id}`}>
                     <button
                       className="cursor-pointer w-full py-3 px-4 rounded-md text-sm font-medium bg-teal-600 text-white hover:bg-teal-700"
                     >

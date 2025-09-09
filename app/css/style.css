@@ -209,11 +209,19 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+
+  /* Ensure all clickable elements have cursor pointer */
+  button,
+  a,
+  [role="button"],
+  [onclick] {
+    cursor: pointer;
+  }
 }
 
 html, body {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #02C1B6 0%, #0395A6 100%);
+  background: linear-gradient(to bottom, #0395A6 0%, #00786f 100%);
   background-attachment: fixed;
   background-repeat: no-repeat;
   overflow-x: hidden;
@@ -275,6 +283,15 @@ html, body {
 
 .animate-\[pulse_2\.5s_ease-in-out_infinite\] {
   animation: pulse 2.5s ease-in-out infinite;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
 }
 
 @media (min-width: 768px) {

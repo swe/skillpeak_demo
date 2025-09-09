@@ -48,7 +48,7 @@ export default function MobileMenu() {
       {/* Hamburger button */}
       <button
         ref={trigger}
-        className={`group inline-flex h-8 w-8 items-center justify-center bg-white text-center text-gray-800 transition ${mobileNavOpen && "active"}`}
+        className={`group inline-flex h-8 w-8 items-center justify-center bg-white text-center text-gray-800 transition cursor-pointer ${mobileNavOpen && "active"}`}
         aria-controls="mobile-nav"
         aria-expanded={mobileNavOpen}
         onClick={() => setMobileNavOpen(!mobileNavOpen)}
@@ -120,15 +120,6 @@ export default function MobileMenu() {
                   onClick={() => setMobileNavOpen(false)}
                 >
                   FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#pricing"
-                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                  onClick={() => setMobileNavOpen(false)}
-                >
-                  Pricing
                 </a>
               </li>
               <li>

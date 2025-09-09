@@ -1,8 +1,8 @@
 import { getTermsContent } from '@/lib/terms-content';
-import EnrollmentContent from './enroll-content';
+import EnrollPage from './page';
 
 export default async function EnrollPageWrapper() {
   const mdxSource = await getTermsContent();
   
-  return <EnrollmentContent mdxSource={mdxSource} />;
+  return <EnrollPage mdxSource={mdxSource} />;
 }

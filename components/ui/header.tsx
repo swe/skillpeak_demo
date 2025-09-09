@@ -94,15 +94,6 @@ export default function Header() {
                   </li>
                   <li className="px-2 py-1 lg:px-3 lg:py-1">
                     <a
-                      href="#pricing"
-                      className="flex items-center text-gray-700 transition hover:text-gray-900"
-                      onClick={smoothScroll}
-                    >
-                      Pricing
-                    </a>
-                  </li>
-                  <li className="px-2 py-1 lg:px-3 lg:py-1">
-                    <a
                       href="#contact"
                       className="flex items-center text-gray-700 transition hover:text-gray-900"
                       onClick={smoothScroll}
