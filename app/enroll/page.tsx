@@ -1,8 +1,13 @@
-import { getTermsContent } from '../../lib/terms-content';
+import { Suspense } from 'react';
+import { getTermsContent } from '@/lib/terms-content';
 import EnrollmentContent from './enroll-content';
 
 export default async function EnrollPageWrapper() {
   const mdxSource = await getTermsContent();
   
-  return <EnrollmentContent mdxSource={mdxSource} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <EnrollmentContent mdxSource={mdxSource} />
+    </Suspense>
+  );
 }
