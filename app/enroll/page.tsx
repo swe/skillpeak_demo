@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { getTermsContent } from '@/lib/terms-content';
+import { getTermsContent } from '@/lib';
 import EnrollmentContent from './enroll-content';
 
 export default async function EnrollPageWrapper() {

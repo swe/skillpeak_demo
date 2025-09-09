@@ -1,5 +1,5 @@
 import AOSInitializer from "@/components/AOSInitializer";
-import { getTermsContent } from '@/lib/terms-content';
+import { getTermsContent } from '@/lib';
 
 import Header from "@/components/ui/header";
 import FooterWrapper from "@/components/ui/footer-wrapper";
