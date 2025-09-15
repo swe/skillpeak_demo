@@ -1,7 +1,7 @@
 # Настройка отправки email через Resend.com
 
 ## Обзор
-Форма "Contact Us" настроена для отправки email на `admin@skillpeak.com` через сервис Resend.com.
+Форма "Contact Us" настроена для отправки email на `admin@skillpeak.ca` через сервис Resend.com.
 
 ## Настройка
 
@@ -38,7 +38,7 @@ RESEND_API_KEY=your_resend_api_key_here
 ## Структура email
 Отправляемые email содержат:
 - **Тема**: "Новое сообщение от [Имя] [Фамилия]"
-- **Получатель**: admin@skillpeak.com
+- **Получатель**: admin@skillpeak.ca
 - **Отправитель**: noreply@skillpeak.com (или ваш настроенный домен)
 - **Содержание**: HTML и текстовая версии с информацией о пользователе и сообщении
 
@@ -46,7 +46,7 @@ RESEND_API_KEY=your_resend_api_key_here
 1. Запустите проект локально: `npm run dev`
 2. Перейдите на страницу `/contact`
 3. Заполните форму и отправьте тестовое сообщение
-4. Проверьте, что email приходит на admin@skillpeak.com
+4. Проверьте, что email приходит на admin@skillpeak.ca
 
 ## Безопасность
 - API ключ хранится в переменных окружения

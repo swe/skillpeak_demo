@@ -174,6 +174,7 @@ const Courses = () => {
                     </li>
                   ))}
                 </ul>
+                {(course.title === "Bookkeeping Essentials Course" || course.title === "Financial Literacy for Entrepreneurs") && <br />}
 
                 {course.blocks && (
                   <div className="mt-8">

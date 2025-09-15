@@ -42,9 +42,9 @@ const ContactForm = () => {
       if (response.ok) {
         setSubmitStatus({
           type: 'success',
-          message: 'Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.'
+          message: 'Message sent successfully! We will contact you soon.'
         });
-        // Очищаем форму
+        // Clear form
         setFormData({
           firstName: '',
           lastName: '',
@@ -54,13 +54,13 @@ const ContactForm = () => {
       } else {
         setSubmitStatus({
           type: 'error',
-          message: result.error || 'Произошла ошибка при отправке сообщения'
+          message: result.error || 'An error occurred while sending the message'
         });
       }
     } catch (error) {
       setSubmitStatus({
         type: 'error',
-        message: 'Произошла ошибка при отправке сообщения. Попробуйте позже.'
+        message: 'An error occurred while sending the message. Please try again later.'
       });
     } finally {
       setIsSubmitting(false);
@@ -171,7 +171,7 @@ const ContactForm = () => {
                 textAlign: 'center',
               }}
             >
-              {isSubmitting ? 'Отправляем...' : 'Send Message'}
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </div>
         </form>

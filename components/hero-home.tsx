@@ -1,11 +1,23 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Image from "next/image";
 import PageIllustration from "@/components/page-illustration";
 import NumberCircle from './number-circle';
 
 const HeroHome = () => {
+  const [showVideo, setShowVideo] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayClick = () => {
+    setShowVideo(true);
+    // Небольшая задержка чтобы анимация завершилась
+    setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.play();
+      }
+    }, 100);
+  };
 
   const features = [
     'Practical, career-focused training',
@@ -44,23 +56,65 @@ const HeroHome = () => {
               >
                 <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl before:pointer-events-none before:absolute before:-inset-5 before:border-y before:[border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] after:absolute after:-inset-5 after:-z-10 after:border-x after:[border-image:linear-gradient(to_bottom,transparent,--theme(--color-slate-300/.8),transparent)1]">
 
-                  <video
-                      className="w-full h-full object-cover"
-                      playsInline
-                      preload="metadata"
-                      poster="/images/video-poster.png"
-                      controls
-                      controlsList="nodownload"
-                  >
-                    <source src="/welcomeEugeneEN.mp4" type="video/mp4" />
-                    <source src="/welcomeEugeneEN.webm" type="video/webm" />
-                    <p className="text-white p-4">
-                      Your browser does not support the video tag.
-                      <a href="/welcomeEugeneEN.mp4" className="underline text-blue-300 ml-2">
-                        Download the video instead.
-                      </a>
-                    </p>
-                  </video>
+                  {!showVideo ? (
+                    /* Placeholder with Play Button */
+                    <div 
+                      className="absolute inset-0 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105"
+                      style={{ backgroundColor: '#eef2ff' }}
+                      onClick={handlePlayClick}
+                    >
+                      {/* Centered content container */}
+                      <div className="relative">
+                        {/* Logo as background */}
+                        <Image
+                          src="/images/skillpeak_logo.png"
+                          alt="SkillPeak Academy"
+                          width={320}
+                          height={320}
+                          className="opacity-90"
+                          priority
+                        />
+                        
+                        {/* Play Button overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="relative group z-20">
+                            <div className="w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                              <svg 
+                                className="w-8 h-8 text-sky-900 ml-1" 
+                                fill="currentColor" 
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M8 5v14l11-7z"/>
+                              </svg>
+                            </div>
+                            
+                            {/* Ripple effect */}
+                            <div className="absolute inset-0 w-20 h-20 bg-white rounded-full animate-ping opacity-20 z-10"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Video Player */
+                    <video
+                        ref={videoRef}
+                        className="w-full h-full object-cover"
+                        playsInline
+                        preload="metadata"
+                        controls
+                        controlsList="nodownload"
+                        autoPlay
+                    >
+                      <source src="/welcomeEugeneEN.mp4" type="video/mp4" />
+                      <source src="/welcomeEugeneEN.webm" type="video/webm" />
+                      <p className="text-white p-4">
+                        Your browser does not support the video tag.
+                        <a href="/welcomeEugeneEN.mp4" className="underline text-blue-300 ml-2">
+                          Download the video instead.
+                        </a>
+                      </p>
+                    </video>
+                  )}
                 </div>
               </div>
 
