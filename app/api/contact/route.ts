@@ -66,7 +66,6 @@ ${message}
 
 ---
 This message was sent through the contact form on the SkillPeak website.
-Reply directly to this email to respond to ${firstName} ${lastName} at ${email}
 Date sent: ${new Date().toLocaleString('en-US')}
       `,
     });
