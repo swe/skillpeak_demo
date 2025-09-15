@@ -24,15 +24,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email via Resend to admin@skillpeak.ca
+    // Send email via Resend to admin@skillpeak.ca from user's email
     const data = await resend.emails.send({
-      from: 'SkillPeak Contact Form <noreply@skillpeak.com>',
+      from: `SkillPeak Contact Form <noreply@skillpeak.com>`,
+      replyTo: email,
       to: ['admin@skillpeak.ca'],
       subject: `New message from ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #0395A6; border-bottom: 2px solid #0395A6; padding-bottom: 10px;">
-            New message from SkillPeak website
+            New message from ${firstName} ${lastName}
           </h2>
           
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -48,12 +49,13 @@ export async function POST(request: NextRequest) {
           
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e9ecef; color: #666; font-size: 14px;">
             <p>This message was sent through the contact form on the SkillPeak website.</p>
+            <p><strong>Reply directly to this email to respond to ${firstName} ${lastName} at ${email}</strong></p>
             <p>Date sent: ${new Date().toLocaleString('en-US')}</p>
           </div>
         </div>
       `,
       text: `
-New message from SkillPeak website
+New message from ${firstName} ${lastName}
 
 User Information:
 Name: ${firstName} ${lastName}
@@ -64,6 +66,7 @@ ${message}
 
 ---
 This message was sent through the contact form on the SkillPeak website.
+Reply directly to this email to respond to ${firstName} ${lastName} at ${email}
 Date sent: ${new Date().toLocaleString('en-US')}
       `,
     });
