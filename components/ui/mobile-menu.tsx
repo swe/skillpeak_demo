@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Transition } from "@headlessui/react";
 import { Button } from "./button";
+import { smoothScroll } from "@/utils/smooth-scroll";
 
 export default function MobileMenu() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
@@ -44,11 +45,11 @@ export default function MobileMenu() {
   };
 
   return (
-    <div className="flex md:hidden">
+    <div className="flex md:hidden relative">
       {/* Hamburger button */}
       <button
         ref={trigger}
-        className={`group inline-flex h-8 w-8 items-center justify-center bg-white text-center text-gray-800 transition cursor-pointer ${mobileNavOpen && "active"}`}
+        className={`group inline-flex h-8 w-8 items-center justify-center bg-white rounded-lg text-center text-gray-800 transition cursor-pointer ${mobileNavOpen && "active"}`}
         aria-controls="mobile-nav"
         aria-expanded={mobileNavOpen}
         onClick={() => setMobileNavOpen(!mobileNavOpen)}
@@ -86,20 +87,29 @@ export default function MobileMenu() {
       </button>
 
       {/* Mobile navigation dropdown */}
-      <div ref={mobileNav}>
+      <div ref={mobileNav} className="absolute top-full right-0 z-50">
         <Transition
           show={mobileNavOpen}
           as="nav"
           id="mobile-nav"
-          className="absolute inset-x-2 top-full z-20 rounded-xl bg-white shadow-lg shadow-black/[0.03] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--color-gray-100),var(--color-gray-200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] transform transition ease-out duration-200"
+          className="w-64 mt-2 rounded-xl bg-white shadow-xl border border-gray-200 transform transition-all duration-200 ease-out"
+          enter="transition ease-out duration-200"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="transition ease-in duration-150"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
         >
-          <div className="flex flex-col items-center py-4">
-            <ul className="w-full px-2 text-sm">
+          <div className="py-4">
+            <ul className="space-y-1">
               <li>
                 <a
                   href="#courses"
-                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                  onClick={() => setMobileNavOpen(false)}
+                  className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors"
+                  onClick={(e) => {
+                    setMobileNavOpen(false);
+                    smoothScroll(e);
+                  }}
                 >
                   Courses
                 </a>
@@ -107,8 +117,11 @@ export default function MobileMenu() {
               <li>
                 <a
                   href="#how-it-works"
-                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                  onClick={() => setMobileNavOpen(false)}
+                  className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors"
+                  onClick={(e) => {
+                    setMobileNavOpen(false);
+                    smoothScroll(e);
+                  }}
                 >
                   How It Works
                 </a>
@@ -116,8 +129,11 @@ export default function MobileMenu() {
               <li>
                 <a
                   href="#faq"
-                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                  onClick={() => setMobileNavOpen(false)}
+                  className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors"
+                  onClick={(e) => {
+                    setMobileNavOpen(false);
+                    smoothScroll(e);
+                  }}
                 >
                   FAQ
                 </a>
@@ -125,25 +141,20 @@ export default function MobileMenu() {
               <li>
                 <a
                   href="#contact"
-                  className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                  onClick={() => setMobileNavOpen(false)}
+                  className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors"
+                  onClick={(e) => {
+                    setMobileNavOpen(false);
+                    smoothScroll(e);
+                  }}
                 >
                   Contact
                 </a>
               </li>
             </ul>
-            <div className="w-full flex justify-center pt-2">
+            <div className="border-t border-gray-100 mt-2 pt-4 px-4">
               <Link
                 href="http://178.128.232.165/moodle/login/"
-                className="btn-sm text-white shadow-sm rounded"
-                style={{
-                  background: 'linear-gradient(to bottom, #02C1B6 0%, #0395A6 100%)',
-                  filter: 'none',
-                  minWidth: 120,
-                  textAlign: 'center',
-                }}
-                onMouseOver={e => e.currentTarget.style.filter = 'brightness(0.9)'}
-                onMouseOut={e => e.currentTarget.style.filter = 'none'}
+                className="block w-full text-center py-2 px-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
                 onClick={() => setMobileNavOpen(false)}
               >
                 Sign in

@@ -64,7 +64,7 @@ export default function Header() {
             <>
               {/* Desktop navigation - центрируем абсолютно */}
               <nav className="hidden md:flex absolute left-1/2 top-0 h-full -translate-x-1/2 items-center z-10">
-                <ul className="flex items-center justify-center gap-2 lg:gap-5 text-xs lg:text-sm whitespace-nowrap overflow-x-auto scrollbar-none px-1">
+                <ul className="flex items-center justify-center gap-2 lg:gap-5 text-xs lg:text-sm whitespace-nowrap px-1">
                   <li className="px-2 py-1 lg:px-3 lg:py-1">
                     <a
                       href="#courses"
@@ -119,7 +119,7 @@ export default function Header() {
                 </Link>
               </div>
               {/* Mobile menu */}
-              <div className="md:hidden">
+              <div className="md:hidden relative">
                 <MobileMenu />
               </div>
             </>

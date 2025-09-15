@@ -1,33 +1,11 @@
 "use client";
 
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import Image from "next/image";
 import PageIllustration from "@/components/page-illustration";
 import NumberCircle from './number-circle';
 
 const HeroHome = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    // Simple autoplay attempt without any conditionals
-    const tryAutoplay = async () => {
-      try {
-        video.muted = false;
-        video.volume = 1.0;
-        await video.play();
-        console.log('Autoplay successful');
-      } catch (error) {
-        console.log('Autoplay blocked - user can use native controls');
-      }
-    };
-
-    // Delay to ensure video is loaded
-    const timer = setTimeout(tryAutoplay, 500);
-    return () => clearTimeout(timer);
-  }, []);
 
   const features = [
     'Practical, career-focused training',
@@ -52,7 +30,7 @@ const HeroHome = () => {
           <div className="pt-40 pb-10">
             <div className="text-center">
               <h1
-                  className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl text-gray-900"
+                  className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl text-sky-900"
                   data-aos="zoom-y-out"
                   data-aos-delay={150}
               >
@@ -67,7 +45,6 @@ const HeroHome = () => {
                 <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl before:pointer-events-none before:absolute before:-inset-5 before:border-y before:[border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] after:absolute after:-inset-5 after:-z-10 after:border-x after:[border-image:linear-gradient(to_bottom,transparent,--theme(--color-slate-300/.8),transparent)1]">
 
                   <video
-                      ref={videoRef}
                       className="w-full h-full object-cover"
                       playsInline
                       preload="metadata"
@@ -89,7 +66,7 @@ const HeroHome = () => {
 
               <div className="mx-auto max-w-3xl">
                 <h3
-                    className="text-3xl font-semibold text-gray-900 md:text-4xl"
+                    className="text-3xl font-semibold text-sky-900 md:text-4xl"
                     data-aos="zoom-y-out"
                     data-aos-delay={300}
                 >
@@ -126,9 +103,9 @@ const HeroHome = () => {
                             key={feature}
                             className="flex gap-8 items-start"
                         >
-                          <NumberCircle number={index + 1} size={64} className="flex-shrink-0" />
+                          <NumberCircle number={index + 1} size={32} className="flex-shrink-0" />
                           <div className="flex-1 text-left">
-                            <h5 className="mb-1 text-gray-900">{feature}</h5>
+                            <h5 className="mb-1 text-sky-900">{feature}</h5>
                             <p className="text-sm text-gray-600 leading-relaxed">
                               {featureDescriptions[index]}
                             </p>

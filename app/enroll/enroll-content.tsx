@@ -138,6 +138,11 @@ const features = [
 export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteSerializeResult }) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  
+  // Helper function to format prices with commas
+  const formatPrice = (price: number) => {
+    return price.toLocaleString();
+  };
   const [selectedCourse, setSelectedCourse] = useState<string>('year-end');
   const [selectedPackage, setSelectedPackage] = useState<string>('');
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -219,24 +224,24 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
     <>
       <Header />
       <main className="grow">
-        <div className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+        <div className="min-h-screen py-12 sm:py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
           <div className="w-full max-w-2xl mx-auto">
-            <div className="pb-12 text-center">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Enroll in a Course</h2>
-              <p className="text-lg text-gray-500">Start your learning journey with SkillPeak Academy</p>
+            <div className="pb-12 pt-8 sm:pb-16 text-center">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Enroll in a Course</h2>
+              <p className="text-base sm:text-lg text-gray-500">Start your learning journey with SkillPeak Academy</p>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-12">
+            <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-12">
               {/* Course Selection */}
-              <section className="tile-white-blur bg-white/80 p-8 rounded-3xl shadow-xl border border-gray-200">
+              <section className="tile-white-blur bg-white/80 p-4 sm:p-8 rounded-3xl shadow-xl border border-gray-200">
                 <div className="flex flex-col items-center">
                   <Image src="/images/course.png" alt="Course icon" width={96} height={96} className="mb-4 mx-auto" />
                   <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Select a Course</h3>
                 </div>
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4 sm:gap-6">
                   {courses.map((course) => (
                     <label
                       key={course.id}
-                      className={`flex items-center gap-4 px-6 py-6 cursor-pointer transition-colors bg-white/80 rounded-2xl shadow-xl border border-gray-200 ${
+                      className={`flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-4 sm:py-6 cursor-pointer transition-colors bg-white/80 rounded-2xl shadow-xl border border-gray-200 ${
                         selectedCourse === course.id ? 'ring-2 ring-teal-400' : 'text-gray-700'
                       }`}
                     >
@@ -248,16 +253,16 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                         onChange={(e) => setSelectedCourse(e.target.value)}
                         className="accent-teal-600 w-5 h-5"
                       />
-                      <span className="flex-1 flex flex-col">
-                        <span className="flex items-center gap-2 text-base">
-                          <span className="text-base">{course.name}</span>
+                      <span className="flex-1 flex flex-col min-w-0">
+                        <span className="flex items-center gap-2 text-sm sm:text-base">
+                          <span className="text-sm sm:text-base break-words">{course.name}</span>
                         </span>
-                        <span className="block text-sm text-gray-500">{course.description}</span>
+                        <span className="block text-xs sm:text-sm text-gray-500 break-words">{course.description}</span>
                         {course.id === 'year-end' && <span className="text-xs text-teal-700 mt-1">Best for newcomers to Canada</span>}
                         {course.id === 'bookkeeping' && <span className="text-xs text-teal-700 mt-1">Perfect for beginners</span>}
                         {course.id === 'financial-literacy' && <span className="text-xs text-teal-700 mt-1">For entrepreneurs</span>}
                       </span>
-                      <span className="text-base font-bold text-teal-600">C${course.price}{course.id === 'year-end' ? '+' : ''}</span>
+                      <span className="text-sm sm:text-base font-bold text-teal-600 whitespace-nowrap">C${formatPrice(course.price)}{course.id === 'year-end' ? '+' : ''}</span>
                     </label>
                   ))}
                 </div>
@@ -265,12 +270,12 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
 
               {/* Package Selection - Only for Year-end course */}
               {selectedCourse === 'year-end' && (
-                <section className="tile-white-blur bg-white/80 p-8 rounded-3xl shadow-xl border border-gray-200">
+                <section className="tile-white-blur bg-white/80 p-4 sm:p-8 rounded-3xl shadow-xl border border-gray-200">
                   <div className="flex flex-col items-center">
                     <Image src="/images/package.png" alt="Package icon" width={96} height={96} className="mb-4 mx-auto" />
                     <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Select a Package</h3>
                   </div>
-                <div className="grid grid-cols-3 gap-8 w-full py-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 w-full py-2">
                   {packages.map((pkg) => {
                     const isSelected = selectedPackage === pkg.id;
                     const icon = pkg.id === 'standard' ? '/images/standard.png' : pkg.id === 'pro' ? '/images/pro.png' : '/images/premium.png';
@@ -294,7 +299,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                         </div>
                         {/* Select button */}
                         <div className="px-6 pb-8 flex flex-col items-center mt-auto">
-                          <span className="text-xl font-bold text-teal-600 mb-2">C${pkg.price}</span>
+                          <span className="text-xl font-bold text-teal-600 mb-2">C${formatPrice(pkg.price)}</span>
                           {isSelected ? (
                             <button className="w-full py-2 rounded-full bg-teal-600 text-white font-semibold shadow-none cursor-default" disabled>Selected</button>
                           ) : (
@@ -310,7 +315,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                 <div className="text-center mt-6">
                   <button
                     type="button"
-                    className="text-teal-600 hover:text-teal-700 underline font-medium"
+                    className="text-teal-600 hover:text-teal-700 underline font-medium text-sm sm:text-base break-words"
                     onClick={() => setExpandedPackage(expandedPackage ? null : 'comparison')}
                   >
                     {expandedPackage ? 'Hide what\'s included' : 'What\'s included?'}
@@ -320,49 +325,51 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                 {/* Comparison table */}
                 {expandedPackage && (
                   <div className="mt-6 overflow-x-auto">
-                    <table className="w-full bg-white rounded-2xl border border-gray-200 shadow-sm">
-                      <thead>
-                        <tr className="bg-gray-50">
-                          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900">Feature</th>
-                          {packages.map((pkg) => (
-                            <th key={pkg.id} className="px-4 py-3 text-center text-sm font-semibold text-gray-900">
-                              {pkg.name}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {features.map((feature, index) => (
-                          <tr key={index} className="border-t border-gray-200">
-                            <td className="px-4 py-3 text-sm text-gray-700">{feature}</td>
+                    <div className="min-w-full">
+                      <table className="w-full bg-white rounded-2xl border border-gray-200 shadow-sm">
+                        <thead>
+                          <tr className="bg-gray-50">
+                            <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-semibold text-gray-900 min-w-[120px]">Feature</th>
                             {packages.map((pkg) => (
-                              <td key={pkg.id} className="px-4 py-3 text-center">
-                                {pkg.features[index] ? (
-                                  <div className="inline-flex items-center justify-center w-6 h-6 bg-teal-600 rounded-full">
-                                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                    </svg>
-                                  </div>
-                                ) : (
-                                  <div className="inline-flex items-center justify-center w-6 h-6 bg-gray-300 rounded-full">
-                                    <svg className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
-                                      <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                                    </svg>
-                                  </div>
-                                )}
-                              </td>
+                              <th key={pkg.id} className="px-2 sm:px-4 py-3 text-center text-xs sm:text-sm font-semibold text-gray-900 min-w-[80px]">
+                                {pkg.name}
+                              </th>
                             ))}
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {features.map((feature, index) => (
+                            <tr key={index} className="border-t border-gray-200">
+                              <td className="px-2 sm:px-4 py-3 text-xs sm:text-sm text-gray-700 break-words">{feature}</td>
+                              {packages.map((pkg) => (
+                                <td key={pkg.id} className="px-2 sm:px-4 py-3 text-center">
+                                  {pkg.features[index] ? (
+                                    <div className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-teal-600 rounded-full">
+                                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                      </svg>
+                                    </div>
+                                  ) : (
+                                    <div className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-gray-300 rounded-full">
+                                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                      </svg>
+                                    </div>
+                                  )}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 )}
                 </section>
               )}
 
               {/* Additional Services */}
-              <section className="tile-white-blur bg-white/80 p-8 rounded-3xl shadow-xl border border-gray-200">
+              <section className="tile-white-blur bg-white/80 p-4 sm:p-8 rounded-3xl shadow-xl border border-gray-200">
                 <div className="flex flex-col items-center">
                   <Image src="/images/services.png" alt="Services icon" width={96} height={96} className="mb-4 mx-auto" />
                   <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Additional Services</h3>
@@ -370,11 +377,11 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                 {getAvailableServices().length === 0 ? (
                   <div className="text-gray-500 text-center py-4">No add-ons available for the Premium package.</div>
                 ) : (
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3 sm:gap-4">
                     {getAvailableServices().map((service) => (
                       <label
                         key={service.id}
-                        className={`flex items-center gap-4 px-6 py-5 cursor-pointer transition-colors bg-white/90 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-teal-300 ${
+                        className={`flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-4 sm:py-5 cursor-pointer transition-colors bg-white/90 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-teal-300 ${
                           selectedServices.includes(service.id) ? 'ring-2 ring-teal-400 bg-teal-50' : 'text-gray-700'
                         }`}
                       >
@@ -393,10 +400,10 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                         />
                       
                         <span className="flex-1 flex flex-col min-w-0">
-                          <span className="block text-base font-medium truncate">{service.name}</span>
-                          <span className="block text-sm text-gray-500 truncate">{service.description}</span>
+                          <span className="block text-base font-medium break-words">{service.name}</span>
+                          <span className="block text-sm text-gray-500 break-words">{service.description}</span>
                         </span>
-                        <span className="text-base font-bold whitespace-nowrap text-teal-600">C${service.price}</span>
+                        <span className="text-base font-bold whitespace-nowrap text-teal-600">C${formatPrice(service.price)}</span>
                       </label>
                     ))}
                   </div>
@@ -404,13 +411,13 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
               </section>
 
               {/* Personal Information */}
-              <section className="tile-white-blur bg-white/80 p-8 rounded-3xl shadow-xl border border-gray-200">
+              <section className="tile-white-blur bg-white/80 p-4 sm:p-8 rounded-3xl shadow-xl border border-gray-200">
                 <div className="flex flex-col items-center mb-6">
                   <Image src="/images/personal.png" alt="Personal icon" width={96} height={96} className="mb-4 mx-auto" />
                   <h3 className="font-semibold mb-2 text-lg text-gray-900 text-center">Personal Information</h3>
                   <p className="text-gray-500 text-sm text-center max-w-md">Please provide your contact details so we can reach out to you about your enrollment.</p>
                 </div>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
                   <div className="relative">
                     <UserIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     <input
@@ -464,7 +471,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                   <Image src="/images/total.png" alt="Total icon" width={96} height={96} className="mb-4 mx-auto" />
                   <div className="flex items-baseline gap-2 mb-2">
                     <h3 className="font-semibold text-lg text-gray-900">Total:</h3>
-                    <span className="text-2xl font-bold text-teal-600">C${calculateTotal()}</span>
+                    <span className="text-2xl font-bold text-teal-600">C${formatPrice(calculateTotal())}</span>
                   </div>
                 </div>
                 <Button

@@ -52,7 +52,7 @@ const HowItWorks = () => {
             <div key={step.number} className="flex gap-8 items-start">
               <NumberCircle number={step.number} size={32} className="flex-shrink-0" />
               <div className="flex-1">
-                <p className="font-semibold text-gray-900">{step.title}</p>
+                <p className="font-semibold text-sky-900">{step.title}</p>
                 <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
               </div>
             </div>

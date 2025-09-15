@@ -163,7 +163,7 @@ const Courses = () => {
                 {course.title === "Financial Literacy for Entrepreneurs" && (
                   <Image src="/images/course3.png" alt="Financial Literacy course icon" width={96} height={96} className="mb-4 mx-auto" priority />
                 )}
-                <h3 className="text-xl font-semibold text-gray-900 text-center">{course.title}</h3>
+                <h3 className="text-xl font-semibold text-sky-900 text-center">{course.title}</h3>
                 <p className="mt-2 text-sm text-gray-600 text-center">{course.description}</p>
 
                 <ul className="mt-6 space-y-2 text-left w-full">
@@ -181,7 +181,7 @@ const Courses = () => {
                       onClick={() => toggleCourseStructure(course.title)}
                       className="flex items-center justify-between w-full text-left cursor-pointer"
                     >
-                      <h5 className="text-lg font-semibold text-gray-900">Course Structure</h5>
+                      <h5 className="text-lg font-semibold text-sky-900">Course Structure</h5>
                       <ChevronDownIcon 
                         className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${
                           expandedCourses[course.title] ? 'rotate-180' : ''
@@ -199,7 +199,7 @@ const Courses = () => {
                         <div className="space-y-4">
                           {course.blocks.map((block) => (
                             <div key={block.title} className="bg-gray-50 rounded-lg p-4">
-                              <p className="text-sm font-medium text-gray-900">{block.title}</p>
+                              <p className="text-sm font-medium text-sky-900">{block.title}</p>
                               <p className="text-xs mt-1 text-sm text-gray-600">{block.description}</p>
                             </div>
                           ))}

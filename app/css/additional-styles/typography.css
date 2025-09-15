@@ -1,6 +1,6 @@
 /* Heading styles */
 h1, h2, h3, h4, h5, h6 {
-  @apply mb-6 text-gray-900 leading-tight;
+  @apply mb-6 text-sky-200 leading-tight;
 }
 
 h1 {
@@ -28,5 +28,25 @@ h6 {
 }
 
 p, li {
-  @apply text-gray-800 leading-relaxed;
+  @apply text-gray-200 leading-relaxed;
+}
+
+/* Dark text inside tiles/cards */
+.tile-white-blur h1,
+.tile-white-blur h2,
+.tile-white-blur h3,
+.tile-white-blur h4,
+.tile-white-blur h5,
+.tile-white-blur h6 {
+  @apply text-sky-900;
+}
+
+.tile-white-blur p,
+.tile-white-blur li {
+  @apply text-gray-600;
+}
+
+/* Dark gray text for FAQ answers */
+.relative.rounded-lg.bg-white\/80 p {
+  @apply text-gray-700;
 } 
