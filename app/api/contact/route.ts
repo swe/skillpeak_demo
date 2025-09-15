@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend to admin@skillpeak.ca from user's email
     const data = await resend.emails.send({
-      from: email,
+      from: `admin@skillpeak.ca`,
       replyTo: email,
       to: ['admin@skillpeak.ca'],
       subject: `New message from ${firstName} ${lastName}`,
