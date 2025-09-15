@@ -26,10 +26,12 @@ export default function Home() {
       <section id="faq">
         <Faqs />
       </section>
-{/*       <section id="pricing">
+{/*
+       <section id="pricing">
         <PricingTables />
-      </section> */}
+      </section> 
       <TestimonialsCarousel />
+*/}
       <section id="partners">
         <Partners />
       </section>

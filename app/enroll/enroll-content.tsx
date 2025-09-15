@@ -167,12 +167,24 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
     return coursePrice + packagePrice + servicesPrice;
   };
 
-  // Helper to get available additional services based on selected package
+  // Helper to get available additional services based on selected package and course
   const getAvailableServices = () => {
     if (selectedPackage === 'premium') {
       // Premium: no add-ons available
       return [];
     }
+    
+    // Course-specific service filtering
+    if (selectedCourse === 'bookkeeping' || selectedCourse === 'financial-literacy') {
+      // For bookkeeping and financial literacy: only specific services available
+      return additionalServices.filter(s => [
+        'mentorship-student',
+        'resume-building',
+        'job-interview',
+        'personal-session',
+      ].includes(s.id));
+    }
+    
     if (selectedPackage === 'pro') {
       // Pro: only specific add-ons available
       return additionalServices.filter(s => [
@@ -186,11 +198,11 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
     return additionalServices;
   };
 
-  // Auto-deselect unavailable services when package changes
+  // Auto-deselect unavailable services when package or course changes
   React.useEffect(() => {
     const availableIds = getAvailableServices().map((s) => s.id);
     setSelectedServices((prev) => prev.filter((id) => availableIds.includes(id)));
-  }, [selectedPackage]);
+  }, [selectedPackage, selectedCourse]);
 
   // Clear selected package when switching away from year-end course
   React.useEffect(() => {
