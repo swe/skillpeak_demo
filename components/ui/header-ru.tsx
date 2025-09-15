@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import MobileMenu from "./mobile-menu";
+import MobileMenu from "./mobile-menu-ru";
 import LanguageSwitcher from "./language-switcher";
 import { smoothScroll } from "@/utils/smooth-scroll";
 import { usePathname } from "next/navigation";
 
-export default function Header() {
+export default function HeaderRu() {
   const pathname = usePathname();
-  const isEnrollPage = pathname === "/enroll";
+  const isEnrollPage = pathname === "/ru/enroll";
 
   return (
     <header className="fixed top-2 z-30 w-full md:top-6">
@@ -23,7 +23,7 @@ export default function Header() {
           <div className="flex flex-1 items-center min-w-0">
             <Link
               className="flex items-center gap-2"
-              href="/"
+              href="/ru"
               aria-label="SkillPeak"
             >
               <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-gray-200 bg-white overflow-hidden">
@@ -43,7 +43,7 @@ export default function Header() {
             <>
               {/* Center text for enroll page (only on mobile) */}
               <div className="absolute left-1/2 -translate-x-1/2 text-md text-gray-900 text-center w-full md:w-auto md:hidden">
-                <Link href="/" className="hover:underline">SkillPeak Academy</Link>
+                <Link href="/ru" className="hover:underline">SkillPeak Academy</Link>
               </div>
               {/* Sign in button */}
               <div className="flex items-center">
@@ -57,7 +57,7 @@ export default function Header() {
                   onMouseOver={e => e.currentTarget.style.filter = 'brightness(0.9)'}
                   onMouseOut={e => e.currentTarget.style.filter = 'none'}
                 >
-                  Sign in
+                  Войти
                 </Link>
               </div>
             </>
@@ -72,7 +72,7 @@ export default function Header() {
                       className="flex items-center text-gray-700 transition hover:text-gray-900"
                       onClick={smoothScroll}
                     >
-                      Courses
+                      Курсы
                     </a>
                   </li>
                   <li className="px-2 py-1 lg:px-3 lg:py-1">
@@ -81,7 +81,7 @@ export default function Header() {
                       className="flex items-center text-gray-700 transition hover:text-gray-900"
                       onClick={smoothScroll}
                     >
-                      How It Works
+                      Как это работает
                     </a>
                   </li>
                   <li className="px-2 py-1 lg:px-3 lg:py-1">
@@ -99,7 +99,7 @@ export default function Header() {
                       className="flex items-center text-gray-700 transition hover:text-gray-900"
                       onClick={smoothScroll}
                     >
-                      Contact
+                      Контакты
                     </a>
                   </li>
                 </ul>
@@ -117,7 +117,7 @@ export default function Header() {
                   onMouseOver={e => e.currentTarget.style.filter = 'brightness(0.9)'}
                   onMouseOut={e => e.currentTarget.style.filter = 'none'}
                 >
-                  Sign in
+                  Войти
                 </Link>
               </div>
               {/* Mobile menu */}

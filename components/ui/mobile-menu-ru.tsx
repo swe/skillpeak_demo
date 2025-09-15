@@ -8,10 +8,10 @@ import { Button } from "./button";
 import LanguageSwitcher from "./language-switcher";
 import { smoothScroll } from "@/utils/smooth-scroll";
 
-export default function MobileMenu() {
+export default function MobileMenuRu() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
   const pathname = usePathname();
-  const isEnrollPage = pathname === "/enroll";
+  const isEnrollPage = pathname === "/ru/enroll";
   const trigger = useRef<HTMLButtonElement>(null);
   const mobileNav = useRef<HTMLDivElement>(null);
 
@@ -55,7 +55,7 @@ export default function MobileMenu() {
         aria-expanded={mobileNavOpen}
         onClick={() => setMobileNavOpen(!mobileNavOpen)}
       >
-        <span className="sr-only">Menu</span>
+        <span className="sr-only">Меню</span>
         <svg
           className="pointer-events-none fill-current"
           width={16}
@@ -112,7 +112,7 @@ export default function MobileMenu() {
                     smoothScroll(e);
                   }}
                 >
-                  Courses
+                  Курсы
                 </a>
               </li>
               <li>
@@ -124,7 +124,7 @@ export default function MobileMenu() {
                     smoothScroll(e);
                   }}
                 >
-                  How It Works
+                  Как это работает
                 </a>
               </li>
               <li>
@@ -148,7 +148,7 @@ export default function MobileMenu() {
                     smoothScroll(e);
                   }}
                 >
-                  Contact
+                  Контакты
                 </a>
               </li>
             </ul>
@@ -159,7 +159,7 @@ export default function MobileMenu() {
                 className="block w-full text-center py-2 px-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
                 onClick={() => setMobileNavOpen(false)}
               >
-                Sign in
+                Войти
               </Link>
             </div>
           </div>

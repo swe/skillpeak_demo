@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { H1 } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/ui/header";
+import Header from "@/components/ui/header-ru";
 import FooterWrapper from "@/components/ui/footer-wrapper";
 import { UserIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import Image from "next/image";
@@ -36,22 +36,22 @@ interface AdditionalService {
 const courses: Course[] = [
   {
     id: 'year-end',
-    name: 'Year-end Preparation Course',
-    description: 'Master Canadian accounting standards and software with our comprehensive course.',
+    name: 'Курс подготовки к концу года',
+    description: 'Освойте канадские стандарты учета и программное обеспечение с нашим комплексным курсом.',
     price: 950,
     isAvailable: true
   },
   {
     id: 'bookkeeping',
-    name: 'Bookkeeping Essentials Course',
-    description: 'Master the fundamentals of bookkeeping with our comprehensive course.',
+    name: 'Курс основ бухгалтерии',
+    description: 'Освойте основы бухгалтерии с нашим комплексным курсом.',
     price: 1100,
     isAvailable: true
   },
   {
     id: 'financial-literacy',
-    name: 'Financial Literacy for Entrepreneurs',
-    description: 'Essential knowledge for business owners and entrepreneurs.',
+    name: 'Финансовая грамотность для предпринимателей',
+    description: 'Необходимые знания для владельцев бизнеса и предпринимателей.',
     price: 550,
     isAvailable: true
   }
@@ -60,22 +60,22 @@ const courses: Course[] = [
 const packages: Package[] = [
   {
     id: 'standard',
-    name: 'Standard',
-    description: 'Study materials and video course',
+    name: 'Стандарт',
+    description: 'Учебные материалы и видеокурс',
     price: 950,
     features: [true, true, true, false, false, false, false, false, false, false, false, false]
   },
   {
     id: 'pro',
-    name: 'Pro',
-    description: 'Adds practice tests and software training',
+    name: 'Профессионал',
+    description: 'Добавляет практические тесты и работу с софтом',
     price: 1700,
     features: [true, true, true, true, true, true, false, false, false, false, false, false]
   },
   {
     id: 'premium',
-    name: 'Premium',
-    description: 'Complete package with mentorship and practical experience',
+    name: 'Премиум',
+    description: 'Полный пакет с менторством и практическим опытом',
     price: 5700,
     features: [true, true, true, true, true, true, true, true, true, true, true, true]
   }
@@ -84,58 +84,58 @@ const packages: Package[] = [
 const additionalServices: AdditionalService[] = [
   {
     id: 'software-practicum',
-    name: 'Software training sessions',
-    description: 'Hands-on training with industry-standard software',
+    name: 'Практическое занятие с софтом',
+    description: 'Практическое обучение с программным обеспечением отраслевого стандарта',
     price: 1000
   },
   {
     id: 'mentorship-student',
-    name: 'Student mentorship',
-    description: 'One-on-one guidance throughout your learning journey',
+    name: 'Менторство (студенческое)',
+    description: 'Индивидуальное руководство на протяжении всего вашего пути обучения',
     price: 900
   },
   {
     id: 'practical-experience',
-    name: 'Practical experience (3 months)',
-    description: 'Real-world experience in a professional setting',
+    name: 'Практический опыт (3 месяца)',
+    description: 'Реальный опыт в профессиональной среде',
     price: 4000
   },
   {
     id: 'resume-building',
-    name: 'Resume building assistance',
-    description: 'Professional resume optimization for the Canadian job market',
+    name: 'Помощь в составлении резюме',
+    description: 'Профессиональная оптимизация резюме для канадского рынка труда',
     price: 350
   },
   {
     id: 'job-interview',
-    name: 'Interview preparation tips',
-    description: 'Expert guidance for successful job interviews',
+    name: 'Советы по прохождению собеседований',
+    description: 'Экспертное руководство для успешных собеседований',
     price: 250
   },
   {
     id: 'personal-session',
-    name: 'Personal sessions',
-    description: 'Personal consultations with an expert up to one hour per month',
+    name: 'Личные сессии',
+    description: 'Личные консультации с экспертом до одного часа в месяц',
     price: 250
   }
 ];
 
 const features = [
-  'Study materials',
-  'Video course',
-  'Free webinar library access',
-  'Practice tests',
-  'Software training sessions',
-  'Student mentorship',
-  'Career mentorship',
-  'Practical experience (3 months)',
-  'Practical experience certificate',
-  'Resume building assistance',
-  'Interview preparation tips',
-  'Personal sessions (up to one hour/month)'
+  'Учебные материалы',
+  'Видеокурс',
+  'Бесплатный доступ к библиотеке вебинаров',
+  'Практические тесты',
+  'Практическое занятие с софтом',
+  'Менторство (студенческое)',
+  'Менторство (карьерное)',
+  'Практический опыт (3 месяца)',
+  'Сертификат о практическом опыте',
+  'Помощь в составлении резюме',
+  'Советы по прохождению собеседований',
+  'Личные сессии (до одного часа в месяц)'
 ];
 
-export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteSerializeResult }) {
+export default function EnrollmentContentRu({ mdxSource }: { mdxSource: MDXRemoteSerializeResult }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   
@@ -239,15 +239,15 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
         <div className="min-h-screen py-12 sm:py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
           <div className="w-full max-w-2xl mx-auto">
             <div className="pb-12 pt-8 sm:pb-16 text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Enroll in a Course</h2>
-              <p className="text-base sm:text-lg text-gray-500">Start your learning journey with SkillPeak Academy</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Записаться на курс</h2>
+              <p className="text-base sm:text-lg text-gray-500">Начните свой путь обучения в SkillPeak Academy</p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-12">
               {/* Course Selection */}
               <section className="tile-white-blur bg-white/80 p-4 sm:p-8 rounded-3xl shadow-xl border border-gray-200">
                 <div className="flex flex-col items-center">
-                  <Image src="/images/course.png" alt="Course icon" width={96} height={96} className="mb-4 mx-auto" />
-                  <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Select a Course</h3>
+                  <Image src="/images/course.png" alt="Иконка курса" width={96} height={96} className="mb-4 mx-auto" />
+                  <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Выберите курс</h3>
                 </div>
                 <div className="flex flex-col gap-4 sm:gap-6">
                   {courses.map((course) => (
@@ -270,9 +270,9 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                           <span className="text-sm sm:text-base break-words">{course.name}</span>
                         </span>
                         <span className="block text-xs sm:text-sm text-gray-500 break-words">{course.description}</span>
-                        {course.id === 'year-end' && <span className="text-xs text-teal-700 mt-1">Best for newcomers to Canada</span>}
-                        {course.id === 'bookkeeping' && <span className="text-xs text-teal-700 mt-1">Perfect for beginners</span>}
-                        {course.id === 'financial-literacy' && <span className="text-xs text-teal-700 mt-1">For entrepreneurs</span>}
+                        {course.id === 'year-end' && <span className="text-xs text-teal-700 mt-1">Лучше всего для новичков в Канаде</span>}
+                        {course.id === 'bookkeeping' && <span className="text-xs text-teal-700 mt-1">Идеально для начинающих</span>}
+                        {course.id === 'financial-literacy' && <span className="text-xs text-teal-700 mt-1">Для предпринимателей</span>}
                       </span>
                       <span className="text-sm sm:text-base font-bold text-teal-600 whitespace-nowrap">C${formatPrice(course.price)}{course.id === 'year-end' ? '+' : ''}</span>
                     </label>
@@ -284,8 +284,8 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
               {selectedCourse === 'year-end' && (
                 <section className="tile-white-blur bg-white/80 p-4 sm:p-8 rounded-3xl shadow-xl border border-gray-200">
                   <div className="flex flex-col items-center">
-                    <Image src="/images/package.png" alt="Package icon" width={96} height={96} className="mb-4 mx-auto" />
-                    <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Select a Package</h3>
+                    <Image src="/images/package.png" alt="Иконка пакета" width={96} height={96} className="mb-4 mx-auto" />
+                    <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Выберите пакет</h3>
                   </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 w-full py-2">
                   {packages.map((pkg) => {
@@ -305,7 +305,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                       >
                         {/* Top section */}
                         <div className="flex flex-col items-center pt-8 pb-4 px-4 relative">
-                          <Image src={icon} alt={pkg.name + ' icon'} width={48} height={48} className="mb-2" />
+                          <Image src={icon} alt={pkg.name + ' иконка'} width={48} height={48} className="mb-2" />
                           <span className="text-lg font-bold text-gray-900 mb-1">{pkg.name}</span>
                           <span className="block text-xs text-gray-500 mb-2 text-center">{pkg.description}</span>
                         </div>
@@ -313,9 +313,9 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                         <div className="px-6 pb-8 flex flex-col items-center mt-auto">
                           <span className="text-xl font-bold text-teal-600 mb-2">C${formatPrice(pkg.price)}</span>
                           {isSelected ? (
-                            <button className="w-full py-2 rounded-full bg-teal-600 text-white font-semibold shadow-none cursor-default" disabled>Selected</button>
+                            <button className="w-full py-2 rounded-full bg-teal-600 text-white font-semibold shadow-none cursor-default" disabled>Выбрано</button>
                           ) : (
-                            <button className="w-full py-2 rounded-full bg-teal-50 text-teal-700 font-semibold border border-teal-200 hover:bg-teal-100 transition">Select</button>
+                            <button className="w-full py-2 rounded-full bg-teal-50 text-teal-700 font-semibold border border-teal-200 hover:bg-teal-100 transition">Выбрать</button>
                           )}
                         </div>
                       </div>
@@ -330,7 +330,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                     className="text-teal-600 hover:text-teal-700 underline font-medium text-sm sm:text-base break-words"
                     onClick={() => setExpandedPackage(expandedPackage ? null : 'comparison')}
                   >
-                    {expandedPackage ? 'Hide what\'s included' : 'What\'s included?'}
+                    {expandedPackage ? 'Скрыть что включено' : 'Что включено?'}
                   </button>
                 </div>
                 
@@ -341,7 +341,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                       <table className="w-full bg-white rounded-2xl border border-gray-200 shadow-sm">
                         <thead>
                           <tr className="bg-gray-50">
-                            <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-semibold text-gray-900 min-w-[120px]">Feature</th>
+                            <th className="px-2 sm:px-4 py-3 text-left text-xs sm:text-sm font-semibold text-gray-900 min-w-[120px]">Функция</th>
                             {packages.map((pkg) => (
                               <th key={pkg.id} className="px-2 sm:px-4 py-3 text-center text-xs sm:text-sm font-semibold text-gray-900 min-w-[80px]">
                                 {pkg.name}
@@ -383,11 +383,11 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
               {/* Additional Services */}
               <section className="tile-white-blur bg-white/80 p-4 sm:p-8 rounded-3xl shadow-xl border border-gray-200">
                 <div className="flex flex-col items-center">
-                  <Image src="/images/services.png" alt="Services icon" width={96} height={96} className="mb-4 mx-auto" />
-                  <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Additional Services</h3>
+                  <Image src="/images/services.png" alt="Иконка услуг" width={96} height={96} className="mb-4 mx-auto" />
+                  <h3 className="font-semibold mb-4 text-lg text-gray-900 text-center">Дополнительные услуги</h3>
                 </div>
                 {getAvailableServices().length === 0 ? (
-                  <div className="text-gray-500 text-center py-4">No add-ons available for the Premium package.</div>
+                  <div className="text-gray-500 text-center py-4">Дополнения недоступны для пакета Премиум.</div>
                 ) : (
                   <div className="flex flex-col gap-3 sm:gap-4">
                     {getAvailableServices().map((service) => (
@@ -425,9 +425,9 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
               {/* Personal Information */}
               <section className="tile-white-blur bg-white/80 p-4 sm:p-8 rounded-3xl shadow-xl border border-gray-200">
                 <div className="flex flex-col items-center mb-6">
-                  <Image src="/images/personal.png" alt="Personal icon" width={96} height={96} className="mb-4 mx-auto" />
-                  <h3 className="font-semibold mb-2 text-lg text-gray-900 text-center">Personal Information</h3>
-                  <p className="text-gray-500 text-sm text-center max-w-md">Please provide your contact details so we can reach out to you about your enrollment.</p>
+                  <Image src="/images/personal.png" alt="Иконка личных данных" width={96} height={96} className="mb-4 mx-auto" />
+                  <h3 className="font-semibold mb-2 text-lg text-gray-900 text-center">Личная информация</h3>
+                  <p className="text-gray-500 text-sm text-center max-w-md">Пожалуйста, предоставьте ваши контактные данные, чтобы мы могли связаться с вами по поводу записи.</p>
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2">
                   <div className="relative">
@@ -435,7 +435,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                     <input
                       type="text"
                       required
-                      placeholder="First Name"
+                      placeholder="Имя"
                       value={personalInfo.firstName}
                       onChange={(e) => setPersonalInfo({...personalInfo, firstName: e.target.value})}
                       className="block w-full bg-gray-50 border border-gray-200 rounded-xl pl-10 pr-3 py-3 text-base focus:border-teal-500 focus:ring-2 focus:ring-teal-100 outline-none transition placeholder-gray-400"
@@ -446,7 +446,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                     <input
                       type="text"
                       required
-                      placeholder="Last Name"
+                      placeholder="Фамилия"
                       value={personalInfo.lastName}
                       onChange={(e) => setPersonalInfo({...personalInfo, lastName: e.target.value})}
                       className="block w-full bg-gray-50 border border-gray-200 rounded-xl pl-10 pr-3 py-3 text-base focus:border-teal-500 focus:ring-2 focus:ring-teal-100 outline-none transition placeholder-gray-400"
@@ -468,7 +468,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                     <input
                       type="tel"
                       required
-                      placeholder="Phone"
+                      placeholder="Телефон"
                       value={personalInfo.phone}
                       onChange={(e) => setPersonalInfo({...personalInfo, phone: e.target.value})}
                       className="block w-full bg-gray-50 border border-gray-200 rounded-xl pl-10 pr-3 py-3 text-base focus:border-teal-500 focus:ring-2 focus:ring-teal-100 outline-none transition placeholder-gray-400"
@@ -480,9 +480,9 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
               {/* Total and Submit */}
               <section className="tile-white-blur bg-white/90 p-8 rounded-3xl shadow-xl border border-gray-200 flex flex-col items-center gap-4">
                 <div className="flex flex-col items-center w-full">
-                  <Image src="/images/total.png" alt="Total icon" width={96} height={96} className="mb-4 mx-auto" />
+                  <Image src="/images/total.png" alt="Иконка итого" width={96} height={96} className="mb-4 mx-auto" />
                   <div className="flex items-baseline gap-2 mb-2">
-                    <h3 className="font-semibold text-lg text-gray-900">Total:</h3>
+                    <h3 className="font-semibold text-lg text-gray-900">Итого:</h3>
                     <span className="text-2xl font-bold text-teal-600">C${formatPrice(calculateTotal())}</span>
                   </div>
                 </div>
@@ -490,7 +490,7 @@ export default function EnrollmentContent({ mdxSource }: { mdxSource: MDXRemoteS
                   type="submit"
                   className="cursor-pointer w-full max-w-xs py-3 px-4 rounded-full text-base font-semibold bg-teal-600 text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 shadow-none"
                 >
-                  Proceed to Payment
+                  Перейти к оплате
                 </Button>
               </section>
             </form>

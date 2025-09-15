@@ -1,0 +1,129 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+
+const plans = [
+  {
+    name: "Стандарт",
+    price: "950",
+    description: "Только теория",
+    features: [
+      "Доступ к курсу",
+      "Видео-уроки",
+      "Веб-семинары",
+      "Практические тесты"
+    ],
+    unavailable: [
+      "Практикум по программному обеспечению",
+      "Менторство",
+      "Практический опыт",
+      "Сертификат опыта",
+      "Создание резюме",
+      "Советы по собеседованию",
+      "Личная сессия"
+    ]
+  },
+  {
+    name: "Профессионал",
+    price: "1,700",
+    description: "Теория + практика с программным обеспечением",
+    features: [
+      "Доступ к курсу",
+      "Видео-уроки",
+      "Веб-семинары",
+      "Практические тесты",
+      "Практикум по программному обеспечению",
+      "Менторство"
+    ],
+    unavailable: [
+      "Практический опыт",
+      "Сертификат опыта",
+      "Создание резюме",
+      "Советы по собеседованию",
+      "Личная сессия"
+    ],
+    recommended: true
+  },
+  {
+    name: "Премиум",
+    price: "5,700",
+    description: "Все включено: теория, практика, опыт",
+    features: [
+      "Доступ к курсу",
+      "Видео-уроки",
+      "Веб-семинары",
+      "Практические тесты",
+      "Практикум по программному обеспечению",
+      "Менторство",
+      "Практический опыт",
+      "Сертификат опыта",
+      "Создание резюме",
+      "Советы по собеседованию",
+      "Личная сессия"
+    ],
+    unavailable: []
+  }
+];
+
+export default function PricingTablesRu() {
+  return (
+    <section className="py-16">
+      <div className="mx-auto max-w-5xl px-4">
+        <div className="pb-12 text-center w-full max-w-3xl mx-auto aos-init aos-animate">
+          <h2 className="py-2 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-300/.8),transparent)1] md:text-6xl">
+            Тарифные планы
+          </h2>
+        </div>
+        <div className="grid gap-10 md:gap-6 md:grid-cols-3">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`relative flex flex-col tile-white-blur p-8 transition-all duration-200 rounded-3xl ${plan.recommended ? "border-4 border-[#b2f1ee] md:scale-105 md:z-10 bg-white/90" : "border border-gray-200 bg-white/80"}`}
+              style={{ fontFamily: "var(--font-sans)", boxShadow: "0 8px 32px 0 rgba(2, 193, 182, 0.10), 0 1.5px 6px 0 rgba(60, 60, 60, 0.08)" }}
+            >
+              {/* Recommendation badge: фирменные лазурные цвета */}
+              {plan.recommended && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-1.5 rounded-full shadow-md text-sm font-semibold border border-[#b2f1ee] z-20 bg-gradient-to-r from-[#02C1B6] to-[#0395A6] text-white">
+                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/0 animate-[pulse_2.5s_ease-in-out_infinite] text-lg">✨</span>
+                  Рекомендуется
+                </div>
+              )}
+              {/* Название и цена: название менее заметно, цена акцентная */}
+              <div className="flex flex-col items-center justify-center mb-4 mt-2 gap-1">
+                {/* Plan Icon */}
+                {plan.name === "Стандарт" && (
+                  <Image src="/images/standard.png" alt="Иконка стандартного плана" width={96} height={96} className="mb-2" priority />
+                )}
+                {plan.name === "Профессионал" && (
+                  <Image src="/images/pro.png" alt="Иконка профессионального плана" width={96} height={96} className="mb-2" priority />
+                )}
+                {plan.name === "Премиум" && (
+                  <Image src="/images/premium.png" alt="Иконка премиум плана" width={96} height={96} className="mb-2" priority />
+                )}
+                <span className="text-base font-normal text-gray-500 tracking-wide mb-0.5">{plan.name}</span>
+                <span className="text-4xl font-extrabold text-primary flex items-center gap-1 leading-tight">
+                  {plan.price}
+                  <span className="text-base font-semibold text-gray-400 ml-1">CAD</span>
+                </span>
+              </div>
+              <div className="mb-6 text-center text-gray-500 text-base">{plan.description}</div>
+              <ul className="flex-1 space-y-2 mt-2 mb-0">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-center text-gray-800 text-base font-medium">
+                    <span className="mr-2 text-green-500 text-lg">✔</span> {feature}
+                  </li>
+                ))}
+                {plan.unavailable.map((feature) => (
+                  <li key={feature} className="flex items-center text-gray-400 text-base opacity-60 italic">
+                    <span className="mr-2">✖</span> {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

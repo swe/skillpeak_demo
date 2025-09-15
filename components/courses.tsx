@@ -30,27 +30,27 @@ const Courses = () => {
       blocks: [
         {
           title: 'Introduction',
-          description: 'Course structure overview and instructor introduction'
+          description: 'Here you will learn more about the course structure and meet your instructor.'
         },
         {
           title: 'Accounting Fundamentals',
-          description: 'Basic accounting concepts and Canadian standards preparation'
+          description: 'This section will help you review and structure basic accounting concepts, preparing you for more complex topics specific to Canada and adaptation to local accounting and taxation standards.'
         },
         {
           title: 'Accounting Standards',
-          description: 'Detailed study of Canadian accounting standards and terminology'
+          description: 'The course includes a detailed study of Canadian accounting standards and specific terminology. You will learn about key differences between Canadian and international practices, allowing you to work confidently in accordance with local requirements and standards.'
         },
         {
           title: 'Caseware',
-          description: 'Hands-on experience with popular Canadian accounting software'
+          description: 'Get hands-on experience with popular accounting software in Canada. We will provide you with all the necessary skills to use this software, giving you a competitive advantage in employment.'
         },
         {
           title: 'Corporate Taxes',
-          description: 'Understanding Canadian tax legislation and corporate tax returns'
+          description: 'The block materials will help you understand Canadian tax legislation. You will learn to fill out tax returns, understand tax reports, and understand key tax obligations of Canadian companies, which is an important skill for working in this field.'
         },
         {
           title: 'Personal Taxes',
-          description: 'Bonus section on Canadian personal tax basics'
+          description: 'Bonus section that will give you basic knowledge about Canadian personal taxes.'
         }
       ],
       isAvailable: true
