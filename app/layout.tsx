@@ -1,7 +1,6 @@
 import "./css/style.css";
 
 import { Inter } from "next/font/google";
-import { headers } from "next/headers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,12 +13,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const headersList = headers();
-  const pathname = headersList.get("x-pathname") || "";
-  const lang = pathname.startsWith("/ru") ? "ru" : "en";
-
   return (
-    <html lang={lang} className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${inter.variable} font-inter tracking-tight text-gray-900 antialiased`}
         style={{ isolation: "isolate" }}
